@@ -1,0 +1,55 @@
+﻿@rendermode InteractiveServer
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="container mt-2 mb-2">
+    @if (!string.IsNullOrEmpty(_error))
+    {
+        @_error
+    }
+    else
+    {
+        <form @onsubmit="Search" @onsubmit:preventDefault="true">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" @bind="_trinketFilter" placeholder="Trinket filter"/>
+                <input type="text" class="form-control" @bind="_classFilter" placeholder="Class filter"/>
+                <input type="submit" class="btn btn-primary" value="Search"/>
+            </div>
+        </form>
+        @if (_results != null)
+        {
+            @foreach (var result in _results)
+            {
+                <div class="mb-2">
+                    <h4 class="text-center">@result.Key</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 1px">Class</th>
+                                <th class="text-center" style="width: 1px">Tier</th>
+                                <th class="text-center" style="width: 200px">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
+                            {
+                                <tr>
+                                    <td class="text-center align-middle text-nowrap">
+                                        @kv.Key
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        @kv.Value.Tier
+                                    </td>
+                                    <td>
+                                        @kv.Value.Note
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    }
+</div>
