@@ -31,35 +31,43 @@ const fs = require('fs/promises');
     console.log("Loading guides...");
     for (const url of guides) {
         console.log(`[${String(i++).padStart("0", String(guides.length).length)}/${guides.length}]: ${url}`);
-        await page.goto(url);
-        const result = await page.evaluate(() => {
-            const data = {
-                key: document.title.replace(/\s*Gear and.*/, ""),
-                value: {}
-            }
 
-            $("table.grid:has(tr td:contains('Grade'))").each((_, griddom) => {
-                $(griddom).find("tr").each((_, rowdom) => {
-                    const cols = $(rowdom).find("td").get();
-                    if (cols[0].textContent != "Grade") {
-                        const key = cols[1].textContent.replace(/^\s*/, "");
+        const tryCounter = 0;
+        try {
+            await page.goto(url);
+            const result = await page.evaluate(() => {
+                const data = {
+                    key: document.title.replace(/\s*Gear and.*/, ""),
+                    value: {}
+                }
 
-                        if (data.value[key] == null)
-                            data.value[key] = {
-                                tier: cols[0].textContent,
-                                //source: cols[2].textContent,
-                                note: cols[3].textContent
-                            };
-                        else
-                            console.log("Duplicate trinket:", key);
-                    }
+                $("table.grid:has(tr td:contains('Grade'))").each((_, griddom) => {
+                    $(griddom).find("tr").each((_, rowdom) => {
+                        const cols = $(rowdom).find("td").get();
+                        if (cols[0].textContent != "Grade") {
+                            const key = cols[1].textContent.replace(/^\s*/, "");
+
+                            if (data.value[key] == null)
+                                data.value[key] = {
+                                    tier: cols[0].textContent,
+                                    //source: cols[2].textContent,
+                                    note: cols[cols.length - 1].textContent
+                                };
+                            else
+                                console.log("Duplicate trinket:", key);
+                        }
+                    })
                 })
-            })
 
-            return data;
-        });
+                return data;
+            });
 
-        classes[result.key] = result.value;
+            classes[result.key] = result.value;
+        } catch (err) {
+            if (++tryCounter > 5)
+                throw err;
+            await new Promise(r => setTimeout(r, 5000));
+        }
     }
 
     await browser.close();

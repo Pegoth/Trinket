@@ -19,36 +19,86 @@
         </form>
         @if (_results != null)
         {
-            @foreach (var result in _results)
+            @if (_results.All(r => r.Value.Count <= 1))
             {
+                var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
                 <div class="mb-2">
-                    <h4 class="text-center">@result.Key</h4>
+                    <h4 class="text-center">@filtered.First().Value.First().Key</h4>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 1px">Class</th>
+                                <th class="text-center" style="width: 1px">Trinket</th>
                                 <th class="text-center" style="width: 1px">Tier</th>
                                 <th class="text-center" style="width: 200px">Note</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
+                            @foreach (var info in filtered.Select(kv => new
+                            {
+                                Trinket = kv.Key,
+                                Data = kv.Value.Values.First()
+                            })
+                                                          .Select(a => new
+                                                          {
+                                                              a.Trinket,
+                                                              a.Data.Tier,
+                                                              a.Data.Note,
+                                                              a.Data.TierNumerical
+                                                          })
+                                                          .OrderBy(a => a.TierNumerical))
                             {
                                 <tr>
                                     <td class="text-center align-middle text-nowrap">
-                                        @kv.Key
+                                        @info.Trinket
                                     </td>
                                     <td class="text-center align-middle">
-                                        @kv.Value.Tier
+                                        @info.Tier
                                     </td>
                                     <td>
-                                        @kv.Value.Note
+                                        @info.Note
                                     </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                 </div>
+            }
+            else
+            {
+                foreach (var result in _results)
+                {
+                    if (result.Value.Count <= 0)
+                        continue;
+
+                    <div class="mb-2">
+                        <h4 class="text-center">@result.Key</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="width: 1px">Class</th>
+                                    <th class="text-center" style="width: 1px">Tier</th>
+                                    <th class="text-center" style="width: 200px">Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
+                                {
+                                    <tr>
+                                        <td class="text-center align-middle text-nowrap">
+                                            @kv.Key
+                                        </td>
+                                        <td class="text-center align-middle">
+                                            @kv.Value.Tier
+                                        </td>
+                                        <td>
+                                            @kv.Value.Note
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
             }
         }
     }

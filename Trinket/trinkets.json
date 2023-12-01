@@ -34,7 +34,7 @@
     },
     "Brewmaster Monk": {
       "tier": "A+",
-      "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible. This is a raid-focused trinket that is a bit dangerous for tanks to use. It also comes with the frustrating downside of ramping its damage over time, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter."
+      "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible depending on the dungeon. This is a raid-focused trinket that is a bit dangerous for tanks to use. It also comes with the downside of ramping its damage over time, and it takes several minutes to hit full strength, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter."
     },
     "Protection Paladin": {
       "tier": "S",
@@ -61,14 +61,14 @@
       "note": "This deals an extreme amount of single target damage, but it can take upward of 3 minutes to fully ramp. Once it gets going, it really starts dealing damage, but the downsides of needing to stay in combat and the relevant damage taken makes it more of a raid pick. Despite getting nerfed twice, it's still recommended, it's just that good."
     },
     "Protection Warrior": {
-      "tier": "A+",
+      "tier": "S",
       "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible. This is a raid-focused trinket that is a bit dangerous for tanks to use. It also comes with the frustrating downside of ramping its damage over time, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter."
     }
   },
   "Branch of the Tormented Ancient": {
     "Blood Death Knight": {
       "tier": "S",
-      "note": "A very simple trinket - every 2min30s, you can apply four stacks of a debuff to a target. Each subsequent  Death Strike,  Heart Strike,  Marrowrend or any other physical effect knocks off a stack and deals a meaty amount of shadowflame damage to everything within 8 yards, split between all targets and gaining 15% bonus damage per target hit, up to 6."
+      "note": "A very simple trinket - every 2min30s, you can apply four stacks of a buff to yourself. Each subsequent  Death Strike,  Heart Strike,  Marrowrend or any other physical effect knocks off a stack and deals a meaty amount of shadowflame damage to your target and everything within 8 yards of it, split between all targets and gaining 15% bonus damage per target hit, up to 6."
     },
     "Frost Death Knight": {
       "tier": "A",
@@ -97,7 +97,7 @@
       "note": "This trinket just spawns Hydras that blast mobs with fire - frequently - and they live for 10 seconds. They appear to have a 40yd maximum range, so if you spawn a hydra just before you have to move a significant distance, you'll lose some value. A couple of mechanics can also target (and kill) your hydras in Mythic+ right now, but even with this, it is very good at what it does."
     },
     "Frost Death Knight": {
-      "tier": "A",
+      "tier": "A-",
       "note": "Another passive trinket which procs random raw damage. Again really good for us due to our high crit."
     },
     "Unholy Death Knight": {
@@ -141,7 +141,7 @@
       "note": "This is a proc trinket that has a chance to spawn a Hydra when you critical strike. Every 3rd spawn will spawn 3 hydras instead. The Hydras will pelt your target with fire damage over a 10s period. The proc can happen outside of your burst window and the trinket can show a lot of variance especially in short encounters. But for longer encounters, this is a solid trinket that will perform well especially in a raid environment."
     },
     "Retribution Paladin": {
-      "tier": "A (ST)",
+      "tier": "B",
       "note": "Passive trinket that will occasionally summon a snake to attack your target."
     },
     "Assassination Rogue": {
@@ -157,7 +157,7 @@
       "note": "Gives a high amount of one stat and is very strong in raiding and Mythic+."
     },
     "Enhancement Shaman": {
-      "tier": "A+",
+      "tier": "A",
       "note": "Deals solid single target damage and has some AoE redundancy with the AoE trigger, and even ramps each third proc. It still comes with some of the problems of stationary AI which can cause procs to fizzle though, meaning other options are more universal."
     },
     "Protection Warrior": {
@@ -175,7 +175,7 @@
       "note": "Nice passive trinket that provides a significant amount of raw damage over a fight. Sims really close to other better passive trinkets."
     },
     "Unholy Death Knight": {
-      "tier": "A",
+      "tier": "A+",
       "note": "Really good raw damage trinket that pairs well with an actIve on-use stat trinket!"
     },
     "Protection Paladin": {
@@ -184,11 +184,11 @@
     },
     "Retribution Paladin": {
       "tier": "A (ST)",
-      "note": "Yet another passive damage proc trinket that summons a dinosaur to attack your target."
+      "note": "Passive damage proc trinket that summons a dinosaur to attack your target."
     },
     "Protection Warrior": {
-      "tier": "A-",
-      "note": "A once-great Mythic+ trinket that has been redesigned into a basic damage proc. This is disappointing. At least its single-target damage value is good. That's nice."
+      "tier": "A",
+      "note": "A once-great Mythic+ trinket that has been redesigned into a basic damage proc. It's a little boring, but the single-target damage value is very good!"
     }
   },
   "Augury of the Primal Flame": {
@@ -265,8 +265,8 @@
       "note": "This trinket has critical strike rating which we like and creates a feedback loop since the trinket procs on critical strikes. It's random but its output is very consistent. It's one of the best trinkets available and should be used in every situation."
     },
     "Retribution Paladin": {
-      "tier": "B",
-      "note": "Passive damage proc."
+      "tier": "A (ST)",
+      "note": "Passive damage proc. This trinket has very high variance - the damage it does can be strong, but it's pretty inconsistent."
     },
     "Shadow Priest": {
       "tier": "B",
@@ -277,7 +277,7 @@
       "note": "Don't let the \"very rare\" tag fool you, this trinket is quite weak and the proc is very random. It can be okay to use in a dungeon setting, but should generally be avoided or replaced with better trinkets."
     },
     "Outlaw Rogue": {
-      "tier": "B",
+      "tier": "A",
       "note": ""
     },
     "Subtlety Rogue": {
@@ -289,8 +289,8 @@
       "note": "While this trinket reads good, given our guaranteed critical strikes, all classes can cap this trinket out easily enough and considering that this trinket drops from the last boss, the numbers on it are just not high enough to see consideration."
     },
     "Enhancement Shaman": {
-      "tier": "A* / B",
-      "note": "This has the potential to do extremely good damage, but since we don't stack crit we sometimes struggle to fulfill the entire proc. Due to the hasted RPPM, this has a stronger leaning to Elementalist thanks to  Splintered Elements and can keep up with other options, but falls behind for Storm."
+      "tier": "A+",
+      "note": "This has the potential to do extremely good damage, but since we don't stack crit we sometimes struggle to fulfill the entire proc. Due to its low RPPM even though it's Hasted, it can have big swings in value so is slightly behind alternatives - but still a great option despite not coming with Agility."
     },
     "Affliction Warlock": {
       "tier": "C",
@@ -324,7 +324,7 @@
     },
     "Brewmaster Monk": {
       "tier": "S",
-      "note": "The best tank trinket Blizzard has made in some time. It shields you and causes you to radiate a large chunk of damage to nearby enemies. The shield is pretty good, the 90-second cooldown is relatively brief, and the damage is respectable for a trinket that also has tangible defensive benefits. It’s good.The only downside is that the self-damage is too high. This is probably to discourage DPS specs from using it, but still, it's a bit much."
+      "note": "The best tank trinket Blizzard has made in some time. It shields you and causes you to radiate a large chunk of damage to nearby enemies. The shield is pretty good, the 90-second cooldown is relatively brief, and the damage is respectable for a trinket that also has tangible defensive benefits. It’s very good."
     },
     "Protection Paladin": {
       "tier": "A",
@@ -340,7 +340,7 @@
     },
     "Enhancement Shaman": {
       "tier": "B+",
-      "note": "While this is a tank trinket we can still use it and get solid damage out of the effect. The extra shield may even give us reason to consider it for Mythic+ sitatuitions, but dropping Agility and the awkward cooldown makes it fine, but nothing special."
+      "note": "While this is a tank trinket we can still use it and get solid damage out of the effect. The extra shield may even give us reason to consider it for Mythic+ sitatuitions, but dropping Agility and the awkward cooldown makes it fine, but nothing special. The backlash damage after is also fairly dangerous, so requires planning if you really want to invest in it."
     },
     "Protection Warrior": {
       "tier": "S",
@@ -499,8 +499,8 @@
       "note": "Solid passive trinket that provided a good amount of stats over a fight. Shared BiS for  Obliteration builds and great for  Breath of Sindragosa."
     },
     "Unholy Death Knight": {
-      "tier": "A",
-      "note": "Solid passive trinket with some variability in its usefulness due to the ramping nature of the Haste proc. You are unlikely to get a lot of effectiver stacks in the opener and you need to be somewhat lucky in your secondary burst window to get good value. Good Mythic+ choice due to the raw secondary stats."
+      "tier": "A+",
+      "note": "Solid passive trinket with some variability in its usefulness due to the ramping nature of the Haste proc. Has an interesting added benefit of potentially moving your  Mirror of Fractured Tomorrows to Haste during your secondary 3-minute burst windows. If you don't have  Bloodlust active here, Haste becomes the better proc for Mirror! To achieve this, try and keep your Mastery between 1 and 2 Sandglass Haste stacks above your Haste, to allow the trinket to bring you to Haste as your highest stat! Between 125 and 250 raw stat difference or so."
     },
     "Havoc Demon Hunter": {
       "tier": "B",
@@ -566,19 +566,19 @@
   "Gift of Ursine Vengeance": {
     "Blood Death Knight": {
       "tier": "A",
-      "note": "This is the most interesting trinket from a functional point of view. It unfortunately is also the most polarized in terms of value, and a lot of the nuance is not described in the tooltip.Every time you or a friendly target close to you is victim of a direct damage event (no DoTs), including parries/dodges, with a maximum of a stack every 3 seconds, you gain a stack of  Rising Rage and counterattack the nearest enemy within 8 yards for physical damage. These last for 60 seconds, and grant you a decent amount of strength. If there are no enemy targets within 8 yards, you do not gain the stack nor perform the counterattack.When you reach 30 stacks (i.e. every 90s minimum), these turn into  Fury of Urctos - while this is up, you heal for a relatively negligible amount every second, and deal physical damage (hello  Bloodshot) as a counterattack on your nearest target whenever you take any direct damage event, with a 0.1s internal cooldown.Yes, this is as bonkers as it sounds in Mythic+. It is not entirely bad in ST, but really encounter-dependent. All it takes for it to be terrible is a fight where everybody takes frequent direct damage except you."
+      "note": "This is the most interesting trinket from a functional point of view. It unfortunately is also the most polarized in terms of value, and a lot of the nuance is not described in the tooltip.Every time you or a friendly target close to you is victim of a direct damage event (no DoTs), including parries/dodges, with a maximum of a stack every 3 seconds, you gain a stack of  Rising Rage and counterattack the nearest enemy within 8 yards for a decent amount of physical damage. These last for 60 seconds, and grant you a decent amount of strength. If there are no enemy targets within 8 yards, you do not gain the stack nor perform the counterattack.When you reach 30 stacks (i.e. every 90s minimum), these turn into  Fury of Urctos - while this is up, you heal for a relatively negligible amount every second, and deal physical damage (hello  Bloodshot) as a counterattack on your nearest target whenever you take any direct damage event, with a 0.1s internal cooldown.Yes, this is as bonkers as it sounds in Mythic+. It is not entirely bad in ST, but really encounter-dependent. All it takes for it to be terrible is a fight with primarily rot (periodic/non-direct) damage."
     },
     "Vengeance Demon Hunter": {
       "tier": "S- (AoE)/A- (ST)",
       "note": "Static Agility. Proc every 3 seconds upon anybody in your group including yourself taking damage that deals a burst of damage to the nearest enemy and grants a small amount of Agility, stacking up to 30 times. After 30 stacks (every 90 seconds), gain a buff for 8 seconds that deals the damage proc every time you are attacked with a 100ms ICD, even if you avoid the attack. This damage is all funneled into the nearest target, so it's exceptionally good for priority damage in AoE. It also has a small heal, but it's almost negligible. Note: Requires Vengeance loot spec"
     },
     "Guardian Druid": {
-      "tier": "S",
+      "tier": "A+",
       "note": "Can be exceptionally strong, however situational. Better in raids than M+ due to the way it stacks up."
     },
     "Brewmaster Monk": {
       "tier": "A",
-      "note": "Grants a reactive damage proc that triggers every time you or an ally are hit. This sounds good, and it could be amazing if not for the 3-second internal cooldown. Triggering the effect precisely on the internal cooldown is a little unrealistic, which hurts the value of this trinket.Each reactive hit grants a very small, stacking Agility buff. Upon hitting 30 stacks, so after a minimum of 90 seconds, you heal for a modest amount of damage (about half a health potion) and deal reactive damage to all hits over 8 seconds."
+      "note": "Grants a reactive damage proc that triggers every time you or an ally are hit. This sounds good, and it could be amazing if not for the 3-second internal cooldown. Triggering the effect precisely on the internal cooldown is a little unrealistic, which hurts the value of this trinket. A big problem with this trinket is that it only triggers if you are within 8 yards of an enemy when the proc occurs. If you aren't in range of an enemy to deal the reactive hit, you cannot gain stacks.Each reactive hit grants a very small, stacking Agility buff. Upon hitting 30 stacks, so after a minimum of 90 seconds, you heal for a modest amount of damage (about half a health potion) and deal reactive damage to all hits over 8 seconds."
     },
     "Protection Paladin": {
       "tier": "A",
@@ -586,7 +586,7 @@
     },
     "Protection Warrior": {
       "tier": "A",
-      "note": "Grants a reactive damage proc that triggers every time you or an ally are hit. This sounds good, and it could be amazing if not for the 3-second internal cooldown. Triggering the effect precisely on the internal cooldown is a little unrealistic, which hurts the value of this trinket.Each reactive hit grants a very small, stacking Strength buff. Upon hitting 30 stacks, so after a minimum of 90 seconds, you heal for a modest amount of damage (about half a health potion) and deal reactive damage to all hits over 8 seconds. The idea is good, but the 3-second internal cooldown seriously limits this trinket’s value.That being said, it has preposterous synergy with  Fyrakk's Tainted Rageheart, which will continuously trigger the effect on cooldown. It can be good as part of that trinket combo, but a little underwhelming otherwise."
+      "note": "Grants a reactive damage proc that triggers every time you or an ally are hit. This sounds good, and it could be amazing if not for the 3-second internal cooldown. Triggering the effect precisely on the internal cooldown is a little unrealistic, which hurts the value of this trinket. A big problem with this trinket is that it only triggers if you are within 8 yards of an enemy when the proc occurs. If you aren't in range of an enemy to deal the reactive hit, you cannot gain stacks.Each reactive hit grants a very small, stacking Strength buff. Upon hitting 30 stacks, so after a minimum of 90 seconds, you heal for a modest amount of damage (about half a health potion) and deal reactive damage to all hits over 8 seconds. The idea is good, but the 3-second internal cooldown seriously limits this trinket’s value."
     }
   },
   "Ember of Nullification": {
@@ -611,8 +611,8 @@
       "note": "This is really a Vers. stat stick with a proc. The ideal situation to use this in is dungeons since you will take some magic damage and the extra silence could be helpful. But Versatility is not a great stat for us, the silence could go on a creature that doesn't matter, and Protection is an interrupt machine as it is. This trinket should be avoided."
     },
     "Outlaw Rogue": {
-      "tier": "C",
-      "note": ""
+      "tier": "B",
+      "note": "This trinket over an entire dungeon is weaker than the ones above, generally scales better with larger target counts than the ones above."
     },
     "Enhancement Shaman": {
       "tier": "A",
@@ -641,7 +641,7 @@
       "note": "This is an on-use trinket option that gives you a large amount of Haste that slowly decays over 20s. The trinket gives ten stacks of a buff, and you lose 1 stack every 2 seconds. As this is an on-use trinket, it can be completely controlled and lined up with damage cooldowns. This is a valid trinket option to use."
     },
     "Retribution Paladin": {
-      "tier": "B",
+      "tier": "C",
       "note": "On use Haste buff. Use with  Avenging Wrath."
     },
     "Protection Warrior": {
@@ -751,7 +751,7 @@
       "note": "An on-use strength trinket that you will use on cooldown for damage. Line it up with  Avenging Wrath to maximize its effect."
     },
     "Retribution Paladin": {
-      "tier": "B",
+      "tier": "C",
       "note": "On use strength buff. Use with  Avenging Wrath."
     },
     "Protection Warrior": {
@@ -880,7 +880,7 @@
     },
     "Enhancement Shaman": {
       "tier": "D",
-      "note": "Similar to My'das, this was bad in Legion and it's still true now. No primary stat, a pretty weak and infrequent proc that has the potential to fizzle alongside being entirely single target all make for a pretty bad pick. Avoid."
+      "note": "This was bad in Legion and it's still true now. No primary stat, a pretty weak and infrequent proc that has the potential to fizzle alongside being entirely single target all make for a pretty bad pick. Avoid."
     },
     "Protection Warrior": {
       "tier": "B-",
@@ -893,8 +893,8 @@
       "note": "Every 2min, you can use this trinket to gain a very significant amount of Strength, decaying over 20 seconds. When it expires, you lose the entire static budget of haste present on the trinket for 20 seconds.You also gain this effect when 40% of your group dies, up to once per combat, except that the version of the buff you get from this low-health effect does not decay. It's a shame that post-immune hotfix, this thing needs a 150-200% buff to be competitive."
     },
     "Frost Death Knight": {
-      "tier": "B",
-      "note": "Good amount of Strength on a 2 minute cooldown but with a significant Haste reduction afterwards. This works really quite badly with our kit due to lowering  Breath of Sindragosa and slowing down subsequent  Obliteration windows. Not a great trinket."
+      "tier": "A",
+      "note": "Good amount of Strength on a 2 minute cooldown but with a significant Haste reduction afterwards. Not a great trinket for  Breath of Sindragosa due to our flat damage profile and because of the Haste debuff making it difficult to keep up Breath after using the trinket. For Mythic+ however, this is a really strong on-user with  Obliteration! Our damage window is really quite short and we don't care too much about the Haste debuff afterwards! A-tier due to Mythic+ power."
     },
     "Unholy Death Knight": {
       "tier": "A+",
@@ -957,11 +957,11 @@
       "note": "The on-use strength is very nice for burst damage and lining up with damage cooldowns. But the negative of losing Haste for a brief period is not worth it. Additionally, the proc aspect requires that you get to 15% HP, which can be quite dangerous as a tank. Proccing the HP threshold also resets your Haste debuff if you have one. This is a trinket to avoid."
     },
     "Retribution Paladin": {
-      "tier": "C",
+      "tier": "A (AoE)",
       "note": "On use Strength buff that reduces the Haste the trinket provides for half of its cooldown. Use with  Avenging Wrath."
     },
     "Discipline Priest": {
-      "tier": "B",
+      "tier": "A",
       "note": "\"Ramping\" trinket on a 2min cooldown, which may not work well with your 90 second cooldowns and the loss of haste may be a serious downside as this can reduce your  Smite casts and subsequent cooldown reduction needed."
     },
     "Shadow Priest": {
@@ -1125,7 +1125,7 @@
       "note": "This is an on-use with very high stat gain that likely to give you Haste or Critical Strike. This is a trinket to use for burst damage, especially to line up with your damage cooldowns. The only concern is potentially holding either damage cooldowns or holding the trinket due to de-syncing and the 3-minute cooldown."
     },
     "Retribution Paladin": {
-      "tier": "A (AoE)",
+      "tier": "B",
       "note": "On use secondary stat buff. Use with  Avenging Wrath."
     },
     "Discipline Priest": {
@@ -1146,7 +1146,7 @@
     },
     "Outlaw Rogue": {
       "tier": "B",
-      "note": ""
+      "note": "Similar to the trinket above, this trinket also scales well with consistently large target counts compared to the other ones. I would only suggest either in extremely coordinated M+ groups."
     },
     "Subtlety Rogue": {
       "tier": "A",
@@ -1158,7 +1158,7 @@
     },
     "Enhancement Shaman": {
       "tier": "A* / B",
-      "note": "Provides a large amount of on demand secondaries (usually Mastery) that can be extremely useful for key burst moments. We don't really have any massive cooldown moments to align with it though, so is only good if you need quick access to damage that suits the cooldown and if using  Witherbark's Branch is too awkward."
+      "note": "Provides a large amount of on demand secondaries (usually Mastery) that can be extremely useful for key burst moments. We don't really have any massive cooldown moments to align with it though, so is only good if you need quick access to damage that suits the cooldown and if using  Witherbark's Branch is too awkward. Otherwise, it's pretty average."
     },
     "Affliction Warlock": {
       "tier": "B",
@@ -1409,8 +1409,8 @@
       "note": "Only useful in AoE such as Mythic+, the on-use active can be quite strong when hitting many enemies. Can be tricky to use however and doesn't really have a niche"
     },
     "Outlaw Rogue": {
-      "tier": "A",
-      "note": "Our strongest on use trinket if that's ever needed."
+      "tier": "S",
+      "note": "This trinket reads a lot weirder than it actually performs. Realistically it's just a damage on use trinket."
     },
     "Subtlety Rogue": {
       "tier": "B",
@@ -1431,11 +1431,11 @@
       "note": "Static Agility. On-use with a 1.5min cd that makes your next 5 auto-attacks deal bonus Physical damage. Purely Single Target."
     },
     "Feral Druid": {
-      "tier": "C",
-      "note": ""
+      "tier": "A",
+      "note": "This trinket got a pretty substantial buff so now it's a pretty solid option."
     },
     "Guardian Druid": {
-      "tier": "A",
+      "tier": "A+",
       "note": "Flat agi with an on-use effect that causes your next 5 melee swings to deal extra damage."
     },
     "Beast Mastery Hunter": {
@@ -1451,8 +1451,8 @@
       "note": "This is an incredibly powerful trinket since the most recent buff and it gives a nice and predictable boost to your damage every 90 seconds, it does not scale into AoE whatsoever, so its performance drops off in m+ but it will still serve you well."
     },
     "Brewmaster Monk": {
-      "tier": "A-",
-      "note": "Oh, cool! The worst trinket from BFA is back, and it has been buffed a lot, but not redesigned. It's really, really boring and stupid, but it deals a lot of damage in pure ST, and absolutely sucks in all other content. It's great in sims! Is it just simbait? A little. A 90s CD trinket is going to be overrepresented in 5m Patchwerk sims. Is it actually any good? Eh, it's a fine ST target, and horrendous for AoE."
+      "tier": "A",
+      "note": "The worst trinket from BFA is back, but it has been buffed by a lot!. It's really boring, but it deals a lot of damage in single-target situations. It's great in sims! Is it just simbait? A little. A 90s CD trinket is going to be overrepresented in 5m Patchwerk sims. Is it actually any good? Eh, it's a good ST target, and pretty weak for AoE."
     },
     "Assassination Rogue": {
       "tier": "A",
@@ -1619,7 +1619,7 @@
       "note": "On-use intellect that can be used with  Divine Hymn or  Holy Word: Salvation."
     },
     "Shadow Priest": {
-      "tier": "S",
+      "tier": "A",
       "note": "This is Shadow's most potent on use trinket from dungeons, though it has potential for reduced value if you are taking heavy damage while it is active."
     },
     "Elemental Shaman": {
@@ -1687,6 +1687,10 @@
     "Holy Priest": {
       "tier": "S",
       "note": "Strong stat stick that features a heavy proc with low uptime."
+    },
+    "Shadow Priest": {
+      "tier": "A-",
+      "note": "This is another solid passive trinket option from dungeons. It might even better for you than Sea Star depending on your other items."
     },
     "Elemental Shaman": {
       "tier": "A-",
@@ -1782,7 +1786,7 @@
     },
     "Shadow Priest": {
       "tier": "A",
-      "note": "This is Shadow's second strongest on use trinket from the raid. It provides a strong burst of mastery but requires you to channel for a few seconds. A strong option if you cannot get into melee range consistently."
+      "note": "This is Shadow's second strongest on use trinket from the raid. It provides a strong burst of mastery but requires you to channel for a few seconds and is signficantly devalued in AoE / Mythic+. A strong option if you cannot get into melee range consistently."
     },
     "Elemental Shaman": {
       "tier": "C",
@@ -1879,7 +1883,7 @@
   },
   "Oakheart's Gnarled Root": {
     "Guardian Druid": {
-      "tier": "A+",
+      "tier": "S",
       "note": "Flat Vers with a passive damage proc that deals massive damage fairly consistently. Very good for us although it is a balance trinket."
     },
     "Devastation Evoker": {
@@ -2107,16 +2111,16 @@
       "note": "This trinket gives us a flat amount of Haste, while also being the highest iLvL trinket accessible to us, thanks to it being a Very Rare drop from the end boss of the raid. So it's already strong in the stats-given department. Unfortunately, the effect automatically starts whenever you heal anyone below 80% health, meaning you don't really have much agency over this effect. You just...have to hope it's active when you can use its effect."
     },
     "Holy Paladin": {
-      "tier": "B-",
-      "note": "This is our \"very rare\" trinket this season. Its status as \"very rare\" is not justified by its performance, which is lackluster at best. Even if it was buffed it is still functionally awful and will proc at times and on people that you do not want it to causing it to over heal significantly."
+      "tier": "B+",
+      "note": "This is our \"very rare\" trinket this season. Its status as \"very rare\" is not really justified by its performance, which is \"decent\" at best."
     },
     "Discipline Priest": {
-      "tier": "A",
+      "tier": "S",
       "note": "Passive output trinket with passive haste."
     },
     "Holy Priest": {
-      "tier": "C",
-      "note": "Lowly tuned output trinket."
+      "tier": "A",
+      "note": "Solid passive output trinket."
     }
   },
   "Time-Thief's Gambit": {
