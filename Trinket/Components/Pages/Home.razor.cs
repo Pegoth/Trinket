@@ -34,10 +34,27 @@ public partial class Home
                 return;
             }
 
-            _results = _trinkets.Where(kv => string.IsNullOrEmpty(_trinketFilter) || kv.Key.ToLower().Contains(_trinketFilter.ToLower()))
-                                .ToDictionary(kv => kv.Key, kv => kv.Value
-                                                                    .Where(skv => string.IsNullOrEmpty(_classFilter) || skv.Key.ToLower().Contains(_classFilter))
-                                                                    .ToDictionary());
+            var tf = _trinketFilter?.ToLower().Split(" ");
+            var cf = _classFilter?.ToLower().Split(" ");
+            _results = _trinkets.Where(kv =>
+                                 {
+                                     if (tf == null)
+                                         return true;
+                                     var key = kv.Key.ToLower().Split(" ");
+                                     return tf.All(f => key.Any(t => t.Contains(f)));
+                                 })
+                                .ToDictionary(
+                                     kv => kv.Key,
+                                     kv => kv.Value
+                                             .Where(skv =>
+                                              {
+                                                  if (cf == null)
+                                                      return true;
+
+                                                  var key = skv.Key.ToLower().Split(" ");
+                                                  return cf.All(f => key.Any(c => c.Contains(f)));
+                                              })
+                                             .ToDictionary());
         }
         finally
         {
