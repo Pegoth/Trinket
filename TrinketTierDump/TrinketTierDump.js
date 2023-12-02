@@ -83,5 +83,5 @@ const fs = require('fs/promises');
         }
     }
 
-    await fs.writeFile("../Trinket/trinkets.json", JSON.stringify(trinkets, null, 2));
+    await fs.writeFile("../Trinket/wwwroot/trinkets.json", JSON.stringify(trinkets, null, 2));
 })();

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Trinket</title>
+        <base href="/"/>
+        <link rel="stylesheet" href="css/app.css"/>
+        <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+        <!-- If you add any scoped CSS files, uncomment the following to load them
+        <link href="Trinket.styles.css" rel="stylesheet" /> -->
+        <link href="manifest.webmanifest" rel="manifest"/>
+        <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png"/>
+        <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png"/>
+        <script>
+            function setCookie(cname, cvalue, exdays) {
+                const d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                const expires = `expires=${d.toUTCString()}`;
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+                const name = cname + "=";
+                const decodedCookie = decodeURIComponent(document.cookie);
+                const ca = decodedCookie.split(";");
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === " ")
+                        c = c.substring(1);
+                    if (c.indexOf(name) === 0)
+                        return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+
+            function toggleDarkMode() {
+                if (document.documentElement.getAttribute("data-bs-theme") === "dark") {
+                    document.documentElement.setAttribute("data-bs-theme", "light");
+                    setCookie("darkMode", 0, 400);
+                } else {
+                    document.documentElement.setAttribute("data-bs-theme", "dark");
+                    setCookie("darkMode", 1, 400);
+                }
+            }
+
+            if (getCookie("darkMode") === "1") {
+                document.documentElement.setAttribute("data-bs-theme", "dark");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <svg class="loading-progress">
+                <circle r="40%" cx="50%" cy="50%"/>
+                <circle r="40%" cx="50%" cy="50%"/>
+            </svg>
+            <div class="loading-progress-text"></div>
+        </div>
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+        <script src="_framework/blazor.webassembly.js"></script>
+        <script>navigator.serviceWorker.register('service-worker.js');</script>
+    </body>
+</html>

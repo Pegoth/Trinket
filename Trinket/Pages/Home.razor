@@ -1,5 +1,5 @@
-﻿@rendermode InteractiveServer
-@page "/"
+﻿@page "/"
+@inject HttpClient Client
 
 <PageTitle>Home</PageTitle>
 
@@ -103,3 +103,4 @@
         }
     }
 </div>
+<button type="button" class="btn btn-secondary" style="position: absolute; left: 0; top: 0;" onclick="toggleDarkMode()">Dark mode</button>

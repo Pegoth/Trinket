@@ -1,7 +1,7 @@
-﻿using System.Text.Json;
+﻿using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 
-namespace Trinket.Components.Pages;
+namespace Trinket.Pages;
 
 public partial class Home
 {
@@ -15,13 +15,19 @@ public partial class Home
     {
         try
         {
-            _trinkets = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, TierModel>>>(await File.ReadAllTextAsync("trinkets.json"));
+            _trinkets = await Client.GetFromJsonAsync<Dictionary<string, Dictionary<string, TierModel>>>("trinkets.json");
             _results  = _trinkets;
         }
         catch (Exception ex)
         {
             _error = ex.Message;
         }
+    }
+
+    private void ToggleDarkMode()
+    {
+
+        StateHasChanged();
     }
 
     private async Task Search()
