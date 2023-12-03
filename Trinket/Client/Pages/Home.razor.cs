@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 
-namespace Trinket.Pages;
+namespace Trinket.Client.Pages;
 
 public partial class Home
 {
@@ -15,19 +15,13 @@ public partial class Home
     {
         try
         {
-            _trinkets = await Client.GetFromJsonAsync<Dictionary<string, Dictionary<string, TierModel>>>("trinkets.json");
+            _trinkets = await Client.GetFromJsonAsync<Dictionary<string, Dictionary<string, TierModel>>>("api/Trinkets");
             _results  = _trinkets;
         }
         catch (Exception ex)
         {
             _error = ex.Message;
         }
-    }
-
-    private void ToggleDarkMode()
-    {
-
-        StateHasChanged();
     }
 
     private async Task Search()
@@ -60,7 +54,7 @@ public partial class Home
                                                   var key = skv.Key.ToLower().Split(" ");
                                                   return cf.All(f => key.Any(c => c.Contains(f)));
                                               })
-                                             .ToDictionary());
+                                             .ToDictionary(a => a.Key, a => a.Value));
         }
         finally
         {
