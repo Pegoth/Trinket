@@ -399,3 +399,5 @@ FodyWeavers.xsd
 
 */wwwroot/lib/*
 .env
+
+_site
