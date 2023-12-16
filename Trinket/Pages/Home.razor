@@ -12,9 +12,9 @@
     {
         <form @onsubmit="Search" @onsubmit:preventDefault="true">
             <div class="input-group mb-2">
-                <input type="text" class="form-control" @bind="_trinketFilter" placeholder="Trinket filter" />
-                <input type="text" class="form-control" @bind="_classFilter" placeholder="Class filter" />
-                <input type="submit" class="btn btn-primary" value="Search" />
+                <input type="text" class="form-control" @bind="_trinketFilter" placeholder="Trinket filter"/>
+                <input type="text" class="form-control" @bind="_classFilter" placeholder="Class filter"/>
+                <input type="submit" class="btn btn-primary" value="Search"/>
             </div>
         </form>
         @if (_results != null)
@@ -24,15 +24,15 @@
                 var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
                 if (filtered.Length > 0)
                 {
-                    var query = filtered.Select(kv => new { Trinket = kv.Key, Data = kv.Value.Values.First() })
-                    .Select(a => new
-                    {
-                        a.Trinket,
-                        a.Data.Tier,
-                        a.Data.Note,
-                        a.Data.TierNumerical
-                    })
-                    .OrderBy(a => a.TierNumerical);
+                    var query = filtered.Select(kv => new {Trinket = kv.Key, Data = kv.Value.Values.First()})
+                                        .Select(a => new
+                                         {
+                                             a.Trinket,
+                                             a.Data.Tier,
+                                             a.Data.Note,
+                                             a.Data.TierNumerical
+                                         })
+                                        .OrderBy(a => a.TierNumerical);
                     <div class="mb-2">
                         <h4 class="text-center">@filtered.First().Value.First().Key</h4>
                         <table class="table">
@@ -103,4 +103,4 @@
         }
     }
 </div>
-<button type="button" class="btn btn-secondary" style="position: absolute; left: 0; top: 0;" onclick="toggleDarkMode()">Dark mode</button>
+<button type="button" class="btn btn-secondary" style="left: 0; position: absolute; top: 0;" onclick="toggleDarkMode()">Dark mode</button>

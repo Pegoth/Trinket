@@ -6,7 +6,7 @@
     },
     "Frost Death Knight": {
       "tier": "S",
-      "note": "Our best passive trinket to choose. This gives some Strength but primarily just a lot of raw trinket damage. Be careful with it though since it does deal a significant amount of damage to yourself. This is generally fine since we are naturally really tanky but you should be careful using the trinket during progression!"
+      "note": "Our strongest passive trinket during progression. It takes 2-3 minutes to fully ramp so should not be picked for Mythic+ or short raid fights. Be aware of the self-damage, but it caps around 12k/tick and the damage output is worth it."
     },
     "Unholy Death Knight": {
       "tier": "S",
@@ -46,7 +46,7 @@
     },
     "Assassination Rogue": {
       "tier": "S",
-      "note": "For Single Target there is simply no better option. The self-damage portion is fairly minor. In Mythic+ the stacks reset too often to be used"
+      "note": "On longer Single Target fights past 5 to 6 minutes, there is simply no better option. You do have to have quite good gear for it to be better than  Accelerating Sandglass, but this is your true BiS. The self-damage portion is fairly minor all things considered. In Mythic+ the stacks reset too often to be used effectively"
     },
     "Outlaw Rogue": {
       "tier": "A+",
@@ -71,12 +71,12 @@
       "note": "A very simple trinket - every 2min30s, you can apply four stacks of a buff to yourself. Each subsequent  Death Strike,  Heart Strike,  Marrowrend or any other physical effect knocks off a stack and deals a meaty amount of shadowflame damage to your target and everything within 8 yards of it, split between all targets and gaining 15% bonus damage per target hit, up to 6."
     },
     "Frost Death Knight": {
-      "tier": "A",
-      "note": "On-use raw damage trinket that does a solid amount of raw damage."
+      "tier": "A+",
+      "note": "On-use raw damage trinket that does a high amount of raw damage."
     },
     "Unholy Death Knight": {
-      "tier": "B",
-      "note": "On-use raw damage trinket that doesn't do enough damage to be competitive."
+      "tier": "A",
+      "note": "On-use raw damage trinket that does very well in AoE scenarios, while being quite competitive in Single Target."
     },
     "Protection Paladin": {
       "tier": "A+",
@@ -91,92 +91,18 @@
       "note": "On-use trinket that makes your next 4 melee attacks splash extra damage split among nearby enemies. The 150-second cooldown is pretty long. It also slows you by 15% per stack of the buff, so it’s a bit annoying, although the slow doesn't last too long. It deals a lot of damage, so that's good."
     }
   },
-  "Coiled Serpent Idol": {
-    "Blood Death Knight": {
-      "tier": "S",
-      "note": "This trinket just spawns Hydras that blast mobs with fire - frequently - and they live for 10 seconds. They appear to have a 40yd maximum range, so if you spawn a hydra just before you have to move a significant distance, you'll lose some value. A couple of mechanics can also target (and kill) your hydras in Mythic+ right now, but even with this, it is very good at what it does."
-    },
-    "Frost Death Knight": {
-      "tier": "A-",
-      "note": "Another passive trinket which procs random raw damage. Again really good for us due to our high crit."
-    },
-    "Unholy Death Knight": {
-      "tier": "B",
-      "note": "Passive raw-damage trinket that doesn't do quite enough damage to be really useful."
-    },
-    "Havoc Demon Hunter": {
-      "tier": "A",
-      "note": "Powerful proc trinket for single target."
-    },
-    "Vengeance Demon Hunter": {
-      "tier": "A+",
-      "note": "Static Agility. 1.5+Haste RPPM proc that can summon a pet to attack your target when you crit. On every 3rd summon, it summons 3 pets instead, and if your target dies, it will deal a burst of AoE damage to up to 8 enemies nearby. This is quite strong, especially in Single Target, and it is entirely passive. Note: Requires Havoc loot spec"
-    },
-    "Feral Druid": {
-      "tier": "A",
-      "note": "You equip it it does damage."
-    },
-    "Guardian Druid": {
-      "tier": "A+",
-      "note": "Passive damage proc trinket."
-    },
-    "Beast Mastery Hunter": {
-      "tier": "B",
-      "note": "A decent, simple damage proc trinket which works in most scenarios."
-    },
-    "Marksmanship Hunter": {
-      "tier": "A+",
-      "note": "Strongest Pure Single-Target Trinket"
-    },
-    "Survival Hunter": {
-      "tier": "A",
-      "note": "We'll regularly trigger this trinket and it's free damage. What's not to love?"
-    },
-    "Brewmaster Monk": {
-      "tier": "A",
-      "note": "A simple damage proc trinket. The damage output is pretty good, it deals bonus AoE damage if its target dies, and on every third proc, it deals triple damage. Not bad."
-    },
-    "Protection Paladin": {
-      "tier": "A",
-      "note": "This is a proc trinket that has a chance to spawn a Hydra when you critical strike. Every 3rd spawn will spawn 3 hydras instead. The Hydras will pelt your target with fire damage over a 10s period. The proc can happen outside of your burst window and the trinket can show a lot of variance especially in short encounters. But for longer encounters, this is a solid trinket that will perform well especially in a raid environment."
-    },
-    "Retribution Paladin": {
-      "tier": "B",
-      "note": "Passive trinket that will occasionally summon a snake to attack your target."
-    },
-    "Assassination Rogue": {
-      "tier": "A",
-      "note": "Just a solid passive trinket that does some damage"
-    },
-    "Outlaw Rogue": {
-      "tier": "S",
-      "note": ""
-    },
-    "Subtlety Rogue": {
-      "tier": "A",
-      "note": "Gives a high amount of one stat and is very strong in raiding and Mythic+."
-    },
-    "Enhancement Shaman": {
-      "tier": "A",
-      "note": "Deals solid single target damage and has some AoE redundancy with the AoE trigger, and even ramps each third proc. It still comes with some of the problems of stationary AI which can cause procs to fizzle though, meaning other options are more universal."
-    },
-    "Protection Warrior": {
-      "tier": "A",
-      "note": "A simple damage proc trinket. The damage output is pretty good, it deals bonus AoE damage if its target dies, and on every third proc, it deals triple damage. Not bad."
-    }
-  },
   "Rezan's Gleaming Eye": {
     "Blood Death Knight": {
       "tier": "S",
       "note": "This trinket was reworked this season; for all intents and purposes, its new effect is  Rezan's Fury, an old azerite power.Its upfront and DoT damage is buffed by  Bloodshot, making it 25% better for us than other specs."
     },
     "Frost Death Knight": {
-      "tier": "A+",
-      "note": "Nice passive trinket that provides a significant amount of raw damage over a fight. Sims really close to other better passive trinkets."
+      "tier": "A-",
+      "note": "Nice passive trinket that provides a significant amount of raw damage over a fight. However, in AoE it tends to fall behind other options."
     },
     "Unholy Death Knight": {
       "tier": "A+",
-      "note": "Really good raw damage trinket that pairs well with an actIve on-use stat trinket!"
+      "note": "Really good raw damage trinket that pairs well with an active on-use stat trinket!"
     },
     "Protection Paladin": {
       "tier": "A+",
@@ -205,8 +131,8 @@
       "note": "Solid trinket with a spec that relies a lot on Crit, which we don't. Not a good trinket."
     },
     "Havoc Demon Hunter": {
-      "tier": "A-",
-      "note": "Good passive trinket, dealing bonus damage off of your critical strikes."
+      "tier": "A",
+      "note": "Good passive trinket, dealing bonus damage off of your critical strikes. This trinket deals great damage in Single Target scenarios but quickly falls off in value in cleave/AoE."
     },
     "Vengeance Demon Hunter": {
       "tier": "A+",
@@ -354,11 +280,11 @@
     },
     "Frost Death Knight": {
       "tier": "S",
-      "note": "Really good passive trinket that generates a ton of stats over a fight. BiS for   Breath of Sindragosa and  Obliteration!"
+      "note": "Best passive trinket for all content. Frost Death Knight scales strongly with secondary stats and this trinket provides more consistent secondaries than any other option"
     },
     "Unholy Death Knight": {
       "tier": "A+",
-      "note": "This is your passive alternative to  Cataclysmic Signet Brand, providing a large amount of raw stats over an encounter. This can mess up your  Mirror of Fractured Tomorrows so be careful when using it and make sure to keep track at the various raw stat amounts it can put you at! Good Mythic+ choice due to the raw secondary stats."
+      "note": "This is your passive alternative to  Cataclysmic Signet Brand, providing a large amount of raw stats over an encounter. This can mess up your  Mirror of Fractured Tomorrows so be careful when using it and make sure to keep track of the various raw stat amounts it can put you at! Good Mythic+ choice due to the raw secondary stats."
     },
     "Havoc Demon Hunter": {
       "tier": "A+",
@@ -378,7 +304,7 @@
     },
     "Guardian Druid": {
       "tier": "A+",
-      "note": "Great passive stat trinket that allows you to choose what stat you want to amp, generally we choose Haste or Vers."
+      "note": "Great passive stat trinket that also procs even more secondary stats. As all of our stats are quite even in power this is quite decent."
     },
     "Restoration Druid": {
       "tier": "A",
@@ -496,7 +422,7 @@
     },
     "Frost Death Knight": {
       "tier": "S",
-      "note": "Solid passive trinket that provided a good amount of stats over a fight. Shared BiS for  Obliteration builds and great for  Breath of Sindragosa."
+      "note": "Solid passive trinket that provides consistent haste. BiS for  Obliteration builds and a strong option for  Breath of Sindragosa."
     },
     "Unholy Death Knight": {
       "tier": "A+",
@@ -543,8 +469,8 @@
       "note": "Passive Haste buff and damage proc."
     },
     "Assassination Rogue": {
-      "tier": "S-",
-      "note": "A strong passive option in mythic+ to replace the  Cataclysmic Signet Brand which loses a lot of value from frequent combat drops. Slightly worse than the  Pip's Emerald Friendship Badge above, but it's accessible from a dungeon we already farm for  Nick of Time, it's able to be used universally, and its equip-and-forget passive effect on top. Just a great trinket"
+      "tier": "S",
+      "note": "A strong passive option in mythic+ to replace the  Cataclysmic Signet Brand which loses a lot of value from frequent combat drops. In Mythic+ it is slightly worse than the  Pip's Emerald Friendship Badge above, but can be better in single target. It's accessible from a dungeon we already farm for  Nick of Time, it's able to be used universally, and its equip-and-forget passive effect on top. Just a great trinket"
     },
     "Outlaw Rogue": {
       "tier": "A",
@@ -561,6 +487,80 @@
     "Protection Warrior": {
       "tier": "A",
       "note": "A stacking Haste proc attached to a damage proc. It's a simple trinket design. The stat budget is good in AoE, and the proc is good for single-target damage. It's a pretty good trinket."
+    }
+  },
+  "Coiled Serpent Idol": {
+    "Blood Death Knight": {
+      "tier": "A",
+      "note": "This trinket just spawns Hydras that blast mobs with fire - frequently - and they live for 10 seconds. They appear to have a 40yd maximum range, so if you spawn a hydra just before you have to move a significant distance, you'll lose some value. The AoE component of this trinket is also jank as it requires the hydra's target to die for the AoE to trigger - something that would be significantly better if it was just any target."
+    },
+    "Frost Death Knight": {
+      "tier": "A-",
+      "note": "A well-tuned damage trinket. Strong enough to compete with the options that give stats but it not something Frost particularly wants."
+    },
+    "Unholy Death Knight": {
+      "tier": "B",
+      "note": "Passive raw-damage trinket that doesn't do quite enough damage to be useful."
+    },
+    "Havoc Demon Hunter": {
+      "tier": "A",
+      "note": "Powerful proc trinket for single target."
+    },
+    "Vengeance Demon Hunter": {
+      "tier": "A+",
+      "note": "Static Agility. 1.5+Haste RPPM proc that can summon a pet to attack your target when you crit. On every 3rd summon, it summons 3 pets instead, and if your target dies, it will deal a burst of AoE damage to up to 8 enemies nearby. This is quite strong, especially in Single Target, and it is entirely passive. Note: Requires Havoc loot spec"
+    },
+    "Feral Druid": {
+      "tier": "A",
+      "note": "You equip it it does damage."
+    },
+    "Guardian Druid": {
+      "tier": "A+",
+      "note": "Passive damage proc trinket."
+    },
+    "Beast Mastery Hunter": {
+      "tier": "B",
+      "note": "A decent, simple damage proc trinket which works in most scenarios."
+    },
+    "Marksmanship Hunter": {
+      "tier": "A+",
+      "note": "Strongest Pure Single-Target Trinket"
+    },
+    "Survival Hunter": {
+      "tier": "A",
+      "note": "We'll regularly trigger this trinket and it's free damage. What's not to love?"
+    },
+    "Brewmaster Monk": {
+      "tier": "A",
+      "note": "A simple damage proc trinket. The damage output is pretty good, it deals bonus AoE damage if its target dies, and on every third proc, it deals triple damage. Not bad."
+    },
+    "Protection Paladin": {
+      "tier": "B",
+      "note": "This is a proc trinket that has a chance to spawn a Hydra when you critical strike. Every 3rd spawn will spawn 3 hydras instead. The Hydras will pelt your target with fire damage over a 10s period. The proc can happen outside of your burst window and the trinket can show a lot of variance especially in short encounters."
+    },
+    "Retribution Paladin": {
+      "tier": "B",
+      "note": "Passive trinket that will occasionally summon a snake to attack your target."
+    },
+    "Assassination Rogue": {
+      "tier": "A",
+      "note": "Just a solid passive trinket that does some damage"
+    },
+    "Outlaw Rogue": {
+      "tier": "S",
+      "note": ""
+    },
+    "Subtlety Rogue": {
+      "tier": "A",
+      "note": "Gives a high amount of one stat and is very strong in raiding and Mythic+."
+    },
+    "Enhancement Shaman": {
+      "tier": "A",
+      "note": "Deals solid single target damage and has some AoE redundancy with the AoE trigger, and even ramps each third proc. It still comes with some of the problems of stationary AI which can cause procs to fizzle though, meaning other options are more universal."
+    },
+    "Protection Warrior": {
+      "tier": "A",
+      "note": "A simple damage proc trinket. The damage output is pretty good, it deals bonus AoE damage if its target dies, and on every third proc, it deals triple damage. Not bad."
     }
   },
   "Gift of Ursine Vengeance": {
@@ -594,6 +594,10 @@
       "tier": "A",
       "note": "This trinket was also reworked for this season and now features a full versatility secondary budget; previously, the 2 second silence effect was the only bonus effect this trinket had.This makes this trinket a boring but extremely capable stat stick, with a bonus silence effect when you get hit by a spell. This has a 20 second ICD and a 40% proc chance, making it not quite guaranteed, but nice enough to gain some value in keys."
     },
+    "Havoc Demon Hunter": {
+      "tier": "A",
+      "note": "A good passive mythic+ trinket option, giving flat versatility and agility at all times. Second best behind Pip's for a stat stick. MUST BE VENGEANCE/TANK LOOT SPEC TO LOOT."
+    },
     "Vengeance Demon Hunter": {
       "tier": "B",
       "note": "Static Agility and Versatility. Has a special effect in that it can automatically silence enemies that deal magic damage to you once every 20 seconds. This effect is extremely niche and not particularly useful this season. Note: Requires Vengeance loot spec"
@@ -602,13 +606,25 @@
       "tier": "B",
       "note": "Stat stick at a reduced weighting for an additional perk of silencing mobs often which can be handy for grouping in m+."
     },
+    "Beast Mastery Hunter": {
+      "tier": "A",
+      "note": "Essentially a Versatility Stat Stick which is a decent thing to have."
+    },
+    "Marksmanship Hunter": {
+      "tier": "A",
+      "note": "Strong Stat-Stick Trinket."
+    },
+    "Survival Hunter": {
+      "tier": "A",
+      "note": "This is a fairly powerful trinket. The versatility provides a nice defensive benefit and raw stats scale extremely well into AoE. With that in mind this trinket is easily S-tier for M+, but falls slightly short anywhere else."
+    },
     "Brewmaster Monk": {
       "tier": "B",
       "note": "This trinket is very boring. It grants Agility and Versatility, and can very occasionally silence enemy casters. Is it good? Actually, yeah. It gives a ton of perfectly-itemized stat budget, which is great. The random silences are just an occasional bonus.Boring, but not bad."
     },
     "Protection Paladin": {
-      "tier": "D",
-      "note": "This is really a Vers. stat stick with a proc. The ideal situation to use this in is dungeons since you will take some magic damage and the extra silence could be helpful. But Versatility is not a great stat for us, the silence could go on a creature that doesn't matter, and Protection is an interrupt machine as it is. This trinket should be avoided."
+      "tier": "B",
+      "note": "This is really a Vers. stat stick with a proc. The ideal situation to use this in is dungeons since you will take some magic damage and the extra silence could be helpful. But Versatility is not a great stat for us, the silence could go on a creature that doesn't matter, and Protection is an interrupt machine as it is. This is just an average stat stick."
     },
     "Outlaw Rogue": {
       "tier": "B",
@@ -629,12 +645,12 @@
       "note": "A somewhat overbudgeted haste stick. Macro it into your  Empower Rune Weapon macro and rock on - the only reason it gets an A is because it lines up and is completely forgettable while bringing somewhat decent value."
     },
     "Frost Death Knight": {
-      "tier": "A-",
-      "note": "2 minute Haste trinket that is surprisingly strong with our kit, especially  Obliteration."
+      "tier": "A",
+      "note": "2-minute Haste trinket that does for  Obliteration builds when paired with  Pillar of Frost and  Empower Rune Weapon."
     },
     "Unholy Death Knight": {
       "tier": "A",
-      "note": "Another powerful on-use trinket that synergise well with our 3-minute burst cooldowns. You'll end up holding this trinket for a 1 minute every time it comes up to use it with our 3-minute burst, making it slightly less powerful."
+      "note": "Another powerful on-use trinket that synergizes well with our 3-minute burst cooldowns. You'll end up holding this trinket for a 1 minute every time it comes up to use it with our 3-minute burst, making it slightly less powerful."
     },
     "Protection Paladin": {
       "tier": "B",
@@ -656,11 +672,11 @@
     },
     "Frost Death Knight": {
       "tier": "A-",
-      "note": "Gives passive Haste which is nice, mainly for  Obliteration builds though!"
+      "note": "Stronger for  Obliteration than  Breath of Sindragosa. Worth using if you pick one up early but falls behind other options at an equal item level"
     },
     "Unholy Death Knight": {
       "tier": "B",
-      "note": "Gives passive Haste which is nice but doesn't give enough to be really powerful. Will impact  Mirror of Fractured Tomorrows stats."
+      "note": "Gives passive Haste which is nice but doesn't give enough to be powerful. Will impact  Mirror of Fractured Tomorrows stats."
     },
     "Havoc Demon Hunter": {
       "tier": "F",
@@ -714,7 +730,7 @@
     },
     "Frost Death Knight": {
       "tier": "A-",
-      "note": "Good passive trinket that procs crit which we generally love."
+      "note": "Good passive trinket but simply provides less benefit than other options."
     },
     "Unholy Death Knight": {
       "tier": "A",
@@ -740,7 +756,7 @@
     },
     "Frost Death Knight": {
       "tier": "A-",
-      "note": "Your active alternative to  Mirror of Fractured Tomorrows. It has a shorter cooldown so works well in Mythic+ scenarios where we favor more frequent burst windows, especially when we pick up  Absolute Zero."
+      "note": "An okay active trinket. Nothing is particularly wrong with it but lags behind other options."
     },
     "Unholy Death Knight": {
       "tier": "A+",
@@ -766,11 +782,11 @@
     },
     "Frost Death Knight": {
       "tier": "A+",
-      "note": "A passive trinket that provides a surprising amount of Mastery via the passive proc. Solid choice for  Breath of Sindragosa but pretty bad for  Obliteration."
+      "note": "Universally good Mastery proc trinket. This will fit in any build for any content and do well."
     },
     "Unholy Death Knight": {
       "tier": "A",
-      "note": "A passive trinket  that provides a surprising amount of Mastery via the passive proc. Solid choice for a passive stat trinket everyhwere."
+      "note": "A passive trinket that provides a surprising amount of Mastery via the passive proc. A solid choice for a passive stat trinket everywhere."
     },
     "Havoc Demon Hunter": {
       "tier": "B+",
@@ -859,8 +875,8 @@
       "note": "Passive Haste and a moderate single-target damage proc with a fairly low procrate. It’s bad."
     },
     "Protection Paladin": {
-      "tier": "C+",
-      "note": "This has passive Haste, which we like, and applies a damage taken debuff, which we also like. The main issue is that the trinket is a random proc that can happen at any time, including outside of your burst window. And the damage cap on the damage taken debuff is low and will be consumed very quickly. This could be a trinket to use in single target raid situations if you're gearing up but you'll want to replace it with other options."
+      "tier": "B+",
+      "note": "This has passive Haste, which we like, and applies a damage taken debuff, which we also like. The main issue is that the trinket is a random proc that can happen at any time, including outside of your burst window. And the damage cap on the damage taken debuff is low and will be consumed very quickly. This could be a trinket to use in single target raid situations."
     },
     "Retribution Paladin": {
       "tier": "F",
@@ -894,11 +910,11 @@
     },
     "Frost Death Knight": {
       "tier": "A",
-      "note": "Good amount of Strength on a 2 minute cooldown but with a significant Haste reduction afterwards. Not a great trinket for  Breath of Sindragosa due to our flat damage profile and because of the Haste debuff making it difficult to keep up Breath after using the trinket. For Mythic+ however, this is a really strong on-user with  Obliteration! Our damage window is really quite short and we don't care too much about the Haste debuff afterwards! A-tier due to Mythic+ power."
+      "note": "A high amount of Strength every 2-minutes looks like it should be good for  Breath of Sindragosa but unfortunately the Haste reduction is too costly compared to the burst gained. However, this is strong for  Obliteration in Mythic+ and remains a worthwhile option in raid. The gained burst outweighs the downside when paired with  Pillar of Frost and  Empower Rune Weapon."
     },
     "Unholy Death Knight": {
       "tier": "A+",
-      "note": "A strong 2-minute on-use trinket with an extra trigger effect. This has good synergy with our 3-minute burst windows (hold it for those)l. The passive proc when \"cirumstances are dire\" comes into play when 40% or so of your current party dies, so won't provide a lot of value in the end. The Haste debuff afterwards isn't ideal but our non-burst DPS is low enough for it to not matter that much."
+      "note": "A strong 2-minute on-use trinket with an extra trigger effect. This has good synergy with our 3-minute burst windows (hold it for those)l. The passive proc when \"circumstances are dire\" comes into play when 40% or so of your current party dies, so won't provide a lot of value in the end. The Haste debuff afterwards isn't ideal but our non-burst DPS is low enough for it to not matter that much."
     },
     "Havoc Demon Hunter": {
       "tier": "A+",
@@ -929,16 +945,16 @@
       "note": "This is weaker than other on-use trinkets and doesn't work well alongside them. We also don't enjoy the drop in haste."
     },
     "Marksmanship Hunter": {
-      "tier": "D",
-      "note": "Weak On-Use Trinket."
+      "tier": "B",
+      "note": "Decent On-Use Trinket."
     },
     "Survival Hunter": {
       "tier": "D",
       "note": "The huge primary bump is quite strong, but burning out after use for an entire minute can mean you're effectively only playing with a single trinket for half of combat. It also messes with small haste breakpoints, and depending on how much base haste you are running you may find yourself suddenly unable to fit in an extra GCD in a  Mongoose Fury,  Shrapnel Bomb, or  Pheromone Bomb window."
     },
     "Arcane Mage": {
-      "tier": "C",
-      "note": "Not the best, not the worst on use option."
+      "tier": "A+",
+      "note": "Not the best, not the worst on use option. Use with 20s remaining on siphon storm."
     },
     "Fire Mage": {
       "tier": "B",
@@ -966,7 +982,7 @@
     },
     "Shadow Priest": {
       "tier": "A-",
-      "note": "This trinket's effect can be potent but the 60 second debuff is a hefty downside for a spec so reliant on haste."
+      "note": "This trinket's effect can be potent but the 60 second debuff is a hefty downside for a spec so reliant on haste. Line it up with  Power Infusion as both share 2 minute cooldowns."
     },
     "Assassination Rogue": {
       "tier": "A+",
@@ -1022,6 +1038,10 @@
       "tier": "C",
       "note": ""
     },
+    "Shadow Priest": {
+      "tier": "D",
+      "note": "One of Shadow's worst passive trinket choices. There is potential for the beam to pass through and strike multiple targets but the width of the beam is very small and this makes it hard to consistently get value from. The damage is also just poor on its own without multiple hits."
+    },
     "Elemental Shaman": {
       "tier": "B",
       "note": "Slightly better AoE choice but also heavily reliant on mob positioning."
@@ -1041,12 +1061,12 @@
       "note": "The problem with this particular stat stick is the 3min cooldown it has. We have no way to align it with anything half of the time, causing us to lose a bunch of value on what would be a very big stat boost otherwise"
     },
     "Frost Death Knight": {
-      "tier": "A",
-      "note": "3-minute on-use that provides a massive amount of secondary stats, something we love as Frost Death Knights. It doesn't synergise that well with our burst windows but the amount of secondary stats is enough to put this in A-tier. Primarily best for  Breath of Sindragosa, not nearly as powerful for  Obliteration."
+      "tier": "A+",
+      "note": "3-minute on-use that provides a massive amount of secondary stats, something we love as Frost Death Knights. Although Frost has a relatively constant damage profile, the amount of secondary stats provided is enough to make this a good option. This is particularly good for content where you need to deal as much damage as you can within a short window."
     },
     "Unholy Death Knight": {
       "tier": "S",
-      "note": "3-minute on-use that provides a massive amount of secondary stats, scaling really well with our big 3-minute burst window of  Army of the Dead and  Summon Gargoyle! This trinket requires you to pay a lot of attention to your raw secondary stats as they will dictate which stat it procs. You want to have Mastery as your top raw stat for the pull use, and then either Haste or Mastery for any mid-fight uses. Remember that effect such as  Bloodlust that gives a % increase in stat don't impact the raw value!"
+      "note": "3-minute on-use that provides a massive amount of secondary stats, scaling well with our big 3-minute burst window of  Army of the Dead and  Summon Gargoyle! This trinket requires you to pay a lot of attention to your raw secondary stats as they will dictate which stat it procs. You want to have Mastery as your top raw stat for the pull use, and then either Haste or Mastery for any mid-fight uses. Remember that effect such as  Bloodlust that gives a % increase to a stat don't impact the raw value!"
     },
     "Havoc Demon Hunter": {
       "tier": "A",
@@ -1089,8 +1109,8 @@
       "note": "A great on-use trinket with good stats. Line it up with  Call of the Wild whenever possible."
     },
     "Marksmanship Hunter": {
-      "tier": "S",
-      "note": "Strongest On-Use Trinket. Line up with  Trueshot whenever possible."
+      "tier": "A+",
+      "note": "Strong On-Use Trinket. Line up with  Trueshot whenever possible."
     },
     "Survival Hunter": {
       "tier": "A",
@@ -1098,7 +1118,7 @@
     },
     "Arcane Mage": {
       "tier": "A+",
-      "note": "This is our second best option for a trinket to pair with our cooldowns."
+      "note": "This is our second best option for a trinket to pair with our cooldowns. Use with 20s remaining on siphon storm."
     },
     "Fire Mage": {
       "tier": "A",
@@ -1298,7 +1318,7 @@
     },
     "Unholy Death Knight": {
       "tier": "B-",
-      "note": "A Jewelcrafting trinket can be a solid upgrade if you have a really low ilvl trinket. Generally, you'd choose either  Idol of the Earth-Warder or  Idol of the Dreamer since Haste and Mastery are our best stats. Still, the lower ilvl of crafted gear and the general power of these trinkets means they are quite low in the B tier."
+      "note": "A Jewelcrafting trinket can be a solid upgrade if you have a low ilvl trinket. Generally, you'd choose either  Idol of the Earth-Warder or  Idol of the Dreamer since Haste and Mastery are our best stats. Still, the lower ilvl of crafted gear and the general power of these trinkets means they are quite low in the B tier."
     }
   },
   "Alacritous Alchemist Stone/  Sustaining Alchemist Stone": {
@@ -1343,8 +1363,8 @@
       "note": "A strong on-use trinket for Mythic+ without playing around it, but takes some kiting of the orbs to be good in raid, which might not be entierly realistic. A relatively easy way to play around it is to pick up two of the orbs instantly and then kite the third around in a circle, refreshing the buff last second."
     },
     "Marksmanship Hunter": {
-      "tier": "B",
-      "note": "Decent On-Use Trinket placeholder until you can get a  Mirror of Fractured Tomorrows."
+      "tier": "S",
+      "note": "Strongest On-Use Trinket. Better than, but also harder to use optimally than  Mirror of Fractured Tomorrows."
     },
     "Survival Hunter": {
       "tier": "B",
@@ -1600,7 +1620,7 @@
     },
     "Arcane Mage": {
       "tier": "S",
-      "note": "This is our strongest trinket to pair with our cooldowns."
+      "note": "This is our strongest trinket to pair with our cooldowns. Use this the first time when siphon storm has 20s remaining, the second time as soon as its available during burst, and then hold it for one burn, rinse repeat."
     },
     "Fire Mage": {
       "tier": "B+",
@@ -1724,7 +1744,7 @@
     },
     "Arcane Mage": {
       "tier": "S",
-      "note": "Our best \"passive\" trinket to pair with an on use, even though this has a use effect we don't use it during cooldowns since the damage doesn't scale with our buffs, keep in mind several things for this trinket, it requires near melee range, is castable while moivng, and can be activated during the global cooldown."
+      "note": "Our best \"passive\" trinket to pair with an on use, even though this has a use effect we don't use it during cooldowns since the damage doesn't scale with our buffs, keep in mind several things for this trinket, it requires near melee range, is castable while moivng, and can be activated during the global cooldown. Use this after cooldowns run out completely."
     },
     "Fire Mage": {
       "tier": "S+",
@@ -1769,8 +1789,8 @@
       "note": "Passive Intellect with strong on-use Mastery and direct damage on a 2 Min cooldown. Channel time can feel disruptive to use during active cooldowns, but many ideal buff targets in Season 3 are not negatively affected by a short delay before casting  Breath of Eons. The damage dealt by this trinket is quite strong, and deals additional damage to immobilized targets, which includes a handful of Amirdrassil raid bosses."
     },
     "Arcane Mage": {
-      "tier": "A",
-      "note": "A good option for specific fight timings and if you don't have Mirror, make sure you channel it fully for the biggest mastery buff."
+      "tier": "A+",
+      "note": "A good option for specific fight timings and if you don't have Mirror, make sure you channel it fully for the biggest mastery buff. You can use this before any radiant spark cast (even miniburns)."
     },
     "Fire Mage": {
       "tier": "S-",
@@ -1913,6 +1933,10 @@
     "Frost Mage": {
       "tier": "C",
       "note": "This trinket focuses on single target damage."
+    },
+    "Shadow Priest": {
+      "tier": "D",
+      "note": "Another exceptionally weak passive trinket, dealing only single target damage and being surprisingly undertuned compared to other options. The main stat Versatility also makes this a very undesirable option for Shadow. You should run Darkheart Thicket dungeons in Holy loot spec to avoid being able to accidentally loot this trinket."
     },
     "Elemental Shaman": {
       "tier": "C",
@@ -2065,6 +2089,10 @@
     "Holy Priest": {
       "tier": "C",
       "note": "Low value output trinket."
+    },
+    "Shadow Priest": {
+      "tier": "D",
+      "note": "Another consistent damage proc but a lack of target scaling and low damage makes it the first truly poor trinket choice."
     },
     "Elemental Shaman": {
       "tier": "B",
@@ -2220,6 +2248,10 @@
       "tier": "B",
       "note": "This trinket focuses on single target damage."
     },
+    "Shadow Priest": {
+      "tier": "C",
+      "note": "This is a reasonable passive single target trinket with some mild target scaling up to 5. Though Shadow greatly prefers passive trinkets that provide stats, this is the best raw damage option due to its consistency and ease of use."
+    },
     "Elemental Shaman": {
       "tier": "A",
       "note": "Solid overall proc trinket, if you want another passive trinket, this is also a good choice."
@@ -2269,6 +2301,10 @@
     "Protection Paladin": {
       "tier": "A",
       "note": "This is a random proc trinket that sims moderately well. It has passive Mastery which has some defensive value. A lot of the value is in the proc, happens ~1.25 times per minute. It can proc on any target you hit with your spells including  Avenger's Shield. The trinket spawns a dark red pool on the ground below your target and as long its in it, it does damage. In any encounter with movement or kiting, the trinket loses value. This trinket will shine in stand still situations with little movement.Note: This trinket has to be traded to you and you can't loot it from the Grat Vault."
+    },
+    "Shadow Priest": {
+      "tier": "D",
+      "note": "This trinket looks ok on paper but unfortunately the damage is dealt by a proc which places a small puddle on the ground that does not move. If the target is completely stationary this trinket is at best passable, but in most realistic scenarios will perform significantly worse. Again, avoid running Darkheart Thicket in Shadow or Discipline loot spec so as to never loot this trinket."
     },
     "Elemental Shaman": {
       "tier": "B",

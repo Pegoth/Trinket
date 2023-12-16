@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 
-namespace Trinket.Client.Pages;
+namespace Trinket.Pages;
 
 public partial class Home
 {
@@ -15,7 +15,7 @@ public partial class Home
     {
         try
         {
-            _trinkets = await Client.GetFromJsonAsync<Dictionary<string, Dictionary<string, TierModel>>>("api/Trinkets");
+            _trinkets = await Client.GetFromJsonAsync<Dictionary<string, Dictionary<string, TierModel>>>("trinkets.json");
             _results  = _trinkets;
         }
         catch (Exception ex)

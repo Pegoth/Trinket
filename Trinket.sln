@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinket.Server", "Trinket\Server\Trinket.Server.csproj", "{25FE53E5-339D-4A65-8F5F-10B02AAD8CFB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinket.Client", "Trinket\Client\Trinket.Client.csproj", "{B88E5109-2FF1-467E-BCEB-9D67440F27D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinket", "Trinket\Trinket.csproj", "{DD9BEEB5-F221-4195-94C1-31845D4D9283}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{25FE53E5-339D-4A65-8F5F-10B02AAD8CFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25FE53E5-339D-4A65-8F5F-10B02AAD8CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25FE53E5-339D-4A65-8F5F-10B02AAD8CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25FE53E5-339D-4A65-8F5F-10B02AAD8CFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B88E5109-2FF1-467E-BCEB-9D67440F27D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B88E5109-2FF1-467E-BCEB-9D67440F27D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B88E5109-2FF1-467E-BCEB-9D67440F27D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B88E5109-2FF1-467E-BCEB-9D67440F27D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9BEEB5-F221-4195-94C1-31845D4D9283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9BEEB5-F221-4195-94C1-31845D4D9283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9BEEB5-F221-4195-94C1-31845D4D9283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9BEEB5-F221-4195-94C1-31845D4D9283}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
