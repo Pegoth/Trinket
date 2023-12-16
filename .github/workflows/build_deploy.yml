@@ -1,6 +1,7 @@
 name: Build Blazor WASM and publish pages artifact
 permissions:
   id-token: write
+  pages: write
 on:
   push:
     branches: [ "master" ]
