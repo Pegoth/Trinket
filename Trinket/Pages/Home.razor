@@ -1,5 +1,5 @@
 ﻿@page "/"
-@inject HttpClient Client
+@inject IJSRuntime JavaScript
 
 <PageTitle>Home</PageTitle>
 
@@ -15,6 +15,7 @@
                 <input type="text" class="form-control" @bind="_trinketFilter" placeholder="Trinket filter"/>
                 <input type="text" class="form-control" @bind="_classFilter" placeholder="Class filter"/>
                 <input type="submit" class="btn btn-primary" value="Search"/>
+                <button type="button" class="btn btn-secondary" onclick="event.preventDefault(); toggleDarkMode();">Dark mode</button>
             </div>
         </form>
         @if (_results != null)
@@ -103,4 +104,3 @@
         }
     }
 </div>
-<button type="button" class="btn btn-secondary" style="left: 0; position: absolute; top: 0;" onclick="toggleDarkMode()">Dark mode</button>

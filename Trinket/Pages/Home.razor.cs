@@ -1,5 +1,5 @@
-﻿using System.Net.Http.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
+using Microsoft.JSInterop;
 
 namespace Trinket.Pages;
 
@@ -15,7 +15,7 @@ public partial class Home
     {
         try
         {
-            _trinkets = await Client.GetFromJsonAsync<Dictionary<string, Dictionary<string, TierModel>>>("trinkets.json");
+            _trinkets = await JavaScript.InvokeAsync<Dictionary<string, Dictionary<string, TierModel>>?>("getTrinkets");
             _results  = _trinkets;
         }
         catch (Exception ex)

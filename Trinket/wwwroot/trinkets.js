@@ -1,4 +1,4 @@
-{
+var trinkets = {
   "Cataclysmic Signet Brand": {
     "Blood Death Knight": {
       "tier": "S",
