@@ -33,8 +33,8 @@ var trinkets = {
       "note": "This trinket deals an insane amount of single target damage damage once it is ramped up, and even keeps up with AoE trinkets once it is. Although the stacks drop off fast, making it less practical in m+. The self-damage can be dicey, but you have a lot of passive sustain through Leech. One thing to consider is that the self damage can eat into your  Iced Phial of Corrupting Rage  uptime."
     },
     "Brewmaster Monk": {
-      "tier": "A+",
-      "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible depending on the dungeon. This is a raid-focused trinket that is a bit dangerous for tanks to use. It also comes with the downside of ramping its damage over time, and it takes several minutes to hit full strength, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter."
+      "tier": "A",
+      "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible depending on the dungeon. This is a raid-focused trinket with a minor risk-reward component. Every other trinket is all upside, and while this deals competitive damage, especially over a longer fight, the damage should probably be higher to justify that tradeoff. It also comes with the downside of ramping its damage over time. It takes about 3 minutes to hit full strength, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter.In Mythic+, it can be extremely annoying to maintain throughout dungeons. It's possible, and the damage payoff is good, but it can be a real headache."
     },
     "Protection Paladin": {
       "tier": "S",
@@ -62,7 +62,7 @@ var trinkets = {
     },
     "Protection Warrior": {
       "tier": "S",
-      "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible. This is a raid-focused trinket that is a bit dangerous for tanks to use. It also comes with the frustrating downside of ramping its damage over time, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter."
+      "note": "Deals damage over time as a random proc. The damage ramps up with each proc, eventually dealing 50% of its damage to you, and 10% of its damage to nearby enemies. The buff rapidly decays while out of combat, so maintaining it throughout Mythic+ can be challenging, or even impossible. This is a raid-focused trinket that is a bit dangerous for tanks to use. It also comes with the frustrating downside of ramping its damage over time, so as boss kills get quicker and quicker, this trinket will become weaker. It can deal a lot of damage if you're willing to risk the downside, but its value will decrease throughout farm as re-kill times get shorter.It's also fairly annoying to use in Mythic+ due to its 15 second buff duration while out of combat. If you can get back into combat in under 15 seconds, you can maintain the buff throughout a dungeon, but that can be pretty hard in some dungeons, and losing the buff and resetting back to zero is a huge damage loss. It can be a pretty frustrating trinket in Mythic+."
     }
   },
   "Branch of the Tormented Ancient": {
@@ -87,7 +87,7 @@ var trinkets = {
       "note": "On use damage trinket that will deal AoE damage over a short period. The slow effect is insignificant and is quickly removed."
     },
     "Protection Warrior": {
-      "tier": "A",
+      "tier": "A+",
       "note": "On-use trinket that makes your next 4 melee attacks splash extra damage split among nearby enemies. The 150-second cooldown is pretty long. It also slows you by 15% per stack of the buff, so it’s a bit annoying, although the slow doesn't last too long. It deals a lot of damage, so that's good."
     }
   },
@@ -113,8 +113,8 @@ var trinkets = {
       "note": "Passive damage proc trinket that summons a dinosaur to attack your target."
     },
     "Protection Warrior": {
-      "tier": "A",
-      "note": "A once-great Mythic+ trinket that has been redesigned into a basic damage proc. It's a little boring, but the single-target damage value is very good!"
+      "tier": "A+",
+      "note": "A simple damage proc. It's a little boring, but the single-target damage value is very good!"
     }
   },
   "Augury of the Primal Flame": {
@@ -596,7 +596,7 @@ var trinkets = {
     },
     "Havoc Demon Hunter": {
       "tier": "A",
-      "note": "A good passive mythic+ trinket option, giving flat versatility and agility at all times. Second best behind Pip's for a stat stick. MUST BE VENGEANCE/TANK LOOT SPEC TO LOOT."
+      "note": "A good passive mythic+ trinket option, giving flat versatility and agility at all times. Second best behind Pip's for a stat stick."
     },
     "Vengeance Demon Hunter": {
       "tier": "B",
@@ -626,13 +626,17 @@ var trinkets = {
       "tier": "B",
       "note": "This is really a Vers. stat stick with a proc. The ideal situation to use this in is dungeons since you will take some magic damage and the extra silence could be helpful. But Versatility is not a great stat for us, the silence could go on a creature that doesn't matter, and Protection is an interrupt machine as it is. This is just an average stat stick."
     },
+    "Retribution Paladin": {
+      "tier": "B",
+      "note": "Strength/Versatility statstick."
+    },
     "Outlaw Rogue": {
       "tier": "B",
       "note": "This trinket over an entire dungeon is weaker than the ones above, generally scales better with larger target counts than the ones above."
     },
     "Enhancement Shaman": {
       "tier": "A",
-      "note": "For us this is predominantly a full budget Vers stat stick, which considering we just really like stats works out fine. The proc might have some fun uses but nothing we're really interested in for now, the hard part is getting hold of one since it only drops for tank specializations."
+      "note": "For us this is predominantly a full budget Vers stat stick, which considering we just really like stats works out fine. The proc might have some fun uses but nothing we're really interested in for now."
     },
     "Protection Warrior": {
       "tier": "B-",
@@ -806,7 +810,7 @@ var trinkets = {
     },
     "Brewmaster Monk": {
       "tier": "B",
-      "note": "Very simple stat proc trinket. The passive Agility is good, the Mastery and Avoidance proc is not. It’s one of the better options available from Mythic+ Season 3. This is not because it is good, but because the alternatives are bad."
+      "note": "Very simple stat proc trinket. The passive Agility is good, the Mastery and Avoidance proc is not. It’s okay. Not great, but not bad."
     },
     "Protection Paladin": {
       "tier": "B",
@@ -879,7 +883,7 @@ var trinkets = {
       "note": "This has passive Haste, which we like, and applies a damage taken debuff, which we also like. The main issue is that the trinket is a random proc that can happen at any time, including outside of your burst window. And the damage cap on the damage taken debuff is low and will be consumed very quickly. This could be a trinket to use in single target raid situations."
     },
     "Retribution Paladin": {
-      "tier": "F",
+      "tier": "C",
       "note": "Passive damage proc."
     },
     "Assassination Rogue": {
@@ -954,7 +958,7 @@ var trinkets = {
     },
     "Arcane Mage": {
       "tier": "A+",
-      "note": "Not the best, not the worst on use option. Use with 20s remaining on siphon storm."
+      "note": "Use with 20s remaining on siphon storm."
     },
     "Fire Mage": {
       "tier": "B",
@@ -1118,7 +1122,7 @@ var trinkets = {
     },
     "Arcane Mage": {
       "tier": "A+",
-      "note": "This is our second best option for a trinket to pair with our cooldowns. Use with 20s remaining on siphon storm."
+      "note": "Use with 20s remaining on siphon storm."
     },
     "Fire Mage": {
       "tier": "A",
@@ -1359,7 +1363,7 @@ var trinkets = {
       "note": "Flat agi which is always great, with an on-use mastery effect that lines up fairly well with  Incarnation: Guardian of Ursoc."
     },
     "Beast Mastery Hunter": {
-      "tier": "A",
+      "tier": "S",
       "note": "A strong on-use trinket for Mythic+ without playing around it, but takes some kiting of the orbs to be good in raid, which might not be entierly realistic. A relatively easy way to play around it is to pick up two of the orbs instantly and then kite the third around in a circle, refreshing the buff last second."
     },
     "Marksmanship Hunter": {
@@ -1371,8 +1375,8 @@ var trinkets = {
       "note": "Funnily enough despite our usual dislike for Mastery this lines up perfectly with  Coordinated Assault, which when paired with  Birds of Prey,  Explosive Shot and  Hunter Survival 10.2 Class Set 2pc actually does a fair amount of mastery-affected burst damage. This makes the mastery slightly less of a waste and effectively makes this trinket a less favourably tuned reversed  My'das Talisman, scaling okay in aoe but poorly in single target."
     },
     "Brewmaster Monk": {
-      "tier": "B",
-      "note": "An Agility trinket with a 2-minute on-use effect that grants Mastery. It’s fine, but not great.The competition from other Mythic+ trinkets is pretty bad, but just judging this trinket on its own merits: it’s also not great."
+      "tier": "B+",
+      "note": "An Agility trinket with a 2-minute on-use effect that grants Mastery. It’s fine, but not great.The competition from other Mythic+ trinkets is pretty bad, but just judging this trinket on its own merits: it’s also not great.There are a couple of positives that help bring this trinket up slightly. First off, it's great for burst damage. It gives a ton of stat budget. Second, the orbs slowly travel toward you, so you can delay picking up the second and third orbs briefly to extend the duration of the buff. If you roll the ostensibly-10-second buff out to last for upwards of 25 seconds, it's actually pretty good, especially in larger pulls that might take a while, or while ramping up Weapons of Order."
     },
     "Assassination Rogue": {
       "tier": "S+",
@@ -1472,7 +1476,7 @@ var trinkets = {
     },
     "Brewmaster Monk": {
       "tier": "A",
-      "note": "The worst trinket from BFA is back, but it has been buffed by a lot!. It's really boring, but it deals a lot of damage in single-target situations. It's great in sims! Is it just simbait? A little. A 90s CD trinket is going to be overrepresented in 5m Patchwerk sims. Is it actually any good? Eh, it's a good ST target, and pretty weak for AoE."
+      "note": "The worst trinket from BFA is back, but it has been buffed by a lot!. It's really boring, but it deals a lot of damage in single-target situations. It's great in sims! Is it just simbait? A little. A 90s CD trinket is going to be overrepresented in 5m Patchwerk sims. Is it actually any good? It's a really good ST target, and pretty weak for AoE."
     },
     "Assassination Rogue": {
       "tier": "A",
@@ -1619,8 +1623,8 @@ var trinkets = {
       "note": "Excellent on-use trinket providing passive Mastery and on-use Intellect which translates directly into  Ebon Might value. Can be used with  Breath of Eons every two minutes, or flexibly as fight timers require.I've dropped this from S-tier to A-tier simply because certain bosses in the Amirdrassil raid (such as Smolderon) have been found to burn away charges more quickly than expected through frequent ticking damage mechanics. This is still the strongest trinket available from Mythic+, and is still a very powerful on-use trinket, especially in fights where you are not taking repeated ticking damage.This is likely still a top trinket specifically for Mythic+, given that on-use stats generally scale better than single-target damage effects, and that the incoming damage profile is generally less punishing."
     },
     "Arcane Mage": {
-      "tier": "S",
-      "note": "This is our strongest trinket to pair with our cooldowns. Use this the first time when siphon storm has 20s remaining, the second time as soon as its available during burst, and then hold it for one burn, rinse repeat."
+      "tier": "A+",
+      "note": "Use this the first time when siphon storm has 20s remaining, the second time as soon as its available during burst, and then hold it for one burn, rinse repeat."
     },
     "Fire Mage": {
       "tier": "B+",
@@ -1790,7 +1794,7 @@ var trinkets = {
     },
     "Arcane Mage": {
       "tier": "A+",
-      "note": "A good option for specific fight timings and if you don't have Mirror, make sure you channel it fully for the biggest mastery buff. You can use this before any radiant spark cast (even miniburns)."
+      "note": "Make sure you channel it fully for the biggest mastery buff. You can use this before any radiant spark cast (even miniburns when paired with Belor'relos)."
     },
     "Fire Mage": {
       "tier": "S-",
@@ -1847,7 +1851,7 @@ var trinkets = {
       "note": "Passive Versatility here is not ideal, but the Intellect proc actually has decent uptime at about 1.5 procs per minute, making this trinket a reasonable choice in a pinch."
     },
     "Arcane Mage": {
-      "tier": "C",
+      "tier": "B",
       "note": "Pretty even with the above."
     },
     "Fire Mage": {
@@ -1923,7 +1927,7 @@ var trinkets = {
       "note": "Strong Single-Target Trinket"
     },
     "Arcane Mage": {
-      "tier": "B-",
+      "tier": "C",
       "note": ""
     },
     "Fire Mage": {
@@ -1985,6 +1989,10 @@ var trinkets = {
     "Beast Mastery Hunter": {
       "tier": "A",
       "note": "This performs great but 1) Requires sockets to get full value so might not immediately be viable and 2) Forces you to ideally run similar gems which might lose you damage elsewhere. 3) Requires a  Spark of Dreams to make."
+    },
+    "Discipline Priest": {
+      "tier": "A",
+      "note": "Solid passive stat trinket, improved with more sockets"
     },
     "Subtlety Rogue": {
       "tier": "F",
@@ -2063,7 +2071,7 @@ var trinkets = {
       "note": "Passive Intellect and direct damage for solid value, with a proc rate of around three per minute. The healing effect also procs independently, which is a nice bonus as Augmentation does occasionally cast healing spells which are able to proc this effect."
     },
     "Arcane Mage": {
-      "tier": "B-",
+      "tier": "C",
       "note": ""
     },
     "Fire Mage": {
@@ -2387,26 +2395,6 @@ var trinkets = {
       "note": "Season 2. Passive trinket."
     }
   },
-  "Beacon to the Beyond": {
-    "Brewmaster Monk": {
-      "tier": "A-",
-      "note": "Powerful direct damage trinket. All it does is damage, but it does a lot. It will eventually be outclassed by higher item level options."
-    },
-    "Protection Paladin": {
-      "tier": "A",
-      "note": "A damage trinket with a cast time. It will do good damage in any situation with up to 5 targets. Damage is split so it will drop off after that. The trinket has passive mastery which gives it some defensive value. The trinket has a 2 second cast time so be aware of when you use it as you won't be able to block or parry during the cast. This is a trinket from the previous raid but it is affected by external damages on two encounters: Smolderon and Tindral Sageswift where they have burn phases. This trinket will help you maximize damage output in those phases."
-    },
-    "Protection Warrior": {
-      "tier": "A-",
-      "note": "Powerful direct damage trinket. All it does is damage, but it does a lot. It will eventually be outclassed by higher item level options."
-    }
-  },
-  "Dragonfire Bomb Dispenser": {
-    "Brewmaster Monk": {
-      "tier": "A-",
-      "note": "Direct damage trinket. It's simple, available often, and deals a pretty good amount of damage. Rushing Jade Wind triggers the Flash of Inspiration effect, so maintaining a steady supply of bombs is pretty easy. The only problems this trinket has are that its short cooldown makes it a small liability for any double on-use trinket setups (its on-use effect only triggers a 10-second cooldown instead of the usual 20), and the 7-second fuse is a fairly long delay for priority damage targets. It's extremely good, and should be a high priority, it can just be a little annoying to use at times. It will eventually be outclassed by higher item level trinkets."
-    }
-  },
   "Neltharion's Call to Dominance": {
     "Mistweaver Monk": {
       "tier": "B",
@@ -2424,10 +2412,6 @@ var trinkets = {
       "tier": "A-",
       "note": "Crafted through Jewelcrafting, this is a simple proc trinket. It's proc has decent uptime, and grant a good amount of secondaries, scaling with the amount of gems you have on your gear."
     },
-    "Discipline Priest": {
-      "tier": "A",
-      "note": "Solid passive stat trinket, improved with more sockets"
-    },
     "Holy Priest": {
       "tier": "A",
       "note": "Solid passive stat trinket, improved with more sockets"
@@ -2435,6 +2419,12 @@ var trinkets = {
     "Subtlety Rogue": {
       "tier": "F",
       "note": ""
+    }
+  },
+  "Beacon to the Beyond": {
+    "Protection Paladin": {
+      "tier": "A",
+      "note": "A damage trinket with a cast time. It will do good damage in any situation with up to 5 targets. Damage is split so it will drop off after that. The trinket has passive mastery which gives it some defensive value. The trinket has a 2 second cast time so be aware of when you use it as you won't be able to block or parry during the cast. This is a trinket from the previous raid but it is affected by external damages on two encounters: Smolderon and Tindral Sageswift where they have burn phases. This trinket will help you maximize damage output in those phases."
     }
   },
   "Any Other Crafted Trinket (including all Darkmoon Decks and other Alchemist Stones)": {
@@ -2447,12 +2437,6 @@ var trinkets = {
     "Subtlety Rogue": {
       "tier": "F",
       "note": ""
-    }
-  },
-  "Elementium Pocket Anvil": {
-    "Protection Warrior": {
-      "tier": "A-",
-      "note": "Single-target DPS trinket. It procs occasionally, for a decent amount of damage, but it is mainly useful for single-target. The on-use is pretty minor, but buffs the damage of all subsequent procs for the remainder of the encounter. Not great for AoE or Mythic+ situations, but really good in a lot of raid fights. It will be outclassed by higher item level options."
     }
   }
 }
