@@ -766,7 +766,7 @@ var trinkets = {
     },
     "Holy Paladin": {
       "tier": "B",
-      "note": "Should be used with AoE healing effect."
+      "note": "Should be used with its Crit buff."
     },
     "Protection Paladin": {
       "tier": "B",
@@ -904,7 +904,7 @@ var trinkets = {
     },
     "Discipline Priest": {
       "tier": "A",
-      "note": "Stat stick scales with the number of other players wearing it. Was nerfed entering into S4 so the value has diminished but still offers good value for DIsc, particularly if DPS players are not also wearing it."
+      "note": "Stat stick scales with the number of other players wearing it. Was nerfed entering into S4 so the value has diminished some for many specs but still excellent value for DIsc."
     },
     "Holy Priest": {
       "tier": "A-",
@@ -1519,6 +1519,10 @@ var trinkets = {
     "Mistweaver Monk": {
       "tier": "D",
       "note": "Good for keeping one person alive really well, but the damage it deals is ignorable. Might have some specific-use cases in high Mythic+, in order to avoid abilities that would otherwise one-shot an ally, but outside of that, don't expect to dust it off if you get it."
+    },
+    "Holy Paladin": {
+      "tier": "B",
+      "note": "For raiding this trinket is not great, however, in very high keys, it can be unbeatable when it comes to saving people and for living large hits. So you will probably see people run it for push keys."
     },
     "Protection Paladin": {
       "tier": "A",
@@ -2991,10 +2995,10 @@ var trinkets = {
       "note": "Ruby Life Pools"
     }
   },
-  "Boots of Explosive Growth": {
+  "Swollen Bark Clasp": {
     "Augmentation Evoker": {
       "tier": "Belt",
-      "note": "Algeth'ar Academy"
+      "note": "Brackenhide Hollow"
     }
   },
   "Tassets of Densified Ooze": {
