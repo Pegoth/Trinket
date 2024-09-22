@@ -16,12 +16,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build Trinket --no-restore
     - name: Publish
-      run: dotnet publish Trinket --no-build -o _site
+      run: dotnet publish Trinket -o _site
     - name: Upload GitHub Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
