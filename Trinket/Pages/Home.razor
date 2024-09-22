@@ -29,13 +29,12 @@
                                         .Select(a => new
                                          {
                                              a.Trinket,
-                                             a.Data.Tier,
-                                             a.Data.Note,
-                                             a.Data.TierNumerical
+                                             a.Data
                                          })
-                                        .OrderBy(a => a.TierNumerical);
+                                        .OrderBy(a => a.Data.TierNumerical);
+                    var first = filtered.First().Value.First();
                     <div class="mb-2">
-                        <h4 class="text-center">@filtered.First().Value.First().Key</h4>
+                        <h4 class="text-center">@first.Key</h4>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -49,13 +48,16 @@
                                 {
                                     <tr>
                                         <td class="text-center align-middle text-nowrap">
-                                            @info.Trinket
+                                            <a href="@info.Data.Link">
+                                                <img src="@info.Data.Icon" alt="" style="width: 32px; height: 32px;" />
+                                                @info.Trinket
+                                            </a>
                                         </td>
                                         <td class="text-center align-middle">
-                                            @info.Tier
+                                            @info.Data.Tier
                                         </td>
                                         <td>
-                                            @info.Note
+                                            @info.Data.Note
                                         </td>
                                     </tr>
                                 }
@@ -71,8 +73,14 @@
                     if (result.Value.Count <= 0)
                         continue;
 
+                    var first = result.Value.First();
                     <div class="mb-2">
-                        <h4 class="text-center">@result.Key</h4>
+                        <h4 class="text-center">
+                            <a href="@first.Value.Link">
+                                <img src="@first.Value.Icon" alt="" style="width: 32px; height: 32px;"/>
+                                @result.Key
+                            </a>
+                        </h4>
                         <table class="table">
                             <thead>
                                 <tr>

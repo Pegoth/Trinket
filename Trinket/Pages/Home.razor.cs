@@ -110,6 +110,14 @@ public partial class Home
         }
 
         [JsonInclude]
+        [JsonPropertyName("icon")]
+        public string? Icon { get; set; }
+
+        [JsonInclude]
+        [JsonPropertyName("link")]
+        public string? Link { get; set; }
+
+        [JsonInclude]
         [JsonPropertyName("note")]
         public string? Note { get; set; }
     }
