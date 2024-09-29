@@ -401,3 +401,7 @@ FodyWeavers.xsd
 .env
 
 _site
+
+# Ignore cache files
+/TrinketTierDump/extraDataCache.json
+/TrinketTierDump/specsCache.json

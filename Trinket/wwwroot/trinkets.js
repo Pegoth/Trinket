@@ -1,4 +1,210 @@
 var trinkets = {
+  "Mad Queen's Mandate": {
+    "Blood Death Knight": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Frost Death Knight": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "It is a good Critical Strike stick with interesting damage on use. After a brief channel, it deals a huge chunk of damage to your target in an attempt to execute it. This trinket may be fun to play with in Mythic+, where you'll have many opportunities to execute targets for more casts. Use this before or after  Pillar of Frost, or you'll lose a GCD."
+    },
+    "Unholy Death Knight": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "On-use damage trinket that does pretty good damage all things considered, but, it doesn't give stats so Unholy would prefer something that does."
+    },
+    "Havoc Demon Hunter": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "An exceptionally powerful on-use cast, high variability on a single massive hit relying on landing a critical strike. Very good, but the RNG of critical strikes can be unappealing. BiS for ST as a double on-use, casted after Skardyn's Grace."
+    },
+    "Vengeance Demon Hunter": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "This trinket grants static Crit and an on-use with a 2 minute cooldown. It has a 1 second cast time, during which you are unable to dodge or parry, but deals a massive amount of damage over 2 sec to a Priority target, and it deals scaling increased damage to enemies with missing health. In addition, if the enemy dies during the debuff, the cooldown is cut in half to 1 minute, making it a fantastic option in multi-target fights. However, by default it's not as strong as other trinkets that aren't reliant on the cooldown reduction."
+    },
+    "Balance Druid": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Feral Druid": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "The best 2nd trinket, it's an on use but it deals damage so there's no harm from desyncing it with your cooldowns. Does MASSIVE damage on use, many other specs aren't quite as happy with this trinket as Feral is so it should be fairly uncompeted for."
+    },
+    "Guardian Druid": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Can be incredibly powerful if you manage to kill targets with it for the reduce CD."
+    },
+    "Devastation Evoker": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Damage trinket that hits harder in execute. Cooldown halved if target is killed. Moves to B tier in AOE, unless you can consistently get resets on the kill effect."
+    },
+    "Augmentation Evoker": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Critical Strike is an excellent secondary stat for Augmentation Evoker, and the direct damage dealt by this trinket is quite substantial, particularly for an Augmentation Evoker with limited single target burst potential. Additionally, this trinket also becomes more effective against enemies on lower health."
+    },
+    "Beast Mastery Hunter": {
+      "tier": "A+",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Decent single-target shadow damage blast with some built-in healing Buffed by  Darkness Calls."
+    },
+    "Marksmanship Hunter": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Our outright BiS for all things single-target, for any Hero Talent."
+    },
+    "Survival Hunter": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Arcane Mage": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Fire Mage": {
+      "tier": "F",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Frost Mage": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Brewmaster Monk": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "While it does not feature Agility, Critical Strike is the best secondary you could hope for as a Brewmaster on a trinket like this. Although its damage is noteworthy enough to be your best choice for lower target counts, your success with this trinket will be additionally determined by whether or not you can take advantage of its bonus effects of extra damage on lower-health targets and cooldown reduction for defeating an enemy with it.Beyond that, its heal effect is insignificant, and it should also be noted that you cannot dodge attacks while channeling its 1-second cast time (though you can move during it)."
+    },
+    "Mistweaver Monk": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Windwalker Monk": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "This trinket does a HUGE amount of damage with the on-use ability. If you can somehow get it to kill the targets and use it 2x as often, its an easy S-tier trinket."
+    },
+    "Protection Paladin": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Retribution Paladin": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "On use damage. Use on cooldown unless you won't get another cast during the encounter; in that case you should delay as its damage is increased against lower health targets."
+    },
+    "Discipline Priest": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Holy Priest": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Shadow Priest": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Assassination Rogue": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Strong on-use damage. If you can time it for the cooldown reset it's even better, but it's hard to play around and not necessary"
+    },
+    "Outlaw Rogue": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "A powerful on use trinket that can be especially powerful in Mythic plus where you can abuse the resets."
+    },
+    "Subtlety Rogue": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "The best trinket for your 2nd trinket slot but a very contested trinket option.If you get this trinket, use it during  Symbols of Death as TricksterUse it during  Lingering Darkness when playing DeathstalkerIf combined with other on use trinkets like  Treacherous Transmitter, use  Mad Queen's Mandate second."
+    },
+    "Elemental Shaman": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Enhancement Shaman": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Restoration Shaman": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": ""
+    },
+    "Affliction Warlock": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Mad Queen's Mandate is essentially our \"Best\" raw single target damage option, but has very little AOE value."
+    },
+    "Demonology Warlock": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Similar to an item used a lot in Dragonflight,  Iridal, the Earth's Master, this trinket can be used more often if you time the on use with executing a mob. The passive Critical Strike it provides is fine, but Intellect passives will always be better."
+    },
+    "Destruction Warlock": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "Offers a good on-use damage effect, which also works very well in settings where you can benefit from the cooldown reduction function."
+    },
+    "Protection Warrior": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
+      "link": "https://wowhead.com/item=212454",
+      "note": "This is the single best offensive option trinket obtainable. With a small heal"
+    }
+  },
   "Ara-Kara Sacbrood": {
     "Blood Death Knight": {
       "tier": "A",
@@ -94,7 +300,7 @@ var trinkets = {
       "tier": "A",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg",
       "link": "https://wowhead.com/item=219314",
-      "note": "Our strongest passive trinket, it sounds interesting but its the definition of a trinket you don't think about."
+      "note": "Our strongest passive trinket from a dungeon, it sounds interesting but its the definition of a trinket you don't think about."
     },
     "Fire Mage": {
       "tier": "A",
@@ -409,41 +615,47 @@ var trinkets = {
       "note": "Has several beneficial on-use effects which stack up to do a decent amount of damage and grant some nice passive defensive elements."
     }
   },
-  "Spare Meat Hook": {
+  "Foul Behemoth's Chelicera": {
     "Blood Death Knight": {
       "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
-      "link": "https://wowhead.com/item=178751",
-      "note": "Point and shoot, just don't outrange the effect"
-    },
-    "Frost Death Knight": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
-      "link": "https://wowhead.com/item=178751",
-      "note": "One of the better placeholders until you can get something better. A solid Strength stick with an okay damage Use effect."
-    },
-    "Unholy Death Knight": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
-      "link": "https://wowhead.com/item=178751",
-      "note": "Solid on-use damage trinket with a slow component. Not the best out there for Unholy due to its preferences toward stats, but, if it's the best you have it's a solid option."
-    },
-    "Protection Paladin": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
-      "link": "https://wowhead.com/item=178751",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
       "note": ""
     },
-    "Retribution Paladin": {
+    "Vengeance Demon Hunter": {
+      "tier": "A+",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
+      "note": "This is classed as a tank trinket, so it doesn't have the damage penalty of DPS trinkets. Because of this, it does damage that is nearly on par with full DPS trinkets, while also having defensive benefits! This is exceptionally good in Mythic+ because it has a short 90 second cooldown, while granting a max health buff that's great for bosses, while generating a shield in between pulls that helps buffer us during our weakest point - on pull before our defensives get rolling. It grants static Agility on top of the buff that can stack up to 20 times."
+    },
+    "Guardian Druid": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
+      "note": "Decent damage with a stacking health effect across the entire fight. Great on long fights and progression."
+    },
+    "Brewmaster Monk": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
+      "note": "Despite being a tank trinket, the damage output from this item is exceptionally competitive with the strongest options, and that's before considering that it also has additional defensive benefits! Plus, the additional maximum health from overhealing with this trinket ( Nerubian Fortitude) acts as a small buff to your  Touch of Death damage!Seek this out as a potent on-use choice with some hybrid bonuses that likely isn't being claimed by a dps player."
+    },
+    "Protection Paladin": {
       "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
-      "link": "https://wowhead.com/item=178751",
-      "note": "On use damage. Use on cooldown. Try to stay close enough to the target so that it won't break early."
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
+      "note": ""
+    },
+    "Subtlety Rogue": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
+      "note": "Is technically not a DPS trinket option but seems to do decent damage with added benefits from the increased maximum health/shield."
     },
     "Protection Warrior": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
-      "link": "https://wowhead.com/item=178751",
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
+      "link": "https://wowhead.com/item=219915",
       "note": ""
     }
   },
@@ -479,47 +691,107 @@ var trinkets = {
       "note": ""
     }
   },
-  "Foul Behemoth's Chelicera": {
+  "Spelunker's Waning Candle": {
     "Blood Death Knight": {
       "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Frost Death Knight": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Unholy Death Knight": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Havoc Demon Hunter": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
       "note": ""
     },
     "Vengeance Demon Hunter": {
-      "tier": "A+",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
-      "note": "This is classed as a tank trinket, so it doesn't have the damage penalty of DPS trinkets. Because of this, it does damage that is nearly on par with full DPS trinkets, while also having defensive benefits! This is exceptionally good in Mythic+ because it has a short 90 second cooldown, while granting a max health buff that's great for bosses, while generating a shield in between pulls that helps buffer us during our weakest point - on pull before our defensives get rolling. It grants static Agility on top of the buff that can stack up to 20 times."
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
     },
-    "Guardian Druid": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
-      "note": "Decent damage with a stacking health effect across the entire fight. Great on long fights and progression."
+    "Feral Druid": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Beast Mastery Hunter": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": "Gives a lot of stats. Ideally you want to stay isolated so the buff doesn't split. Excellent for solo content for that reason."
+    },
+    "Marksmanship Hunter": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Survival Hunter": {
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": "Another delve trinket, aiming more at potentionally buffing allies. However, unlike  Mistcaller Ocarina it appears to split the buff with your ally rather than getting the full effect. This means you might not want to share the buff at all if you happen to have your cooldowns active! As with all Delve trinkets, the maximum itemlevel is limited at 626."
     },
     "Brewmaster Monk": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
-      "note": "Despite being a tank trinket, the damage output from this item is exceptionally competitive with the strongest options, and that's before considering that it also has additional defensive benefits! Seek this out as an on-use choice with some hybrid bonuses that isn't likely being claimed by a dps player."
+      "tier": "B-",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Windwalker Monk": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
     },
     "Protection Paladin": {
       "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
       "note": ""
     },
-    "Subtlety Rogue": {
+    "Assassination Rogue": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": "One of the better Delve passive trinkets, the crit proc is tuned fairly well, but it does suffer from the lower item level"
+    },
+    "Outlaw Rogue": {
       "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
-      "note": "Is technically not a DPS trinket option but seems to do decent damage with added benefits from the increased maximum health/shield."
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": "Similar to  Error If Too Many Players, a passive trinket with a small bonus that it provides a group buff as well."
+    },
+    "Subtlety Rogue": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": ""
+    },
+    "Enhancement Shaman": {
+      "tier": "B+",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
+      "note": "While we don't normally look for Crit on gear, since we're melee the chance you can double this buff up on an ally makes it extremely valuable for overall group damage. Less beneficial purely for us, but the net benefit makes it worth it."
     },
     "Protection Warrior": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg",
-      "link": "https://wowhead.com/item=219915",
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
+      "link": "https://wowhead.com/item=225638",
       "note": ""
     }
   },
@@ -597,6 +869,114 @@ var trinkets = {
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_alchemystone_color4.jpg",
       "link": "https://wowhead.com/item=219311",
       "note": ""
+    }
+  },
+  "Spare Meat Hook": {
+    "Blood Death Knight": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+      "link": "https://wowhead.com/item=178751",
+      "note": "Point and shoot, just don't outrange the effect"
+    },
+    "Frost Death Knight": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+      "link": "https://wowhead.com/item=178751",
+      "note": "One of the better placeholders until you can get something better. A solid Strength stick with an okay damage Use effect."
+    },
+    "Unholy Death Knight": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+      "link": "https://wowhead.com/item=178751",
+      "note": "Solid on-use damage trinket with a slow component. Not the best out there for Unholy due to its preferences toward stats, but, if it's the best you have it's a solid option."
+    },
+    "Protection Paladin": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+      "link": "https://wowhead.com/item=178751",
+      "note": ""
+    },
+    "Retribution Paladin": {
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+      "link": "https://wowhead.com/item=178751",
+      "note": "On use damage. Use on cooldown. Try to stay close enough to the target so that it won't break early."
+    },
+    "Protection Warrior": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg",
+      "link": "https://wowhead.com/item=178751",
+      "note": ""
+    }
+  },
+  "Refracting Aggression Module": {
+    "Blood Death Knight": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
+      "link": "https://wowhead.com/item=219315",
+      "note": ""
+    },
+    "Vengeance Demon Hunter": {
+      "tier": "C-",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
+      "link": "https://wowhead.com/item=219315",
+      "note": "This trinket has static Agility and whenever you taunt, it grants a shield that reduces damage you take by 50%, up to a cap with a 1 minute ICD. Unfortunately, the amount of shield is extremely low despite being on-demand, and incentivizes taunting for purposes other than regaining agro."
+    },
+    "Brewmaster Monk": {
+      "tier": "C+",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
+      "link": "https://wowhead.com/item=219315",
+      "note": ""
+    },
+    "Protection Paladin": {
+      "tier": "F",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
+      "link": "https://wowhead.com/item=219315",
+      "note": "This is a weak trinket that gives you an absorb when you taunt. This trinket doesn't work in raid at all because timings usually allow for cooldowns to be cycled quickly so the shield is not really needed. In M+, you could have potentially used it to help fill defensive gaps but the shield strength is not enough. It's barely a single melee swing as key levels get higher."
+    },
+    "Protection Warrior": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
+      "link": "https://wowhead.com/item=219315",
+      "note": ""
+    }
+  },
+  "Mark of Khardros": {
+    "Blood Death Knight": {
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+      "link": "https://wowhead.com/item=133300",
+      "note": ""
+    },
+    "Frost Death Knight": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+      "link": "https://wowhead.com/item=133300",
+      "note": "Both on-use secondary stat trinkets available for Frost this season are nearly identical.  Skarmorak Shard grants small Mastery buffs when you defeat enemies, making this a bit more attractive than  Mark of Khardros in Mythic+. The 90-second cooldown makes this trinket for any build. It will line up with your cooldowns whether you play Deathbringer or Rider of the Apocalypse,  Breath of Sindragosa or  Obliteration."
+    },
+    "Unholy Death Knight": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+      "link": "https://wowhead.com/item=133300",
+      "note": "Another great on-use trinket with a 90-second cooldown. Very similar to  Mark of Khardros, but gives slightly less mastery on use, and instead gets a bonus bit of mastery when walking near an enemy's corpse. This secondary effect makes this trinket great for Mythic+ and Delves."
+    },
+    "Protection Paladin": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+      "link": "https://wowhead.com/item=133300",
+      "note": "Another on-use Mastery option that is better for single-target situations."
+    },
+    "Retribution Paladin": {
+      "tier": "S",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+      "link": "https://wowhead.com/item=133300",
+      "note": "On use Mastery trinket. Use after  Execution Sentence before  Wake of Ashes."
+    },
+    "Protection Warrior": {
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+      "link": "https://wowhead.com/item=56458",
+      "note": "A 1.5-minute cooldown mastery buff will line up with every  Ravager and  Champion's Spear. It's a great offensive option for single-target and AoE alike!"
     }
   },
   "Skarmorak Shard": {
@@ -735,7 +1115,7 @@ var trinkets = {
       "note": "This is a complicated trinket, but generally you can just think of it as a passive stat boost. Because stacks above 20 grant a reduced effect, you should try to keep both types of stacks below 20 and use the active to keep it balanced there."
     },
     "Brewmaster Monk": {
-      "tier": "A",
+      "tier": "B",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg",
       "link": "https://wowhead.com/item=220305",
       "note": "While this trinket gives no stats on its own, you will passively generate either Agility or your highest secondary stat based on whether you are standing still or moving. This results in building or losing one stack of each buff per second, with the option to freeze the stack counts at their current amounts once every 2-minutes. Overall, you will need to maintain large amounts of the Agility stack count in particular for this trinket to excel, so don't fidget too much! When properly utilized, this trinket represents one of your strongest choices in AoE."
@@ -926,7 +1306,7 @@ var trinkets = {
       "tier": "A",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg",
       "link": "https://wowhead.com/item=221023",
-      "note": "This is a very strong trinket, espcially paired with Spymasters Web, due to how the mechanic works, you can stagger the buff up to 12 seconds or so and stack it with other trinket effects, this is a very strong combo with Spymasters Web in execute."
+      "note": "Blizzard was quick to fix this trinket so we could not use it with Spymaster's, however it is still strong, aim to use it 6-7s before  Evocation, then activate the buff when you're ready to burst!"
     },
     "Fire Mage": {
       "tier": "B",
@@ -1055,236 +1435,126 @@ var trinkets = {
       "note": "Grants extremely high amount of Strength on a 1.5-minute cooldown. However is locked behind a small series of gimmicks to perform like \"Jump 3 times!\" or \"collect these orbs\" before getting its buff. Otherwise a very potent trinket!"
     }
   },
-  "Mark of Khardros": {
+  "Shadow-Binding Ritual Knife": {
     "Frost Death Knight": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
-      "link": "https://wowhead.com/item=133300",
-      "note": "Both on-use secondary stat trinkets available for Frost this season are nearly identical.  Skarmorak Shard grants small Mastery buffs when you defeat enemies, making this a bit more attractive than  Mark of Khardros in Mythic+. The 90-second cooldown makes this trinket for any build. It will line up with your cooldowns whether you play Deathbringer or Rider of the Apocalypse,  Breath of Sindragosa or  Obliteration."
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": ""
     },
     "Unholy Death Knight": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
-      "link": "https://wowhead.com/item=133300",
-      "note": "Another great on-use trinket with a 90-second cooldown. Very similar to  Mark of Khardros, but gives slightly less mastery on use, and instead gets a bonus bit of mastery when walking near an enemy's corpse. This secondary effect makes this trinket great for Mythic+ and Delves."
-    },
-    "Protection Paladin": {
       "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
-      "link": "https://wowhead.com/item=133300",
-      "note": "Another on-use Mastery option that is better for single-target situations."
-    },
-    "Retribution Paladin": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
-      "link": "https://wowhead.com/item=133300",
-      "note": "On use Mastery trinket. Use after  Execution Sentence before  Wake of Ashes."
-    },
-    "Protection Warrior": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
-      "link": "https://wowhead.com/item=56458",
-      "note": "A 1.5-minute cooldown mastery buff will line up with every  Ravager and  Champion's Spear. It's a great offensive option for single-target and AoE alike!"
-    }
-  },
-  "Mad Queen's Mandate": {
-    "Frost Death Knight": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "It is a good Critical Strike stick with interesting damage on use. After a brief channel, it deals a huge chunk of damage to your target in an attempt to execute it. This trinket may be fun to play with in Mythic+, where you'll have many opportunities to execute targets for more casts. Use this before or after  Pillar of Frost, or you'll lose a GCD."
-    },
-    "Unholy Death Knight": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "On-use damage trinket that does pretty good damage all things considered, but, it doesn't give stats so Unholy would prefer something that does."
-    },
-    "Havoc Demon Hunter": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "An exceptionally powerful on-use cast, high variability on a single massive hit relying on landing a critical strike. Very good, but the RNG of critical strikes can be unappealing. BiS for ST as a double on-use, casted after Skardyn's Grace."
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "An incredibly potent passive trinket that can be great if obtained at high item levels through the Great Vault. Though generally worse than  Ara-Kara Sacbrood."
     },
     "Vengeance Demon Hunter": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "This trinket grants static Crit and an on-use with a 2 minute cooldown. It has a 1 second cast time, during which you are unable to dodge or parry, but deals a massive amount of damage over 2 sec to a Priority target, and it deals scaling increased damage to enemies with missing health. In addition, if the enemy dies during the debuff, the cooldown is cut in half to 1 minute, making it a fantastic option in multi-target fights. However, by default it's not as strong as other trinkets that aren't reliant on the cooldown reduction."
-    },
-    "Balance Druid": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
+      "tier": "F",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
       "note": ""
     },
     "Feral Druid": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "The best 2nd trinket, it's an on use but it deals damage so there's no harm from desyncing it with your cooldowns. Does MASSIVE damage on use, many other specs aren't quite as happy with this trinket as Feral is so it should be fairly uncompeted for."
-    },
-    "Guardian Druid": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Can be incredibly powerful if you manage to kill targets with it for the reduce CD."
-    },
-    "Devastation Evoker": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Damage trinket that hits harder in execute. Cooldown halved if target is killed. Moves to B tier in AOE, unless you can consistently get resets on the kill effect."
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the best secondary options available."
     },
     "Augmentation Evoker": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Critical Strike is an excellent secondary stat for Augmentation Evoker, and the direct damage dealt by this trinket is quite substantial, particularly for an Augmentation Evoker with limited single target burst potential. Additionally, this trinket also becomes more effective against enemies on lower health."
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "This trinket is essentially an overbudget Intellect + Mastery stat stick with a downside that procs infrequently. Overall this trinket is quite good for Augmentation. The only major caveat is that, as usual, Delve trinkets can only be obtained at Hero track via the Great Vault, and cannot reach Myth track like items from Raid or Mythic+. This is still a solid trinket overall, even at lower item levels."
     },
     "Beast Mastery Hunter": {
-      "tier": "A+",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Decent single-target shadow damage blast with some built-in healing Buffed by  Darkness Calls."
+      "tier": "F",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": ""
     },
     "Marksmanship Hunter": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Our outright BiS for all things single-target, for any Hero Talent."
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": ""
     },
     "Survival Hunter": {
       "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "Very powerful, passive trinket. It does reduce your secondary stats randomly, which can impact you in important damage phases, but most of the time it reduces an unimportant stat (versatility or critical strike). However, this trinket is limited in power due to only being obtainable at a high ilevel through the great vault or specifically Delve maps."
     },
     "Arcane Mage": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
-    },
-    "Fire Mage": {
-      "tier": "F",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
-    },
-    "Frost Mage": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
+      "tier": "B",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "A stronger passive trinket from delves, don't worry about the stats you lose, it balances out in the long run."
     },
     "Brewmaster Monk": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "While it does not feature Agility, Critical Strike is the best secondary you could hope for as a Brewmaster on a trinket like this. Although its damage is noteworthy enough to be your best choice for lower target counts, your success with this trinket will be additionally determined by whether or not you can take advantage of its bonus effects of extra damage on lower-health targets and cooldown reduction for defeating an enemy with it.Beyond that, its heal effect is insignificant, and it should also be noted that you cannot dodge attacks while channeling its 1-second cast time (though you can move during it)."
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": ""
     },
     "Mistweaver Monk": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
+      "tier": "F",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
       "note": ""
     },
     "Windwalker Monk": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "This trinket does a HUGE amount of damage with the on-use ability. If you can somehow get it to kill the targets and use it 2x as often, its an easy S-tier trinket."
+      "tier": "C",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": ""
     },
     "Protection Paladin": {
       "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
       "note": ""
     },
     "Retribution Paladin": {
       "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "On use damage. Use on cooldown unless you won't get another cast during the encounter; in that case you should delay as its damage is increased against lower health targets."
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "Passive statstick. No special usage required."
     },
     "Discipline Priest": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
+      "tier": "D",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
       "note": ""
     },
     "Holy Priest": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
-    },
-    "Shadow Priest": {
       "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
       "note": ""
     },
     "Assassination Rogue": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Strong on-use damage. If you can time it for the cooldown reset it's even better, but it's hard to play around and not necessary"
-    },
-    "Outlaw Rogue": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "A powerful on use trinket that can be especially powerful in Mythic plus where you can abuse the resets."
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "A surprisingly strong delve trinket, but the item level keeps it down compared to the higher listed trinkets"
     },
     "Subtlety Rogue": {
       "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "The best trinket for your 2nd trinket slot but a very contested trinket option.If you get this trinket, use it during  Symbols of Death as TricksterUse it during  Lingering Darkness when playing DeathstalkerIf combined with other on use trinkets like  Treacherous Transmitter, use  Mad Queen's Mandate second."
-    },
-    "Elemental Shaman": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "Best Delves trinket, has a high uptime."
     },
     "Enhancement Shaman": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": ""
+      "tier": "A",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
+      "note": "Brings a huge amount of passive stats, and the negative proc of stat reduction happens very infrequently making its high budget work it. Even at lower item levels the budget on this makes it keep up with higher item level alternatives, plus you can't really mess up stat sticks."
     },
     "Restoration Shaman": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
+      "tier": "B+",
+      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
+      "link": "https://wowhead.com/item=215178",
       "note": ""
-    },
-    "Affliction Warlock": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Mad Queen's Mandate is essentially our \"Best\" raw single target damage option, but has very little AOE value."
-    },
-    "Demonology Warlock": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Similar to an item used a lot in Dragonflight,  Iridal, the Earth's Master, this trinket can be used more often if you time the on use with executing a mob. The passive Critical Strike it provides is fine, but Intellect passives will always be better."
-    },
-    "Destruction Warlock": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "Offers a good on-use damage effect, which also works very well in settings where you can benefit from the cooldown reduction function."
-    },
-    "Protection Warrior": {
-      "tier": "S",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg",
-      "link": "https://wowhead.com/item=212454",
-      "note": "This is the single best offensive option trinket obtainable. With a small heal"
     }
   },
   "Imperfect Ascendancy Serum": {
@@ -1443,104 +1713,6 @@ var trinkets = {
       "icon": "https://wow.zamimg.com/images/wow/icons/large/trade_alchemy_dpotion_a25.jpg",
       "link": "https://wowhead.com/item=225654",
       "note": "2-minute cooldown trinket which grants a huge burst of stats for 20 seconds. However doesn't line up with any of our cooldowns and the passive stats on the trinket are reduced by large amounts. Bad."
-    }
-  },
-  "Spelunker's Waning Candle": {
-    "Frost Death Knight": {
-      "tier": "D+",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Unholy Death Knight": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Havoc Demon Hunter": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Vengeance Demon Hunter": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Feral Druid": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Beast Mastery Hunter": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": "Gives a lot of stats. Ideally you want to stay isolated so the buff doesn't split. Excellent for solo content for that reason."
-    },
-    "Marksmanship Hunter": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Survival Hunter": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": "Another delve trinket, aiming more at potentionally buffing allies. However, unlike  Mistcaller Ocarina it appears to split the buff with your ally rather than getting the full effect. This means you might not want to share the buff at all if you happen to have your cooldowns active! As with all Delve trinkets, the maximum itemlevel is limited at 626."
-    },
-    "Brewmaster Monk": {
-      "tier": "B-",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Windwalker Monk": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Protection Paladin": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Assassination Rogue": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": "One of the better Delve passive trinkets, the crit proc is tuned fairly well, but it does suffer from the lower item level"
-    },
-    "Outlaw Rogue": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": "Similar to  Error If Too Many Players, a passive trinket with a small bonus that it provides a group buff as well."
-    },
-    "Subtlety Rogue": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
-    },
-    "Enhancement Shaman": {
-      "tier": "B+",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": "While we don't normally look for Crit on gear, since we're melee the chance you can double this buff up on an ally makes it extremely valuable for overall group damage. Less beneficial purely for us, but the net benefit makes it worth it."
-    },
-    "Protection Warrior": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg",
-      "link": "https://wowhead.com/item=225638",
-      "note": ""
     }
   },
   "Overclocked Gear-a-Rang Launcher": {
@@ -1821,7 +1993,7 @@ var trinkets = {
       "note": "This can be a reasonable alternative to  Skardyn's Grace in a pinch, however it is nowhere near as powerful even at 626, which is the maximum itemlevel of  Quickwick Candlestick."
     },
     "Arcane Mage": {
-      "tier": "C",
+      "tier": "B",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg",
       "link": "https://wowhead.com/item=225649",
       "note": "A solid use trinket, just held back by lower being ilevel."
@@ -1964,116 +2136,6 @@ var trinkets = {
       "tier": "D",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_red.jpg",
       "link": "https://wowhead.com/item=218307",
-      "note": ""
-    }
-  },
-  "Shadow-Binding Ritual Knife": {
-    "Unholy Death Knight": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "An incredibly potent passive trinket that can be great if obtained at high item levels through the Great Vault. Though generally worse than  Ara-Kara Sacbrood."
-    },
-    "Vengeance Demon Hunter": {
-      "tier": "F",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Feral Druid": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the best secondary options available."
-    },
-    "Augmentation Evoker": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "This trinket is essentially an overbudget Intellect + Mastery stat stick with a downside that procs infrequently. Overall this trinket is quite good for Augmentation. The only major caveat is that, as usual, Delve trinkets can only be obtained at Hero track via the Great Vault, and cannot reach Myth track like items from Raid or Mythic+. This is still a solid trinket overall, even at lower item levels."
-    },
-    "Beast Mastery Hunter": {
-      "tier": "F",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Marksmanship Hunter": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Arcane Mage": {
-      "tier": "B",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "A stronger passive trinket from delves, don't worry about the stats you lose, it balances out in the long run."
-    },
-    "Brewmaster Monk": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Mistweaver Monk": {
-      "tier": "F",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Windwalker Monk": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Protection Paladin": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Retribution Paladin": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "Passive statstick. No special usage required."
-    },
-    "Discipline Priest": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Holy Priest": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": ""
-    },
-    "Assassination Rogue": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "A surprisingly strong delve trinket, but the item level keeps it down compared to the higher listed trinkets"
-    },
-    "Subtlety Rogue": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "Best Delves trinket, has a high uptime."
-    },
-    "Enhancement Shaman": {
-      "tier": "A",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
-      "note": "Brings a huge amount of passive stats, and the negative proc of stat reduction happens very infrequently making its high budget work it. Even at lower item levels the budget on this makes it keep up with higher item level alternatives, plus you can't really mess up stat sticks."
-    },
-    "Restoration Shaman": {
-      "tier": "D",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg",
-      "link": "https://wowhead.com/item=215178",
       "note": ""
     }
   },
@@ -2913,10 +2975,10 @@ var trinkets = {
       "note": "Deals very sustained single target damage, competing even with some of the S-tier options. However, it struggles to deal AoE damage effectively, dropping its overall rating down a lot."
     },
     "Brewmaster Monk": {
-      "tier": "B-",
+      "tier": "A",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg",
       "link": "https://wowhead.com/item=178742",
-      "note": ""
+      "note": "Due to being penalized on tank specializations for being a dps trinket, this item is only a decent choice rather than one of the absolute best. Remember to re-apply its effect when the buff expires or you have died!"
     },
     "Windwalker Monk": {
       "tier": "C",
@@ -3345,7 +3407,7 @@ var trinkets = {
       "note": ""
     },
     "Arcane Mage": {
-      "tier": "B",
+      "tier": "C",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_offhand_1h_draenorcrafted_d_01_c_alliance.jpg",
       "link": "https://wowhead.com/item=215169",
       "note": "A stronger passive trinket from delves, it just does some damage, nothing crazy."
@@ -3442,7 +3504,7 @@ var trinkets = {
       "tier": "A",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_engineersgrease_color1.jpg",
       "link": "https://wowhead.com/item=215174",
-      "note": "The limited ilvl here does not matter, this trinket is very strong and can be used with other trinkets currently for even more power.This trinket requires a specific macro to not double tap if you want to macro it to  Arcane Surge:#showtooltip Arcane Surge/use 14/castsequence reset=10 13, Arcane Surge, Arcane Surge/cast Arcane Surge/cqs"
+      "note": "The limited ilvl here does not matter, this trinket is very strong on its own despite the ilevel restriction on delve loot."
     },
     "Brewmaster Monk": {
       "tier": "C",
@@ -3496,32 +3558,6 @@ var trinkets = {
       "tier": "C",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_engineersgrease_color1.jpg",
       "link": "https://wowhead.com/item=215174",
-      "note": ""
-    }
-  },
-  "Refracting Aggression Module": {
-    "Vengeance Demon Hunter": {
-      "tier": "C-",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
-      "link": "https://wowhead.com/item=219315",
-      "note": "This trinket has static Agility and whenever you taunt, it grants a shield that reduces damage you take by 50%, up to a cap with a 1 minute ICD. Unfortunately, the amount of shield is extremely low despite being on-demand, and incentivizes taunting for purposes other than regaining agro."
-    },
-    "Brewmaster Monk": {
-      "tier": "C+",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
-      "link": "https://wowhead.com/item=219315",
-      "note": ""
-    },
-    "Protection Paladin": {
-      "tier": "F",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
-      "link": "https://wowhead.com/item=219315",
-      "note": "This is a weak trinket that gives you an absorb when you taunt. This trinket doesn't work in raid at all because timings usually allow for cooldowns to be cycled quickly so the shield is not really needed. In M+, you could have potentially used it to help fill defensive gaps but the shield strength is not enough. It's barely a single melee swing as key levels get higher."
-    },
-    "Protection Warrior": {
-      "tier": "C",
-      "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg",
-      "link": "https://wowhead.com/item=219315",
       "note": ""
     }
   },
@@ -3601,7 +3637,7 @@ var trinkets = {
       "note": "With a recent change to what triggers this trinket, it's now one of our best trinkets, provided we use a damaging ability every 6 seconds. This makes sure that the stacks of the buff continually grow. Because we don't have any periodic damaging spells, we need to make sure we cast  Tiger Palm,  Blackout Kick, or  Rising Sun Kick every 6 seconds while in combat. Pair the activated effect with any of our cooldowns to make your healing during them even more effective!"
     },
     "Holy Paladin": {
-      "tier": "S",
+      "tier": "A",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg",
       "link": "https://wowhead.com/item=220202",
       "note": "The on-use effect should be used with your Wings. To gain the optimal effect of this trinket, you need to cast an offensive spell every 6 seconds. If you do not come close to proccing it on that 6 second cooldown, it loses a ton of value. In dungeons this is not a problem as you will be having  Consecration down permanently. In raids, it loses a lot of value as you will not be proccing it every 6 seconds consistently, unless you keep  Consecration down, which isn't worth it."
@@ -3951,7 +3987,7 @@ var trinkets = {
       "note": "Chance to cause a small explosion that is split between targets, but increases in damage up to 5 targets."
     },
     "Arcane Mage": {
-      "tier": "C",
+      "tier": "B",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg",
       "link": "https://wowhead.com/item=178772",
       "note": "Proc damage that goes boom, its not as terrible as it was in Shadowlands!"
@@ -4019,7 +4055,7 @@ var trinkets = {
       "note": "Essentially an Intellect stat stick that becomes more powerful over the course of an encounter. This trinket is quite decent when allowed to ramp up, notably in progression raid encounters, but is significantly less effective in dungeon content like Mythic+ or Delves."
     },
     "Arcane Mage": {
-      "tier": "C",
+      "tier": "B",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg",
       "link": "https://wowhead.com/item=212451",
       "note": "A boring proc trinket in disguise - make sure you don't use it if you're going to use another trinket within 20s for your cooldowns."
@@ -4317,7 +4353,7 @@ var trinkets = {
       "note": "While technically usable as an Intellect stat stick, the random nature of the secondary effect leaves too much to be desired to consider using this over available alternatives. Additionally, as a Delve trinket this is not available at the highest item level unlike alternatives from Raid or Mythic+."
     },
     "Arcane Mage": {
-      "tier": "B",
+      "tier": "C",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_spiritshard_01.jpg",
       "link": "https://wowhead.com/item=225668",
       "note": "Another good passive trinket from delves, notice a trend here?"
@@ -4587,7 +4623,7 @@ var trinkets = {
       "note": "This trinket summons candle pets that attack your target. It does a surprising amount of damage."
     },
     "Arcane Mage": {
-      "tier": "C",
+      "tier": "A",
       "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_candlepet.jpg",
       "link": "https://wowhead.com/item=225648",
       "note": "The ally is really cute."
