@@ -1,113 +1,98 @@
 ﻿@page "/"
-@inject IJSRuntime JavaScript
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Home</PageTitle>
 
 <div class="container mt-2 mb-2">
-    @if (!string.IsNullOrEmpty(_error))
+    <div class="input-group mb-2">
+        <input type="search" class="form-control" placeholder="Trinket filter" @bind="TrinketFilter"/>
+        <input type="search" class="form-control" placeholder="Specialization/Class filter" @bind="SpecFilter"/>
+        <input type="button" class="btn btn-primary" value="Search" @onclick="Search"/>
+        <button type="button" class="btn btn-secondary" onclick="toggleDarkMode()">Dark mode</button>
+    </div>
+    @if (_results != null)
     {
-        @_error
-    }
-    else
-    {
-        <form @onsubmit="Search" @onsubmit:preventDefault="true">
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" @bind="_trinketFilter" placeholder="Trinket filter"/>
-                <input type="text" class="form-control" @bind="_classFilter" placeholder="Class filter"/>
-                <input type="submit" class="btn btn-primary" value="Search"/>
-                <button type="button" class="btn btn-secondary" onclick="event.preventDefault(); toggleDarkMode();">Dark mode</button>
-            </div>
-        </form>
-        @if (_results != null)
+        @if (_results.All(r => r.Value.Count <= 1))
         {
-            @if (_results.All(r => r.Value.Count <= 1))
+            var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
+            if (filtered.Length > 0)
             {
-                var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
-                if (filtered.Length > 0)
-                {
-                    var query = filtered.Select(kv => new {Trinket = kv.Key, Data = kv.Value.Values.First()})
-                                        .Select(a => new
-                                         {
-                                             a.Trinket,
-                                             a.Data
-                                         })
-                                        .OrderBy(a => a.Data.TierNumerical);
-                    var first = filtered.First().Value.First();
-                    <div class="mb-2">
-                        <h4 class="text-center">@first.Key</h4>
-                        <table class="table">
-                            <thead>
+                var query = filtered.Select(kv => new {Trinket = kv.Key, Data = kv.Value.Values.First()})
+                                    .Select(a => new
+                                     {
+                                         a.Trinket,
+                                         a.Data
+                                     })
+                                    .OrderBy(a => a.Data.TierNumerical);
+                var first = filtered.First().Value.First();
+                <div class="mb-2">
+                    <h4 class="text-center">@first.Key</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 1px">Trinket</th>
+                                <th class="text-center" style="width: 1px">Tier</th>
+                                <th class="text-center">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var info in query)
+                            {
                                 <tr>
-                                    <th class="text-center" style="width: 1px">Trinket</th>
-                                    <th class="text-center" style="width: 1px">Tier</th>
-                                    <th class="text-center" style="width: 200px">Note</th>
+                                    <td class="align-middle text-nowrap">
+                                        <Item Link="@info.Data.Link" Icon="@info.Data.Icon" Name="@info.Trinket"></Item>
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        @info.Data.Tier
+                                    </td>
+                                    <td class="align-middle">
+                                        @info.Data.Note
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var info in query)
-                                {
-                                    <tr>
-                                        <td class="text-center align-middle text-nowrap">
-                                            <a href="@info.Data.Link">
-                                                <img src="@info.Data.Icon" alt="" style="width: 32px; height: 32px;" />
-                                                @info.Trinket
-                                            </a>
-                                        </td>
-                                        <td class="text-center align-middle">
-                                            @info.Data.Tier
-                                        </td>
-                                        <td>
-                                            @info.Data.Note
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
             }
-            else
+        }
+        else
+        {
+            foreach (var result in _results)
             {
-                foreach (var result in _results)
-                {
-                    if (result.Value.Count <= 0)
-                        continue;
+                if (result.Value.Count <= 0)
+                    continue;
 
-                    var first = result.Value.First();
-                    <div class="mb-2">
-                        <h4 class="text-center">
-                            <a href="@first.Value.Link">
-                                <img src="@first.Value.Icon" alt="" style="width: 32px; height: 32px;"/>
-                                @result.Key
-                            </a>
-                        </h4>
-                        <table class="table">
-                            <thead>
+                var first = result.Value.First();
+                <div class="mb-2">
+                    <h4 class="text-center">
+                        <Item Link="@first.Value.Link" Icon="@first.Value.Icon" Name="@result.Key"></Item>
+                    </h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 1px">Class</th>
+                                <th class="text-center" style="width: 1px">Tier</th>
+                                <th class="text-center">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
+                            {
                                 <tr>
-                                    <th class="text-center" style="width: 1px">Class</th>
-                                    <th class="text-center" style="width: 1px">Tier</th>
-                                    <th class="text-center" style="width: 200px">Note</th>
+                                    <td class="text-center align-middle text-nowrap">
+                                        @kv.Key
+                                    </td>
+                                    <td class="text-center align-middle">
+                                        @kv.Value.Tier
+                                    </td>
+                                    <td class="align-middle">
+                                        @kv.Value.Note
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
-                                {
-                                    <tr>
-                                        <td class="text-center align-middle text-nowrap">
-                                            @kv.Key
-                                        </td>
-                                        <td class="text-center align-middle">
-                                            @kv.Value.Tier
-                                        </td>
-                                        <td>
-                                            @kv.Value.Note
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
             }
         }
     }

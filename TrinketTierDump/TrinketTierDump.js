@@ -138,7 +138,94 @@ const fs = require('fs/promises');
         }
     }
 
-    console.log("Done");
-    await fs.writeFile("../Trinket/wwwroot/trinkets.js", `var trinkets = ${JSON.stringify(trinkets, null, 2)}`);
     await browser.close();
+
+    function getNumTier(tier) {
+        if (tier == null)
+            return 99;
+
+        tier = tier.trim().toLowerCase();
+        if (tier == "")
+            return 99
+
+        // Get the base value
+        let value = 99;
+        switch (tier.substring(0, 1)) {
+            case "s":
+                value = 1;
+                break;
+            case "a":
+                value = 4;
+                break;
+            case "b":
+                value = 7;
+                break;
+            case "c":
+                value = 10;
+                break;
+            case "d":
+                value = 13;
+                break;
+            case "e":
+                value = 16;
+                break;
+            case "f":
+                value = 19;
+                break;
+        }
+
+        // Check if it is possible to have a modifier or not
+        if (tier.length <= 1)
+            return value;
+
+        // Change based on modifier
+        switch (tier.substring(1, 2)) {
+            case '-':
+                value++;
+                break;
+            case '+':
+                value--;
+                break;
+        }
+
+        return value;
+    }
+
+    // Open data file (create new file always) and write the "header"
+    const f = await fs.open("../Trinket/Data/TrinketData.cs", "w");
+    await f.writeFile("namespace Trinket.Data;\r\n\r\npublic static class TrinketData\r\n{\r\n    public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()\r\n    {\r\n");
+
+    // Sort trinkets by name
+    const trinketEntries = Object.entries(trinkets);
+    trinketEntries.sort();
+
+    let trinketCounter = trinketEntries.length;
+    for (const [name, data] of trinketEntries) {
+        trinketCounter--;
+        await f.writeFile(`        {\r\n            "${name}", new Dictionary<string, TierModel>\r\n            {\r\n`);
+
+        // Sort specs by tier
+        const dataEntries = Object.entries(data);
+        dataEntries.sort(function (a, b) {
+            const tier = getNumTier(a[1].tier) - getNumTier(b[1].tier);
+
+            if (tier != 0)
+                return tier;
+
+            return a[0].localeCompare(b[0]);
+        });
+
+        // Write spec data
+        let dataCounter = dataEntries.length;
+        for (const [spec, specData] of dataEntries) {
+            dataCounter--;
+            await f.writeFile(`                {\r\n                    "${spec}",\r\n                    new TierModel("${specData.tier}", "${specData.icon}", "${specData.link}", "${specData.note.replace(/\"/g, "\\\"")}")\r\n                }${dataCounter > 0 ? "," : ""}\r\n`);
+        }
+        await f.writeFile(`            }\r\n        }${trinketCounter > 0 ? "," : ""}\r\n`);
+    }
+
+    // Write "footer" and close the file
+    await f.writeFile("    };\r\n}");
+    f.close();
+    console.log("Done");
 })();

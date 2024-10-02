@@ -7,12 +7,7 @@
         <link href="manifest.json" rel="manifest"/>
         <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
-        <script src="trinkets.js"></script>
         <script>
-            function getTrinkets() {
-                return trinkets;
-            }
-
             function setCookie(cname, cvalue, exdays) {
                 const d = new Date();
                 d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -48,6 +43,7 @@
                 document.documentElement.setAttribute("data-bs-theme", "dark");
             }
         </script>
+        <link href="Trinket.styles.css" rel="stylesheet"/>
     </head>
     <body>
         <div id="app">Loading...</div>

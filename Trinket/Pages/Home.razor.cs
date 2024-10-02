@@ -1,124 +1,86 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Text;
+using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using Trinket.Data;
 
 namespace Trinket.Pages;
 
 public partial class Home
 {
-    private string?                                            _error;
     private string?                                            _trinketFilter;
-    private string?                                            _classFilter;
-    private Dictionary<string, Dictionary<string, TierModel>>? _trinkets;
-    private Dictionary<string, Dictionary<string, TierModel>>? _results;
+    private string?                                            _specFilter;
+    private Dictionary<string, Dictionary<string, TierModel>>? _results = TrinketData.Trinkets;
 
-    protected override async Task OnInitializedAsync()
+    [SupplyParameterFromQuery(Name = "trinket")]
+    private string? TrinketFilter
     {
-        try
+        get => _trinketFilter;
+        set
         {
-            _trinkets = await JavaScript.InvokeAsync<Dictionary<string, Dictionary<string, TierModel>>?>("getTrinkets");
-            _results  = _trinkets;
-        }
-        catch (Exception ex)
-        {
-            _error = ex.Message;
+            _trinketFilter = value;
+            Search();
         }
     }
 
-    private async Task Search()
+    [SupplyParameterFromQuery(Name = "spec")]
+    private string? SpecFilter
+    {
+        get => _specFilter;
+        set
+        {
+            _specFilter = value;
+            Search();
+        }
+    }
+
+    private void Search()
     {
         try
         {
-            if (_trinkets == null || string.IsNullOrEmpty(_trinketFilter) && string.IsNullOrEmpty(_classFilter))
+            // Update URL
+            var sb = new StringBuilder();
+            if (!string.IsNullOrEmpty(_trinketFilter))
+                sb.Append("trinket=")
+                  .Append(_trinketFilter);
+            if (!string.IsNullOrEmpty(_specFilter))
+                sb.Append(sb.Length > 0 ? "&" : "")
+                  .Append("spec=")
+                  .Append(_specFilter);
+            JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "/");
+
+            // Check filters
+            if (string.IsNullOrEmpty(_trinketFilter) && string.IsNullOrEmpty(_specFilter))
             {
-                _results = _trinkets;
+                _results = TrinketData.Trinkets;
                 return;
             }
 
             var tf = _trinketFilter?.ToLower().Split(" ");
-            var cf = _classFilter?.ToLower().Split(" ");
-            _results = _trinkets.Where(kv =>
-                                 {
-                                     if (tf == null)
-                                         return true;
-                                     var key = kv.Key.ToLower().Split(" ");
-                                     return tf.All(f => key.Any(t => t.Contains(f)));
-                                 })
-                                .ToDictionary(
-                                     kv => kv.Key,
-                                     kv => kv.Value
-                                             .Where(skv =>
-                                              {
-                                                  if (cf == null)
-                                                      return true;
+            var sf = _specFilter?.ToLower().Split(" ");
+            _results = TrinketData.Trinkets
+                                  .Where(kv =>
+                                   {
+                                       if (tf == null)
+                                           return true;
+                                       var key = kv.Key.ToLower().Split(" ");
+                                       return tf.All(f => key.Any(t => t.Contains(f)));
+                                   })
+                                  .ToDictionary(
+                                       kv => kv.Key,
+                                       kv => kv.Value
+                                               .Where(tm =>
+                                                {
+                                                    if (sf == null)
+                                                        return true;
 
-                                                  var key = skv.Key.ToLower().Split(" ");
-                                                  return cf.All(f => key.Any(c => c.Contains(f)));
-                                              })
-                                             .ToDictionary(a => a.Key, a => a.Value));
+                                                    var key = tm.Key.ToLower().Split(" ");
+                                                    return sf.All(f => key.Any(c => c.Contains(f)));
+                                                })
+                                               .ToDictionary(a => a.Key, a => a.Value));
         }
         finally
         {
-            await InvokeAsync(StateHasChanged);
+            InvokeAsync(StateHasChanged);
         }
-    }
-
-    private class TierModel
-    {
-        [JsonInclude]
-        [JsonPropertyName("tier")]
-        public string? Tier { get; set; }
-
-        [JsonIgnore]
-        public int TierNumerical
-        {
-            get
-            {
-                var tier = Tier?.TrimStart().ToLower();
-                if (string.IsNullOrEmpty(tier))
-                    return int.MaxValue;
-
-                // Get the base value
-                var value = tier[..1] switch
-                {
-                    "s" => 1,
-                    "a" => 4,
-                    "b" => 7,
-                    "c" => 10,
-                    "d" => 13,
-                    "e" => 16,
-                    "f" => 19,
-                    _ => int.MaxValue
-                };
-
-                // Check if it is possible to have a modifier or not
-                if (tier.Length <= 1)
-                    return value;
-
-                // Change based on modifier
-                switch (tier[1])
-                {
-                    case '-':
-                        value++;
-                        break;
-                    case '+':
-                        value--;
-                        break;
-                }
-
-                return value;
-            }
-        }
-
-        [JsonInclude]
-        [JsonPropertyName("icon")]
-        public string? Icon { get; set; }
-
-        [JsonInclude]
-        [JsonPropertyName("link")]
-        public string? Link { get; set; }
-
-        [JsonInclude]
-        [JsonPropertyName("note")]
-        public string? Note { get; set; }
     }
 }

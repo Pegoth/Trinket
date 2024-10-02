@@ -1,0 +1,26 @@
+﻿.item-icon {
+    display: inline-block;
+    height: 32px;
+    position: relative;
+    width: 32px;
+    /*top: 3px;*/
+}
+
+.item-image,
+.item-border {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+}
+
+.item-image {
+    height: calc(100% - 6px);
+    inset: 3px;
+    width: calc(100% - 6px);
+}
+
+.item-border {
+    background-image: url("https://wow.zamimg.com/images/Icon/large/border/default.png");
+    height: 100%;
+    width: 100%;
+}
