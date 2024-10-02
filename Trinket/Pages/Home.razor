@@ -4,11 +4,21 @@
 <PageTitle>Home</PageTitle>
 
 <div class="container mt-2 mb-2">
-    <div class="input-group mb-2">
-        <input type="search" class="form-control" placeholder="Trinket filter" @bind="TrinketFilter"/>
-        <input type="search" class="form-control" placeholder="Specialization/Class filter" @bind="SpecFilter"/>
-        <input type="button" class="btn btn-primary" value="Search" @onclick="Search"/>
-        <button type="button" class="btn btn-secondary" onclick="toggleDarkMode()">Dark mode</button>
+    <div class="row mb-2">
+        <div class="col input-group">
+            <input type="text" class="form-control" placeholder="Trinket filter" @bind="TrinketFilter" @onblur="Search" @onkeyup="FilterKeyUp" tabindex="1"/>
+            <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearTrinketFilter" tabindex="5">X</button>
+        </div>
+        <div class="col input-group">
+            <input type="text" class="form-control" placeholder="Specialization/Class filter" @bind="SpecFilter" @onblur="Search" @onkeyup="FilterKeyUp" tabindex="2"/>
+            <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearSpecFilter" tabindex="6">X</button>
+        </div>
+        <div class="col-auto">
+            <input type="button" class="btn btn-primary" value="Search" @onclick="Search" tabindex="3"/>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-secondary" onclick="toggleDarkMode()" tabindex="4">Dark mode</button>
+        </div>
     </div>
     @if (_results != null)
     {

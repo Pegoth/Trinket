@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using Trinket.Data;
 
@@ -7,56 +8,58 @@ namespace Trinket.Pages;
 
 public partial class Home
 {
-    private string?                                            _trinketFilter;
-    private string?                                            _specFilter;
     private Dictionary<string, Dictionary<string, TierModel>>? _results = TrinketData.Trinkets;
 
     [SupplyParameterFromQuery(Name = "trinket")]
-    private string? TrinketFilter
-    {
-        get => _trinketFilter;
-        set
-        {
-            _trinketFilter = value;
-            Search();
-        }
-    }
+    private string? TrinketFilter { get; set; }
 
     [SupplyParameterFromQuery(Name = "spec")]
-    private string? SpecFilter
+    private string? SpecFilter { get; set; }
+
+    protected override Task OnParametersSetAsync() => Search();
+
+    private async Task FilterKeyUp(KeyboardEventArgs arg)
     {
-        get => _specFilter;
-        set
-        {
-            _specFilter = value;
-            Search();
-        }
+        if (arg is {AltKey: false, CtrlKey: false, MetaKey: false, ShiftKey: false, Key: "Enter"})
+            await Search();
     }
 
-    private void Search()
+    private async Task ClearTrinketFilter()
+    {
+        TrinketFilter = "";
+        await Search();
+    }
+
+    private async Task ClearSpecFilter()
+    {
+        SpecFilter = "";
+        await Search();
+    }
+
+    private async Task Search()
     {
         try
         {
             // Update URL
             var sb = new StringBuilder();
-            if (!string.IsNullOrEmpty(_trinketFilter))
+            if (!string.IsNullOrEmpty(TrinketFilter))
                 sb.Append("trinket=")
-                  .Append(_trinketFilter);
-            if (!string.IsNullOrEmpty(_specFilter))
+                  .Append(TrinketFilter);
+            if (!string.IsNullOrEmpty(SpecFilter))
                 sb.Append(sb.Length > 0 ? "&" : "")
                   .Append("spec=")
-                  .Append(_specFilter);
-            JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "/");
+                  .Append(SpecFilter);
+            await JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "?");
 
             // Check filters
-            if (string.IsNullOrEmpty(_trinketFilter) && string.IsNullOrEmpty(_specFilter))
+            if (string.IsNullOrEmpty(TrinketFilter) && string.IsNullOrEmpty(SpecFilter))
             {
                 _results = TrinketData.Trinkets;
                 return;
             }
 
-            var tf = _trinketFilter?.ToLower().Split(" ");
-            var sf = _specFilter?.ToLower().Split(" ");
+            var tf = TrinketFilter?.ToLower().Split(" ");
+            var sf = SpecFilter?.ToLower().Split(" ");
             _results = TrinketData.Trinkets
                                   .Where(kv =>
                                    {
@@ -80,7 +83,7 @@ public partial class Home
         }
         finally
         {
-            InvokeAsync(StateHasChanged);
+            await InvokeAsync(StateHasChanged);
         }
     }
 }
