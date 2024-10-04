@@ -18,9 +18,15 @@ public partial class Home
 
     protected override Task OnParametersSetAsync() => Search();
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+            await JSRuntime.InvokeVoidAsync("initPageTooltips");
+    }
+
     private async Task FilterKeyUp(KeyboardEventArgs arg)
     {
-        if (arg is {AltKey: false, CtrlKey: false, MetaKey: false, ShiftKey: false, Key: "Enter"})
+        if (arg is {AltKey: false, CtrlKey: false, MetaKey: false, ShiftKey: false, Key: "Enter" or "" or null})
             await Search();
     }
 

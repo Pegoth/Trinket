@@ -6,12 +6,36 @@
 <div class="container mt-2 mb-2">
     <div class="row mb-2">
         <div class="col input-group">
-            <input type="text" class="form-control" placeholder="Trinket filter" @bind="TrinketFilter" @onblur="Search" @onkeyup="FilterKeyUp" tabindex="1"/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Trinket filter"
+                   list="trinkets"
+                   tabindex="1"
+                   @bind="TrinketFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
+            <datalist id="trinkets">
+                @foreach (var trinket in TrinketData.Trinkets.Keys)
+                {
+                    <option>@trinket</option>
+                }
+            </datalist>
             <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearTrinketFilter" tabindex="5">X</button>
+            <span class="input-group-text" title='Search for trinket name. Partial search is supported ("abe spell" will match "Aberrant Spellforge"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
         </div>
         <div class="col input-group">
-            <input type="text" class="form-control" placeholder="Specialization/Class filter" @bind="SpecFilter" @onblur="Search" @onkeyup="FilterKeyUp" tabindex="2"/>
+            <input type="text"
+                   class="form-control"
+                   placeholder="Specialization/Class filter"
+                   list="specs"
+                   tabindex="2"
+                   @bind="SpecFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
+            <datalist id="specs">
+                @foreach (var spec in SpecData.Specs)
+                {
+                    <option>@spec</option>
+                }
+            </datalist>
             <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearSpecFilter" tabindex="6">X</button>
+            <span class="input-group-text" title='Search for class/specialization name. Partial search is supported ("rest sham" will match "Restoration Shaman"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
         </div>
         <div class="col-auto">
             <input type="button" class="btn btn-primary" value="Search" @onclick="Search" tabindex="3"/>
@@ -106,4 +130,7 @@
             }
         }
     }
+    <div class="text-center mt-2">
+        Last updated: @TrinketData.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss")
+    </div>
 </div>

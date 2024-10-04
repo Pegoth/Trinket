@@ -39,6 +39,10 @@
                 }
             }
 
+            function initPageTooltips() {
+                document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(dom => new bootstrap.Tooltip(dom));
+            }
+
             if (getCookie("darkMode") === "1") {
                 document.documentElement.setAttribute("data-bs-theme", "dark");
             }

@@ -191,9 +191,29 @@ const fs = require('fs/promises');
         return value;
     }
 
+    // Write specs to file
+    const sdf = await fs.open("../Trinket/Data/SpecData.cs", "w");
+    await sdf.writeFile("namespace Trinket.Data;\r\n\r\npublic static class SpecData\r\n{\r\n    public static string[] Specs { get; } =\r\n    [\r\n");
+    
+    // Sort specs by name
+    const specEntries = Object.keys(specs);
+    specEntries.sort();
+    
+    let specCounter = specEntries.length;
+    for (const spec of specEntries) {
+        specCounter--;
+        await sdf.writeFile(`        "${spec}"${specCounter > 0 ? "," : ""}\r\n`);
+    }
+    
+    await sdf.writeFile("    ];\r\n}");
+    sdf.close();
+
+    // Get the cache last modified date
+    const stats = await fs.stat("specsCache.json");
+    
     // Open data file (create new file always) and write the "header"
-    const f = await fs.open("../Trinket/Data/TrinketData.cs", "w");
-    await f.writeFile("namespace Trinket.Data;\r\n\r\npublic static class TrinketData\r\n{\r\n    public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()\r\n    {\r\n");
+    const tdf = await fs.open("../Trinket/Data/TrinketData.cs", "w");
+    await tdf.writeFile(`namespace Trinket.Data;\r\n\r\npublic static class TrinketData\r\n{\r\n    public static DateTime LastUpdated { get; } = DateTime.Parse("${stats.mtime.toISOString()}");\r\n\r\n    public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()\r\n    {\r\n`);
 
     // Sort trinkets by name
     const trinketEntries = Object.entries(trinkets);
@@ -202,7 +222,7 @@ const fs = require('fs/promises');
     let trinketCounter = trinketEntries.length;
     for (const [name, data] of trinketEntries) {
         trinketCounter--;
-        await f.writeFile(`        {\r\n            "${name}", new Dictionary<string, TierModel>\r\n            {\r\n`);
+        await tdf.writeFile(`        {\r\n            "${name}", new Dictionary<string, TierModel>\r\n            {\r\n`);
 
         // Sort specs by tier
         const dataEntries = Object.entries(data);
@@ -219,13 +239,13 @@ const fs = require('fs/promises');
         let dataCounter = dataEntries.length;
         for (const [spec, specData] of dataEntries) {
             dataCounter--;
-            await f.writeFile(`                {\r\n                    "${spec}",\r\n                    new TierModel("${specData.tier}", "${specData.icon}", "${specData.link}", "${specData.note.replace(/\"/g, "\\\"")}")\r\n                }${dataCounter > 0 ? "," : ""}\r\n`);
+            await tdf.writeFile(`                {\r\n                    "${spec}",\r\n                    new TierModel("${specData.tier}", "${specData.icon}", "${specData.link}", "${specData.note.replace(/\"/g, "\\\"")}")\r\n                }${dataCounter > 0 ? "," : ""}\r\n`);
         }
-        await f.writeFile(`            }\r\n        }${trinketCounter > 0 ? "," : ""}\r\n`);
+        await tdf.writeFile(`            }\r\n        }${trinketCounter > 0 ? "," : ""}\r\n`);
     }
 
     // Write "footer" and close the file
-    await f.writeFile("    };\r\n}");
-    f.close();
+    await tdf.writeFile("    };\r\n}");
+    tdf.close();
     console.log("Done");
 })();

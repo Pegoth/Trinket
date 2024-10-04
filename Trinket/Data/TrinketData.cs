@@ -2,6 +2,8 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-04T14:28:14.864Z");
+
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
         {
@@ -1673,6 +1675,10 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "This trinket does a HUGE amount of damage with the on-use ability. If you can somehow get it to kill the targets and use it 2x as often, its an easy S-tier trinket.")
                 },
                 {
+                    "Enhancement Shaman",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "")
+                },
+                {
                     "Frost Death Knight",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "It is a good Critical Strike stick with interesting damage on use. After a brief channel, it deals a huge chunk of damage to your target in an attempt to execute it. This trinket may be fun to play with in Mythic+, where you'll have many opportunities to execute targets for more casts. Use this before or after  Pillar of Frost, or you'll lose a GCD.")
                 },
@@ -1706,10 +1712,6 @@ public static class TrinketData
                 },
                 {
                     "Elemental Shaman",
-                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "")
-                },
-                {
-                    "Enhancement Shaman",
                     new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "")
                 },
                 {
@@ -1972,10 +1974,6 @@ public static class TrinketData
             "Ovi'nax's Mercurial Egg", new Dictionary<string, TierModel>
             {
                 {
-                    "Affliction Warlock",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Trinket that grants both main and secondary stats based on movement. Can also be \"used\" to suspend your current buffs.")
-                },
-                {
                     "Elemental Shaman",
                     new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Probably the best trinket in the Season. Passive stats are good, the amount is solid and even when playing it at its worst potential, standing still all the time and not getting any secondaries, this already works out as the best trinket. If you can get your hands on this, it's a straightforward decision to use it.")
                 },
@@ -2012,6 +2010,10 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "A decent stat stick. You will always have 30 stacks combined active, moving causes you to lose main stat but gain secondary. The optimal ratio is 20 intellect stacks and 10 secondary, but it is generally not something you should play around. Just keep in mind to not move around too much.")
                 },
                 {
+                    "Holy Priest",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Primary and Secondary stat buff")
+                },
+                {
                     "Restoration Shaman",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a unique take on a passive stat-stick trinket. Standing still will build up stacks of  Deliberate Incubation which increases your mainstat over time, and moving will remove stacks of  Deliberate Incubation and instead grant stacks of  Reckless Incubation. This means you will never get zero value from this trinket, but it does award standing still as mainstat is generally better. Using the trinket will \"suspend\" the procs you have for a period of time, making it quite versatile.")
                 },
@@ -2026,6 +2028,10 @@ public static class TrinketData
                 {
                     "Enhancement Shaman",
                     new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Brings a lot of passive stats and the effect doesn't punish you too much in either the movement or stationary requirements, but still variable enough to be harmed by different fight styles and the need to micro-manage it. The on-use is best done when you have the egg balanced below 20 stacks due to the penalty after.")
+                },
+                {
+                    "Affliction Warlock",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Trinket that grants both main and secondary stats based on movement. Can also be \"used\" to suspend your current buffs.")
                 },
                 {
                     "Arcane Mage",
@@ -2411,6 +2417,10 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "Brings a huge amount of passive stats, and the negative proc of stat reduction happens very infrequently making its high budget work it. Even at lower item levels the budget on this makes it keep up with higher item level alternatives, plus you can't really mess up stat sticks.")
                 },
                 {
+                    "Holy Priest",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "Strong mastery and primary stat buff")
+                },
+                {
                     "Retribution Paladin",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "Passive statstick. No special usage required.")
                 },
@@ -2456,10 +2466,6 @@ public static class TrinketData
                 },
                 {
                     "Discipline Priest",
-                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "")
-                },
-                {
-                    "Holy Priest",
                     new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "")
                 },
                 {
