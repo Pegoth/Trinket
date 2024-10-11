@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-04T14:28:14.864Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-11T22:11:03.899Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -30,15 +30,15 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "While empowering your  Courtyard Scene is decently strong on its own, once you are able to properly sync the on use with our cooldown cycle it gains some additional value from free Haste and even more damage amplification for  Courtyard Scene.")
                 },
                 {
+                    "Destruction Warlock",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "A different type of on-use trinket that doesn't share cooldown with other on-use trinkets. Essentially works as a very small 1-minute power boost, and a passive haste buff.")
+                },
+                {
                     "Affliction Warlock",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "")
                 },
                 {
                     "Balance Druid",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "")
-                },
-                {
-                    "Destruction Warlock",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "")
                 },
                 {
@@ -197,10 +197,6 @@ public static class TrinketData
                     new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "A very strong passive trinket and part of our full BIS setup. The passive Haste is fine and the proc effect can line up very nicely with  Summon Demonic Tyrant cycles, giving us additional Intellect.")
                 },
                 {
-                    "Destruction Warlock",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Essentially functions as a passive main stat bonus, with an additional damage function once the eggs time out. Over-all, a very nice trinket for a lot of people.")
-                },
-                {
                     "Elemental Shaman",
                     new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Haste on a stick with a passive main stat proc is exceptionally strong for us, especially at the start of the season. Not a lot more to say here.")
                 },
@@ -218,7 +214,7 @@ public static class TrinketData
                 },
                 {
                     "Outlaw Rogue",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Another powerful passive trinket. One of the best options for single target that you can grab from dungeons.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Half of the value of the trinket is due to helping us reach the Haste breakpoints required. A great option in general but depending on your Haste levels might be slightly worse than the other options.")
                 },
                 {
                     "Protection Paladin",
@@ -259,6 +255,10 @@ public static class TrinketData
                 {
                     "Brewmaster Monk",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Despite having static Haste, the 2.5ppm effect of this trinket grants its Agility buff for an entire minute before the egg hatches and applies its Nature DoT to an enemy. This all comes together for a surprisingly effective trinket.")
+                },
+                {
+                    "Destruction Warlock",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Essentially functions as a passive main stat bonus, with an additional damage function once the eggs time out. Over-all, a very nice trinket for a lot of people.")
                 },
                 {
                     "Devastation Evoker",
@@ -330,10 +330,6 @@ public static class TrinketData
             "Bottled Flayedwing Toxin", new Dictionary<string, TierModel>
             {
                 {
-                    "Outlaw Rogue",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "A passive trinket that requires you to apply it once every hour, similar to  Instant Poison")
-                },
-                {
                     "Vengeance Demon Hunter",
                     new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "This has static Agility, and it deals more damage than any other trinket available aside from  Void Reaper's Contract. When you use it, it grants an hour-long buff that allows your attacks to proc a Nature DoT  Flayedwing Toxin with 4+ Haste RPPM.")
                 },
@@ -374,6 +370,10 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "")
                 },
                 {
+                    "Outlaw Rogue",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "A passive trinket that requires you to apply it once every hour, similar to  Instant Poison. This resets on death so don't forget!!")
+                },
+                {
                     "Survival Hunter",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "Deals very sustained single target damage, competing even with some of the S-tier options. However, it struggles to deal AoE damage effectively, dropping its overall rating down a lot.")
                 },
@@ -397,6 +397,14 @@ public static class TrinketData
                 {
                     "Fire Mage",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_candlepet.jpg", "https://wowhead.com/item=225648", "This trinket summons candle pets that attack your target. It does a surprising amount of damage.  The AI on the minions it spawns is kind of bad so it likely will underperform in AoE. Only really recommended for Single Target.")
+                },
+                {
+                    "Frost Mage",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_candlepet.jpg", "https://wowhead.com/item=225648", "A very strong trinket that drops in delves. Because the summoned pet can be a melee attacker, this trinket is better if you stay close to your target.")
+                },
+                {
+                    "Destruction Warlock",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_candlepet.jpg", "https://wowhead.com/item=225648", "Summons a little guy that actually does quite decent damage. But this trinket can be hard to obtain at a decent ilevel, making it the top of B tier.")
                 },
                 {
                     "Demonology Warlock",
@@ -463,10 +471,6 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_tentaclevial_red.jpg", "https://wowhead.com/item=219321", "")
-                },
-                {
-                    "Destruction Warlock",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_tentaclevial_red.jpg", "https://wowhead.com/item=219321", "")
                 },
                 {
@@ -811,10 +815,6 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_redsaberonfang.jpg", "https://wowhead.com/item=225657", "")
                 },
                 {
-                    "Outlaw Rogue",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_redsaberonfang.jpg", "https://wowhead.com/item=225657", "Decent execute trinket for those types of encounters.")
-                },
-                {
                     "Windwalker Monk",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_redsaberonfang.jpg", "https://wowhead.com/item=225657", "")
                 },
@@ -828,6 +828,10 @@ public static class TrinketData
                 },
                 {
                     "Enhancement Shaman",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_redsaberonfang.jpg", "https://wowhead.com/item=225657", "")
+                },
+                {
+                    "Outlaw Rogue",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_redsaberonfang.jpg", "https://wowhead.com/item=225657", "")
                 },
                 {
@@ -1103,7 +1107,7 @@ public static class TrinketData
                 },
                 {
                     "Holy Paladin",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "This trinket procs from HoTs or DoTs only. As such it is great for Herald, while being useless for Lightsmith as Lightsmith has no HoTs.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "This trinket procs from HoTs or DoTs only. As such it is great for Herald. For Lightsmith it only procs of  Consecration so you will need to keep it down, which isn't a problem in Dungeons but might be a little annoying in Raid.")
                 },
                 {
                     "Holy Priest",
@@ -1130,10 +1134,6 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Good trinket that has a pretty healthy amount of intellect given. Pretty solid for both AOE and Single Target. Farmable from Grim Batol.")
                 },
                 {
-                    "Destruction Warlock",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "We can pretty much always keep this at a decent amount of stacks, making this trinket a very viable option.")
-                },
-                {
                     "Devastation Evoker",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=56462", "Decent passive stat increase. Procs from damage-over-time effects.")
                 },
@@ -1156,6 +1156,10 @@ public static class TrinketData
                 {
                     "Affliction Warlock",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Gale brings a baseline amount of Haste with a stacking Intellect effect, which is of relatively decent power level.")
+                },
+                {
+                    "Destruction Warlock",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "We can pretty much always keep this at a decent amount of stacks, making this trinket a very viable option.")
                 },
                 {
                     "Augmentation Evoker",
@@ -1261,10 +1265,6 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "An AoE based damage effect that increases its damage per targets hit on a short internal cooldown. This trinket will be mostly usable in Mythic+, however if the tank moves mobs erratically out of the effect, it loses value quickly.")
                 },
                 {
-                    "Destruction Warlock",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "Not a bad damage source. A fine placeholder option until you get the hold of stronger trinkets.")
-                },
-                {
                     "Devastation Evoker",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "Chance to cause a waterspout that is split between targets, but increases in damage in AOE. This trinket can miss if targets are moving.")
                 },
@@ -1281,6 +1281,10 @@ public static class TrinketData
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "")
                 },
                 {
+                    "Destruction Warlock",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "")
+                },
+                {
                     "Fire Mage",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "Chance to cause a waterspout that is split between targets, but increases in damage in AOE. This trinket can miss if targets are moving.")
                 }
@@ -1292,10 +1296,6 @@ public static class TrinketData
                 {
                     "Affliction Warlock",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Trinket provides baseline Intellect and a damage proc. Orbs can also be soaked to increase your Mastery, but requires movement.")
-                },
-                {
-                    "Destruction Warlock",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Passive damage proc effect that sends an orb flying at your target. If you entercept the orb, you instead siphon its power gaining a mastery buff. Very nice option for us.")
                 },
                 {
                     "Devastation Evoker",
@@ -1355,6 +1355,10 @@ public static class TrinketData
                 },
                 {
                     "Demonology Warlock",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "")
+                },
+                {
+                    "Destruction Warlock",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "")
                 },
                 {
@@ -1914,7 +1918,7 @@ public static class TrinketData
             {
                 {
                     "Outlaw Rogue",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_firearm_2h_engineering_c_01_blue.jpg", "https://wowhead.com/item=219301", "A powerful damage on use that comes with a passive damage proc as well.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_firearm_2h_engineering_c_01_blue.jpg", "https://wowhead.com/item=219301", "It is just a damage on-use trinket. There's nothing special about it really.")
                 },
                 {
                     "Brewmaster Monk",
@@ -2014,6 +2018,10 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Primary and Secondary stat buff")
                 },
                 {
+                    "Outlaw Rogue",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "A strong trinket that requires you to wiggle around a bit to maintain stacks. With Agility and Versatility being similar values this tier, this trinket is quite good. Focus on not going over 20 of either stack and the trinket is great. The on use also ignores double on use restriction.")
+                },
+                {
                     "Restoration Shaman",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a unique take on a passive stat-stick trinket. Standing still will build up stacks of  Deliberate Incubation which increases your mainstat over time, and moving will remove stacks of  Deliberate Incubation and instead grant stacks of  Reckless Incubation. This means you will never get zero value from this trinket, but it does award standing still as mainstat is generally better. Using the trinket will \"suspend\" the procs you have for a period of time, making it quite versatile.")
                 },
@@ -2083,10 +2091,6 @@ public static class TrinketData
                 },
                 {
                     "Blood Death Knight",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "")
-                },
-                {
-                    "Outlaw Rogue",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "")
                 },
                 {
@@ -2298,10 +2302,6 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "With an AoE based effect and passive Intellect, this trinket should be interesting especialy in Mythic+ situations where AoE is typically more relevant. As a passive option, this trinket should be more than suitable.")
                 },
                 {
-                    "Destruction Warlock",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "Passive intellect and not a bad damage source. A fine placeholder option until you get the hold of stronger trinkets.")
-                },
-                {
                     "Devastation Evoker",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "Chance to cause a small explosion that is split between targets, but increases in damage up to 5 targets.")
                 },
@@ -2311,6 +2311,10 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "")
+                },
+                {
+                    "Destruction Warlock",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "")
                 },
                 {
@@ -2356,6 +2360,10 @@ public static class TrinketData
             "Scroll of Momentum", new Dictionary<string, TierModel>
             {
                 {
+                    "Outlaw Rogue",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_scroll3_color2.jpg", "https://wowhead.com/item=226539", "An incredibly strong trinket that is held down by the fact you can't increase to a higher reward track. It's a perfect trinket to chase down early in the tier, but it will fall off as you get Mythic gear. Make sure to use  Sprint every time it procs. Movement is not required; it just requires high movement speed.")
+                },
+                {
                     "Subtlety Rogue",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_scroll3_color2.jpg", "https://wowhead.com/item=226539", "You can use  Sprint offensively for extra output.")
                 },
@@ -2389,10 +2397,6 @@ public static class TrinketData
                 },
                 {
                     "Marksmanship Hunter",
-                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_scroll3_color2.jpg", "https://wowhead.com/item=226539", "")
-                },
-                {
-                    "Outlaw Rogue",
                     new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_scroll3_color2.jpg", "https://wowhead.com/item=226539", "")
                 },
                 {
@@ -2453,6 +2457,10 @@ public static class TrinketData
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "")
                 },
                 {
+                    "Destruction Warlock",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "")
+                },
+                {
                     "Frost Death Knight",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "")
                 },
@@ -2507,6 +2515,10 @@ public static class TrinketData
             "Sikran's Endless Arsenal", new Dictionary<string, TierModel>
             {
                 {
+                    "Outlaw Rogue",
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "A strong general use trinket. One of the weapons does massive AoE damage. Make sure to use this trinket on cooldown, it's short cooldown will help you cycle to the AoE option quickly.")
+                },
+                {
                     "Blood Death Knight",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", " Stance - Surekian Decimation - on-use frontal line AoE; passive causes your crits to deal 20% bonus damage to shields")
                 },
@@ -2517,10 +2529,6 @@ public static class TrinketData
                 {
                     "Marksmanship Hunter",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "Technically a Tank/Melee Trinket, but its on-use has no range limitation and does excellent single-target damage.")
-                },
-                {
-                    "Outlaw Rogue",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "A high damage on use trinket that comes with some minor defensive benefits.")
                 },
                 {
                     "Protection Warrior",
@@ -2833,7 +2841,7 @@ public static class TrinketData
                 },
                 {
                     "Outlaw Rogue",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg", "https://wowhead.com/item=225638", "Similar to  Error If Too Many Players, a passive trinket with a small bonus that it provides a group buff as well.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg", "https://wowhead.com/item=225638", "It is an okay trinket that comes with a stat proc, also provides a buff to your group.")
                 },
                 {
                     "Protection Paladin",
@@ -2906,7 +2914,7 @@ public static class TrinketData
                 },
                 {
                     "Destruction Warlock",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "The strongest trinket option overall. Grants a good amount of intellect, and has a good on-use effect that works well with Destructions damage profile.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "The strongest trinket option overall. Grants a good amount of intellect, and has a good on-use effect that works well with Destructions damage profile. Read the below segment on Spymaster's usage to know how I recommend you optimally use this trinket.")
                 },
                 {
                     "Devastation Evoker",
@@ -3170,10 +3178,6 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "")
                 },
                 {
-                    "Outlaw Rogue",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "A decent on use trinket that deals frontal cleave damage. Make sure to use all 3 charges up each time you use it before it goes on cooldown again.")
-                },
-                {
                     "Subtlety Rogue",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "")
                 },
@@ -3195,6 +3199,10 @@ public static class TrinketData
                 },
                 {
                     "Enhancement Shaman",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "")
+                },
+                {
+                    "Outlaw Rogue",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "")
                 },
                 {
@@ -3255,6 +3263,10 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Unbound Changeling can proc a random secondary stat, but also has a chance to \"change\" into a version that grants ALL secondary stats, this chance can occur the first time you eat food that gives stats for the day. Given our neutral position on secondary stats, this is a fine option.")
                 },
                 {
+                    "Destruction Warlock",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Passive intellect and a secondary stat buff. Can be very good. We're especially interested in haste, mastery and crit buffs. The all stat buff is also decent.")
+                },
+                {
                     "Devastation Evoker",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Strong passive trinket. The stats this trinket provides can be customizable to your character's needs. See item for more information.")
                 },
@@ -3281,10 +3293,6 @@ public static class TrinketData
                 {
                     "Augmentation Evoker",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "A more traditional stat stick design from this Shadowlands favourite, with Augmentation Evokers appreciating the passive Intellect. Eat for Mastery or Critical Strike to change the secondary stat proc based on your personal stat distribution.")
-                },
-                {
-                    "Destruction Warlock",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Passive intellect and a secondary stat buff. Can be very good. We're especially interested in haste, mastery and crit buffs. The all stat buff is also decent.")
                 },
                 {
                     "Fire Mage",
