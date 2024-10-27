@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-19T10:57:53.593Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-27T16:01:06.935Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -15,7 +15,7 @@ public static class TrinketData
                 },
                 {
                     "Elemental Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "Every 15 seconds, you empower your next  Lava Burst, which coincides pretty well with when you want to use the spell anyway. As a \"Forge\"-trinket this has a small cast time that can be used as an off-GCD right after a different instant cast. Generally, any trinket that says Haste on it is good. This one is too.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_aberrantspellforge_pink.jpg", "https://wowhead.com/item=212451", "")
                 },
                 {
                     "Arcane Mage",
@@ -190,7 +190,7 @@ public static class TrinketData
                 },
                 {
                     "Elemental Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Haste on a stick with a passive main stat proc is exceptionally strong for us, especially at the start of the season. Not a lot more to say here.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "")
                 },
                 {
                     "Enhancement Shaman",
@@ -198,7 +198,7 @@ public static class TrinketData
                 },
                 {
                     "Frost Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Frost's strongest passive stat trinket this season, with a flavorful damage proc on top. Except to generally have a few stacks going at a time.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Frost's strongest passive stat trinket this season, with a flavorful damage proc on top. Expect to generally have a few stacks going at a time.")
                 },
                 {
                     "Guardian Druid",
@@ -230,7 +230,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Gives a large amount of passive agility. Works great in all scenarios but is generally the strongest in AoE. Spiders are just a bonus.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "")
                 },
                 {
                     "Vengeance Demon Hunter",
@@ -310,7 +310,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "An incredibly potent passive trinket that can be great if obtained at high item levels through the Great Vault. Though generally worse than  Ara-Kara Sacbrood.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "A passive trinket that can be quite strong if obtained at high item levels through the Great Vault. Generally worse than  Ara-Kara Sacbrood.")
                 },
                 {
                     "Windwalker Monk",
@@ -351,7 +351,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "Decent single-target DoT. Mostly for single-target")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "")
                 },
                 {
                     "Enhancement Shaman",
@@ -755,7 +755,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Struggles with target swapping and is therefore better in raid than in Mythic+ or similar.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "")
                 },
                 {
                     "Feral Druid",
@@ -881,7 +881,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "Nice, passive proc with high uptime and decent amount of stats. Not quite the best but very solid.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "")
                 },
                 {
                     "Demonology Warlock",
@@ -901,7 +901,7 @@ public static class TrinketData
                 },
                 {
                     "Elemental Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "More random secondary procs for the flat damage profile spec. Nothing really special to say here.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "")
                 },
                 {
                     "Feral Druid",
@@ -1102,10 +1102,6 @@ public static class TrinketData
             "Gale of Shadows", new Dictionary<string, TierModel>
             {
                 {
-                    "Elemental Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Constant stats work well with out \"no-burst\" profile.  Flame Shock is passively kept up anyway while doing your rotation so you easily get the maximum benefit of this trinket without planning around it.")
-                },
-                {
                     "Holy Paladin",
                     new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "This trinket procs from HoTs or DoTs only. As such it is great for Herald. For Lightsmith it only procs of  Consecration so you will need to keep it down, which isn't a problem in Dungeons but might be a little annoying in Raid.")
                 },
@@ -1162,6 +1158,10 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "We can pretty much always keep this at a decent amount of stacks, making this trinket a very viable option.")
                 },
                 {
+                    "Elemental Shaman",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "")
+                },
+                {
                     "Augmentation Evoker",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Once this trinket's stacks are online it is quite effective, but the ramp time does make the effect somewhat less valuable on pull and in dungeon settings like Mythic+ and Delves. Augmentation also generally takes a bit longer than other specs to cast its first periodic effect, which further delays the value gained.")
                 },
@@ -1209,6 +1209,15 @@ public static class TrinketData
             }
         },
         {
+            "Golem Gearbox", new Dictionary<string, TierModel>
+            {
+                {
+                    "Unholy Death Knight",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_eng_gizmo3.jpg", "https://wowhead.com/ptr-2/item=231471", "")
+                }
+            }
+        },
+        {
             "Gruesome Syringe", new Dictionary<string, TierModel>
             {
                 {
@@ -1246,7 +1255,7 @@ public static class TrinketData
             {
                 {
                     "Elemental Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "It's pretty much the exact same situation here as the Satchel just before it. While its Single-Target damage is fine, the AoE is bad and it is just one of the worse options from M+.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_shell_04.jpg", "https://wowhead.com/item=159622", "")
                 },
                 {
                     "Affliction Warlock",
@@ -1291,6 +1300,15 @@ public static class TrinketData
             }
         },
         {
+            "Hand of Justice", new Dictionary<string, TierModel>
+            {
+                {
+                    "Unholy Death Knight",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_talisman_01.jpg", "https://wowhead.com/ptr-2/item=231417", "")
+                }
+            }
+        },
+        {
             "Harvester's Edict", new Dictionary<string, TierModel>
             {
                 {
@@ -1319,7 +1337,7 @@ public static class TrinketData
                 },
                 {
                     "Survival Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Incredibly awkard, but very powerful in theory. A lot of the value here comes from the ability to intercept the orb. Whether this is easily doable in melee remains to be seen, If not, the true rating is likely closer to C tier.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Incredibly awkard, but very powerful in theory. A lot of the value here comes from the ability to intercept the orb. If you struggle with this the true value is likely closer to C tier.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -1351,7 +1369,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Requires catching quick balls for reasonable benefit which isn't realistic.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "")
                 },
                 {
                     "Demonology Warlock",
@@ -1408,6 +1426,15 @@ public static class TrinketData
                 {
                     "Mistweaver Monk",
                     new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "")
+                }
+            }
+        },
+        {
+            "Heart of Roccor", new Dictionary<string, TierModel>
+            {
+                {
+                    "Unholy Death Knight",
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_ore_blackrock_ore.jpg", "https://wowhead.com/ptr-2/item=231456", "")
                 }
             }
         },
@@ -1498,7 +1525,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/trade_alchemy_dpotion_a25.jpg", "https://wowhead.com/item=225654", "Weaker on-use.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/trade_alchemy_dpotion_a25.jpg", "https://wowhead.com/item=225654", "")
                 },
                 {
                     "Brewmaster Monk",
@@ -1648,7 +1675,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "Strong single-target shadow damage blast with some built-in healing Buffed by  Darkness Calls.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "")
                 },
                 {
                     "Blood Death Knight",
@@ -1684,11 +1711,11 @@ public static class TrinketData
                 },
                 {
                     "Frost Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "It is a good Critical Strike stick with interesting damage on use. After a brief channel, it deals a huge chunk of damage to your target in an attempt to execute it. This trinket may be fun to play with in Mythic+, where you'll have many opportunities to execute targets for more casts. Use this before or after  Pillar of Frost, or you'll lose a GCD.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "It is a good Critical Strike stick with an interesting damage on-use effect. After a brief channel, it deals a huge chunk of damage to your target in an attempt to execute it. This trinket may be fun to play with in Mythic+, where you'll have many opportunities to execute targets for more casts. Use this before or after  Pillar of Frost, or you'll lose a GCD.")
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "On-use damage trinket that does pretty good damage all things considered, but, it doesn't give stats so Unholy would prefer something that does.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "On-use damage trinket that does decent damage, all things considered, but doesn't provide the stats that Unholy would prefer.")
                 },
                 {
                     "Vengeance Demon Hunter",
@@ -1745,7 +1772,7 @@ public static class TrinketData
             {
                 {
                     "Frost Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg", "https://wowhead.com/item=133300", "Both on-use secondary stat trinkets available for Frost this season are nearly identical.  Skarmorak Shard grants small Mastery buffs when you defeat enemies, making this a bit more attractive than  Mark of Khardros in Mythic+. The 90-second cooldown makes this trinket for any build. It will line up with your cooldowns whether you play Deathbringer or Rider of the Apocalypse,  Breath of Sindragosa or  Obliteration.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg", "https://wowhead.com/item=133300", "Both on-use secondary stat trinkets available for Frost this season are nearly identical.  Skarmorak Shard grants small Mastery buffs when you defeat enemies, making this a bit more attractive than  Mark of Khardros in Mythic+. The 90-second cooldown makes this trinket worthwhile for any build. It will line up with your cooldowns whether you play Deathbringer or Rider of the Apocalypse,  Breath of Sindragosa or  Obliteration.")
                 },
                 {
                     "Retribution Paladin",
@@ -1753,7 +1780,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg", "https://wowhead.com/item=133300", "Another great on-use trinket with a 90-second cooldown. Very similar to  Mark of Khardros, but gives slightly less mastery on use, and instead gets a bonus bit of mastery when walking near an enemy's corpse. This secondary effect makes this trinket great for Mythic+ and Delves.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg", "https://wowhead.com/item=133300", "Another great on-use trinket with a 90-second cooldown. Very similar to  Mark of Khardros, but gives slightly less Mastery on use. As compensation, it also grants you a little Mastery when walking near an enemy's corpse. This secondary effect makes this trinket great for Mythic+ and Delves.")
                 },
                 {
                     "Protection Paladin",
@@ -1823,7 +1850,7 @@ public static class TrinketData
             {
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "This ranking is based on its potential group benefit in raid, rather than personal performance. It's slightly worse in Mythic+ (due to Healers being forced in your party). Remember you can swap the stat it grats at Master Clerk Salorn.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -1893,7 +1920,7 @@ public static class TrinketData
                 },
                 {
                     "Frost Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowmend.jpg", "https://wowhead.com/item=219318", "A better-than-average trinket for Mythic+. Nice passive Strength, and the on-use gives us some upfront burst going into a pack.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowmend.jpg", "https://wowhead.com/item=219318", "A better-than-average trinket for Mythic+. Nice passive Strength, and the on-use effect gives us some upfront burst going into a pack.")
                 },
                 {
                     "Protection Paladin",
@@ -1905,7 +1932,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowmend.jpg", "https://wowhead.com/item=219318", "Another just okay trinket that gives a little strength and does some decent AoE damage, but, unholy just prefers pure stat trinkets.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_shadowmend.jpg", "https://wowhead.com/item=219318", "Another just-okay trinket that gives a little Strength and does some decent AoE damage. However, as usual, Unholy prefers pure stat trinkets.")
                 },
                 {
                     "Subtlety Rogue",
@@ -1978,16 +2005,12 @@ public static class TrinketData
             "Ovi'nax's Mercurial Egg", new Dictionary<string, TierModel>
             {
                 {
-                    "Elemental Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Probably the best trinket in the Season. Passive stats are good, the amount is solid and even when playing it at its worst potential, standing still all the time and not getting any secondaries, this already works out as the best trinket. If you can get your hands on this, it's a straightforward decision to use it.")
-                },
-                {
                     "Frost Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "It is difficult to gauge this trinket through sims because it revolves around movement. However, it has great potential. Our highest secondary stat will be Critical Strike, and we want it almost as much as we want Strength. It will not be a significant penalty if we move a lot and swap the Strength stacks for Critical Strike stacks. Suspending the Strength buff right before using  Breath of Sindragosa will be ideal. However, there may not be time for the buff to reallocate fully if you move a lot.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "It is difficult to gauge this trinket through sims, because it revolves around movement. However, it has great potential. Our highest secondary stat will be Critical Strike, and we want it almost as much as we want Strength. It will not be a significant penalty if we move a lot and swap the Strength stacks for Critical Strike stacks. Suspending the Strength buff right before using  Breath of Sindragosa will be ideal. However, there may not be time for the buff to reallocate fully if you move a lot.")
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Another passive trinket, but with a quirk. This trinket performs best when you can stand still for extended periods, but getting some extra haste when you move is never terrible. Overall, it is slightly better than  Ara-Kara Sacbrood if you manage the stacks well. Ideally for Rider of the Apocalypse, this is 15 stacks of each movement, and stand still. While for San'layn this is 20 stacks of stand still, 10 stacks of movement.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Another passive trinket, but with a quirk. This trinket performs best when you can stand still for extended periods, but getting some extra Haste when you move is never terrible. Overall, it is slightly better than  Ara-Kara Sacbrood if you manage the stacks well. Ideally for Rider of the Apocalypse, this equates to 15 stacks of both movement and stand still. For San'layn, we want 20 stacks of stand still and 10 stacks of movement.")
                 },
                 {
                     "Demonology Warlock",
@@ -1998,12 +2021,12 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Interesting trinket that either gives you intellect when standing still, or your highest secondary stat when moving. Using the trinket will pause the stacks.")
                 },
                 {
-                    "Fire Mage",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Interesting trinket that either gives you intellect when standing still, or your highest secondary stat when moving. Using the trinket will pause the stacks.")
+                    "Enhancement Shaman",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Brings a lot of passive stats and the effect doesn't punish you too much in either the movement or stationary requirements, but still variable enough to be harmed by different fight styles and the need to micro-manage it. The on-use is best done when you have the egg balanced below 20 stacks due to the penalty after.")
                 },
                 {
-                    "Frost Mage",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a complicated trinket, but generally you can just think of it as a passive stat boost. Because stacks above 20 grant a reduced effect, you should try to keep both types of stacks below 20 and use the active to keep it balanced there.")
+                    "Fire Mage",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Interesting trinket that either gives you intellect when standing still, or your highest secondary stat when moving. Using the trinket will pause the stacks.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -2034,10 +2057,6 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a bit of an awkward trinket, but on paper it provides a large amount of stats, which scales well into Single Target and AoE alike.")
                 },
                 {
-                    "Enhancement Shaman",
-                    new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Brings a lot of passive stats and the effect doesn't punish you too much in either the movement or stationary requirements, but still variable enough to be harmed by different fight styles and the need to micro-manage it. The on-use is best done when you have the egg balanced below 20 stacks due to the penalty after.")
-                },
-                {
                     "Affliction Warlock",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Trinket that grants both main and secondary stats based on movement. Can also be \"used\" to suspend your current buffs.")
                 },
@@ -2058,12 +2077,24 @@ public static class TrinketData
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Trinket that grants both main and secondary stats based on movement. Can also be  \"used\" to suspend your current buffs. It's slightly worse than some other options, but not horrible.")
                 },
                 {
+                    "Beast Mastery Hunter",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "")
+                },
+                {
                     "Brewmaster Monk",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "While this trinket gives no stats on its own, you will passively generate either Agility or your highest secondary stat based on whether you are standing still or moving. This results in building or losing one stack of each buff per second, with the option to freeze the stack counts at their current amounts once every 2-minutes. Overall, you will need to maintain large amounts of the Agility stack count in particular for this trinket to excel, so don't fidget too much! When properly utilized, this trinket represents one of your strongest choices in AoE.")
                 },
                 {
+                    "Elemental Shaman",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "")
+                },
+                {
                     "Feral Druid",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the best secondary options available.")
+                },
+                {
+                    "Frost Mage",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a complicated trinket, but generally you can just think of it as a passive stat boost. Because stacks above 20 grant a reduced effect, you should try to keep both types of stacks below 20 and use the active to keep it balanced there.")
                 },
                 {
                     "Guardian Druid",
@@ -2104,10 +2135,6 @@ public static class TrinketData
                 {
                     "Protection Paladin",
                     new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "")
-                },
-                {
-                    "Beast Mastery Hunter",
-                    new TierModel("F", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "")
                 }
             }
         },
@@ -2116,7 +2143,7 @@ public static class TrinketData
             {
                 {
                     "Enhancement Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "The only thing keeping this out of S tier is the lower item level from Delves. Passive Agility with on demand Haste every 2 minutes that, while it doesn't align with  Ascendance still packs a big punch is great. Very competitive option even with higher item level alternatives.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "The only thing keeping this out of S tier is the lower item level from Delves. Passive Agility with on demand Haste every 2 minutes that, while also aligning with  Ascendance which is great. Very competitive option even with higher item level alternatives.")
                 },
                 {
                     "Marksmanship Hunter",
@@ -2132,7 +2159,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "Strong on-use that is only limited by its low relative item level. Movement speed is a nice bonus.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "")
                 },
                 {
                     "Feral Druid",
@@ -2283,7 +2310,7 @@ public static class TrinketData
             {
                 {
                     "Elemental Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "While not pure Single Target, this trinket does not scale well into AoE. Even the Single Target damage leaves some to be desired. It's not bad, but it's one of the worst options from Mythic+ this season.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coinbag07.jpg", "https://wowhead.com/item=178772", "")
                 },
                 {
                     "Frost Mage",
@@ -2442,7 +2469,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "An incredibly potent passive trinket that can be great if obtained at high item levels through the Great Vault. Though generally worse than  Ara-Kara Sacbrood.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "A passive trinket that can be quite strong if obtained at high item levels through the Great Vault. Generally worse than  Ara-Kara Sacbrood.")
                 },
                 {
                     "Restoration Shaman",
@@ -2572,7 +2599,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "An Arsenal trinket with a twist, this time it not only does damage, but, provides some defensive power alongside it. Great for when you want to still do decent damage, but, need a bit more staying power.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "An Arsenal trinket with a twist - this time it not only deals damage, but also provides some defensive power alongside it. Great for when you want to do decent damage and also need a bit more staying power.")
                 },
                 {
                     "Retribution Paladin",
@@ -2676,11 +2703,11 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Great on-use trinket which works in all scenarios. Simply macro this to  Call of the Wild.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "")
                 },
                 {
                     "Enhancement Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Provides passive Agility and a large on-demand Mastery boost. While this doesn't always align with  Ascendance for builds that play it, it's still a solid option to frontload burst due to our Mastery being a force multiplier to begin with and a great option for all situations.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Provides passive Agility and a large on-demand Mastery boost. Thanks to Patch 11.0.5 now also always aligns with  Ascendance, so is by far our best option. This is thanks to our Mastery being a force multiplier to begin, and our burst already being exceptional.")
                 },
                 {
                     "Feral Druid",
@@ -2725,7 +2752,7 @@ public static class TrinketData
             {
                 {
                     "Frost Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color2.jpg", "https://wowhead.com/item=219300", "Both on-use secondary stat trinkets available for Frost this season are nearly identical.  Skarmorak Shard grants small Mastery buffs when you defeat enemies, making this a bit more attractive than  Mark of Khardros in Mythic+. The 90-second cooldown makes this trinket for any build. It will line up with your cooldowns whether you play Deathbringer or Rider of the Apocalypse,  Breath of Sindragosa or  Obliteration.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color2.jpg", "https://wowhead.com/item=219300", "Both on-use secondary stat trinkets available for Frost this season are nearly identical.  Skarmorak Shard grants small Mastery buffs when you defeat enemies, making this a bit more attractive than  Mark of Khardros in Mythic+. The 90-second cooldown makes this trinket worthwhile for any build. It will line up with your cooldowns whether you play Deathbringer or Rider of the Apocalypse,  Breath of Sindragosa or  Obliteration.")
                 },
                 {
                     "Retribution Paladin",
@@ -2733,7 +2760,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color2.jpg", "https://wowhead.com/item=219300", "Another great on-use trinket with a 90-second cooldown. Very similar to  Mark of Khardros, but gives slightly less mastery on use, and instead gets a bonus bit of mastery when walking near an enemy's corpse. This secondary effect makes this trinket great for Mythic+ and Delves.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color2.jpg", "https://wowhead.com/item=219300", "Another great on-use trinket with a 90-second cooldown. Very similar to  Mark of Khardros, but gives slightly less Mastery on use. As compensation, it also grants you a little Mastery when walking near an enemy's corpse. This secondary effect makes this trinket great for Mythic+ and Delves.")
                 },
                 {
                     "Protection Paladin",
@@ -2774,7 +2801,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_oversizedacidgland_green.jpg", "https://wowhead.com/item=212453", "As expected from a damage trinket, it's not the best for unholy, but deals very good damage, more so in AoE scenarios.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_oversizedacidgland_green.jpg", "https://wowhead.com/item=212453", "As expected from a damage-effect trinket, it's not the best for Unholy. That said, it still deals good damage, more so in AoE scenarios.")
                 }
             }
         },
@@ -2783,7 +2810,7 @@ public static class TrinketData
             {
                 {
                     "Unholy Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_corehoundsmall_orange.jpg", "https://wowhead.com/item=205201", "On-use stat trinket that aligns well with your 90-second cooldown windows. Giving Crit does hold this back a bit compared to a Haste or Mastery trinket with this same cooldown though.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_corehoundsmall_orange.jpg", "https://wowhead.com/item=205201", "On-use stat trinket that aligns well with your 90-second cooldown windows. The fact that it grants Critical Strike does hold this back a bit, compared to a Haste or Mastery trinket with the same same cooldown.")
                 }
             }
         },
@@ -2800,7 +2827,7 @@ public static class TrinketData
                 },
                 {
                     "Frost Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg", "https://wowhead.com/item=178751", "One of the better placeholders until you can get something better. A solid Strength stick with an okay damage Use effect.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg", "https://wowhead.com/item=178751", "One of the better placeholders until you can get something better. A solid Strength stick with an okay damage on-use effect.")
                 },
                 {
                     "Retribution Paladin",
@@ -2808,7 +2835,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg", "https://wowhead.com/item=178751", "Solid on-use damage trinket with a slow component. Not the best out there for Unholy due to its preferences toward stats, but, if it's the best you have it's a solid option.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_archaeology_70_tauren_moosebonefishhook.jpg", "https://wowhead.com/item=178751", "Solid on-use damage trinket with a slow component. Not the best out there for Unholy due to the spec's preferences toward stats, but if it's the best you have then it's a solid option.")
                 },
                 {
                     "Protection Paladin",
@@ -2833,7 +2860,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg", "https://wowhead.com/item=225638", "Gives a lot of stats. Ideally you want to stay isolated so the buff doesn't split. Excellent for solo content for that reason.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_trinket_maldraxxus_01_purple.jpg", "https://wowhead.com/item=225638", "")
                 },
                 {
                     "Blood Death Knight",
@@ -2926,7 +2953,7 @@ public static class TrinketData
                 },
                 {
                     "Elemental Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "Another contender for \"Best Trinket of the Patch\", Spymaster's Web slowly stacks up Intellect throughout a fight and can be used for massive burst towards the end. While the mastery on it is awful and we also cannot benefit from the on-use as much as burst specs do, this trinket is still massively impactful, even for us. Use the active on it on your last Stormkeeper window of a fight, but at least 20 seconds before the end to actually fully benefit from the int window.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "")
                 },
                 {
                     "Fire Mage",
@@ -2967,7 +2994,7 @@ public static class TrinketData
             {
                 {
                     "Unholy Death Knight",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_food_legion_seashellf2.jpg", "https://wowhead.com/item=205193", "On-use stat trinket that aligns well with your 90-second cooldown windows. Giving Versatility does hold this back a bit compared to a Haste or Mastery trinket with this same cooldown though.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_food_legion_seashellf2.jpg", "https://wowhead.com/item=205193", "On-use stat trinket that aligns well with your 90-second cooldown windows. The fact that it grants Versatility does hold this back a bit, compared to a Haste or Mastery trinket with the same same cooldown.")
                 }
             }
         },
@@ -3025,8 +3052,12 @@ public static class TrinketData
                     new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Minigame trinket. Can be obnoxious depending on what buff you get. Double on-use with Spymasters and Transmitter is really OP. https://wago.io/jX4s-GYvb Download this weakaura.")
                 },
                 {
+                    "Elemental Shaman",
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "")
+                },
+                {
                     "Frost Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "A highly unique trinket that outpaces the competition when used properly. When you use it, you will get one of three tasks: stand on a plate, collect an orb, or jump three times. We want to complete the task right before using  Pillar of Frost. The \"stand here\" and \"catch the ball\" tasks can be done by running to a spot a few steps forward and right from where you used the trinket. Learning this spot will be key to good timing on lining up the buff with  Pillar of Frost. Consider this more strongly for Mythic+, where you can start the task before pulling a pack. Rider of the Apocalypse builds especially want this trinket work because the Strength buff will empower all the Horsemen. In contrast, the Mastery buff from the other on-use trinkets will do little for the Horsemen.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "A highly unique trinket that outpaces the competition when used properly. When you use it, you will get one of three tasks: stand on a plate, collect an orb, or jump three times. We want to complete the task right before using  Pillar of Frost. The \"stand here\" and \"catch the ball\" tasks can be done by running to a spot a few steps forward and right from where you used the trinket. Learning this spot will be key to good timing on lining up the buff with  Pillar of Frost. Consider this more strongly for Mythic+, where you can start the task before pulling a pack. Rider of the Apocalypse builds especially want this trinket, because the Strength buff will empower all the Horsemen. In contrast, the Mastery buff from the other on-use trinkets will do little for the Horsemen.")
                 },
                 {
                     "Marksmanship Hunter",
@@ -3038,7 +3069,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Unholy's strongest on-use trinket option, though does come with some downsides in that the tasks it gives to complete can be hard to complete at times, making it a little risky to use. If you can't get full power out of this, use one of the other on-use alternatives.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Unholy's strongest on-use trinket option, though it does come with some downsides in that the tasks it gives to complete can be hard to execute at times. This adds an element of risk when using it, and if you can't comfortably adjust to these requirements then consider opting for one of the other on-use alternatives.")
                 },
                 {
                     "Windwalker Monk",
@@ -3053,14 +3084,6 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Blizzard was quick to fix this trinket so we could not use it with Spymaster's, however it is still strong, aim to use it 6-7s before  Evocation, then activate the buff when you're ready to burst!")
                 },
                 {
-                    "Elemental Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Haste is good. We want Haste. This is a lot of haste. We can't really benefit from the on-use nature of the trinket, given the lack of burst damage but")
-                },
-                {
-                    "Enhancement Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "While this brings passive Haste and a huge amount of stats when used, it has the downside of being incredibly annoying to play around based on which minigame you get. The cooldown does naturally align with  Ascendance which is nice, but having to do something to activate it is far less so. Potentially very strong if you can play around it.")
-                },
-                {
                     "Feral Druid",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "The 2nd best stat on use available and the best one from the raid. It doesn't line up as perfectly as other options, you'll need to hold it for 30 sesconds to sync it. The games can be a little annoying to fully take advantage of the trinket but a strong option.")
                 },
@@ -3069,16 +3092,20 @@ public static class TrinketData
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "On-use trinket that gives you instructions that provide intellect on completion. This trinket is a bit of a hassle, but you can stagger the buff to make it last longer.")
                 },
                 {
-                    "Frost Mage",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "This is a good active trinket that can be paired with  Icy Veins. Note that if you have a  Spymaster's Web, you can still use this trinket to decent effect because you will not be using  Spymaster's Web very often.")
-                },
-                {
                     "Shadow Priest",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "This trinket provides an on use damage effect every 90 seconds after the perform a simple task such as jump or collect an orb. Unfortunately at 90 seconds this does not line up well with any of our cooldowns.")
                 },
                 {
+                    "Enhancement Shaman",
+                    new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "While this brings passive Haste and a huge amount of stats when used, it has the downside of being incredibly annoying to play around based on which minigame you get. The cooldown does naturally align with  Ascendance which is nice, but having to do something to activate it is far less so. Potentially very strong if you can play around it.")
+                },
+                {
                     "Devastation Evoker",
                     new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "On-use trinket that gives you instructions that provide intellect on completion. This trinket is a bit of a hassle, but you can stagger the buff to make it last longer.")
+                },
+                {
+                    "Frost Mage",
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "This is a good active trinket that can be paired with  Icy Veins. Note that if you have a  Spymaster's Web, you can still use this trinket to decent effect because you will not be using  Spymaster's Web very often.")
                 },
                 {
                     "Guardian Druid",
@@ -3110,7 +3137,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Requires performing a special task like catching a ball or jumping to get the benefit. Not worth the effort and limits your movement.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "")
                 },
                 {
                     "Blood Death Knight",
@@ -3195,7 +3222,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "Limited range and requires aiming and several usages. Quite decent in Mythic+ but does very little in Raid.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "")
                 },
                 {
                     "Enhancement Shaman",
@@ -3228,7 +3255,7 @@ public static class TrinketData
             {
                 {
                     "Elemental Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "One of the best Shadowlands trinkets makes a return. Haste is incredibly good for us. It's not really known how this trinket is gonna work this time. Flat Secondary Buff food doesn't seem available so we will see.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "")
                 },
                 {
                     "Holy Priest",
@@ -3276,7 +3303,7 @@ public static class TrinketData
                 },
                 {
                     "Frost Mage",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "This trinket is unusual in that you can choose which stats it provides. Generally, you will probably want the haste version, but it's best to simulate your character to see which is the best for you.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "This trinket is unusual in that you can choose which stats it provides. Generally, you will probably want the Haste or Mastery version, but it's best to simulate your character to see which is the best for you.")
                 },
                 {
                     "Holy Paladin",
@@ -3417,7 +3444,7 @@ public static class TrinketData
                 },
                 {
                     "Unholy Death Knight",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_alchemystone_color4.jpg", "https://wowhead.com/item=219311", "Another passive trinket that deals reasonable damage, and increases haste for a bit, but the damage component is too much of its power for it to really stand out.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_alchemystone_color4.jpg", "https://wowhead.com/item=219311", "Another passive trinket that deals reasonable damage and also grants some Haste. Unfortunately, the damage component constitutes too much of its power for it to really stand out.")
                 }
             }
         },
@@ -3450,7 +3477,7 @@ public static class TrinketData
                 },
                 {
                     "Beast Mastery Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "Decent single-target shadow damage proc with a bit of cleave. Buffed by  Darkness Calls.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "")
                 },
                 {
                     "Brewmaster Monk",
