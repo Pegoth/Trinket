@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-27T16:01:06.935Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-30T18:24:43.116Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -60,7 +60,7 @@ public static class TrinketData
             {
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("C+", "https://wow.zamimg.com/images/wow/icons/large/ability_shawaterelemental_split.jpg", "https://wowhead.com/item=215170", "Grants static Agility and an on-use with 1 minute cd that deals uncapped AoE damage. It's pretty solid but has a maximum item level of 626.")
+                    new TierModel("C+", "https://wow.zamimg.com/images/wow/icons/large/ability_shawaterelemental_split.jpg", "https://wowhead.com/item=215170", "Grants static Agility and an on-use effect with 1 minute cooldown that deals uncapped AoE damage. It's pretty solid, but has a maximum item level of 626.")
                 },
                 {
                     "Brewmaster Monk",
@@ -105,7 +105,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("C+", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_alchemystone_color4.jpg", "https://wowhead.com/item=210816", "Grants static Versatility and a 1 RPPM proc of a large Agility buff as well as boosting the effect of healing potions. Not great, but a decent crafted option if you have spare sparks and no good trinkets. It has a maximum item level of 636.")
+                    new TierModel("C+", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_alchemystone_color4.jpg", "https://wowhead.com/item=210816", "Grants static Versatility and a 1 RPPM proc of a large Agility buff, as well as boosting the effect of healing potions. Not great, but a decent crafted option if you have spare sparks and no good trinkets. It has a maximum item level of 636.")
                 },
                 {
                     "Affliction Warlock",
@@ -226,7 +226,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("S-", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Havoc's strongest passive trinket. A powerful rolling agility buff that can stack, all around great but not BiS in ST.")
+                    new TierModel("S-", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Havoc's strongest passive trinket, with a powerful rolling Agility buff that can stack. All around great, but not BiS in single-target.")
                 },
                 {
                     "Beast Mastery Hunter",
@@ -234,7 +234,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This trinket provides static Haste and a 2.5 RPPM effect of this trinket which grants an Agility buff for a entire minute before hatching, dealing a Nature DoT to an enemy. Each egg proc generates a separate buff, so once it's running, it grants on average 2.5x as much Agility as stated on the tooltip.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This trinket provides static Haste and a 2.5 RPPM effect that grants an Agility buff for an entire minute before hatching, dealing a Nature DoT to an enemy. Each egg proc generates a separate buff, so once it's running, it grants 2.5x as much Agility, on average, as stated on the tooltip.")
                 },
                 {
                     "Arcane Mage",
@@ -331,7 +331,7 @@ public static class TrinketData
             {
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "This has static Agility, and it deals more damage than any other trinket available aside from  Void Reaper's Contract. When you use it, it grants an hour-long buff that allows your attacks to proc a Nature DoT  Flayedwing Toxin with 4+ Haste RPPM.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "This has static Agility, and it deals more damage than any other trinket available aside from  Void Reaper's Contract. When you use it, it grants an hour-long buff that allows your attacks to proc a Nature DoT  Flayedwing Toxin with 4+Haste RPPM.")
                 },
                 {
                     "Brewmaster Monk",
@@ -655,7 +655,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_inscriptions_darkmoondeckevolution_0.jpg", "https://wowhead.com/item=222680", "Ascension is a relatively powerful trinket for its item level, while it does not hold up once you get to normal raid or higher item level trinkets it is a good trinket to have access to early.")
+                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_inscriptions_darkmoondeckevolution_0.jpg", "https://wowhead.com/item=222680", "Ascension is a relatively powerful trinket for its item level. While it does not hold up once you get to normal raid or higher item level trinkets, it is a good trinket to have access to early on.")
                 },
                 {
                     "Unholy Death Knight",
@@ -767,7 +767,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Powerful passive trinket, however, it's bad if you need to swap targets frequently which  Burning Wound can cause in mythic+ scenarios.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Powerful passive trinket. Note, however, that it drops in value if you need to swap targets frequently, which  Burning Wound can cause in Mythic+ scenarios.")
                 },
                 {
                     "Marksmanship Hunter",
@@ -787,7 +787,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "This trinket grants static Agility and a massive amount of Crit with 1 RPPM for 10 seconds with roughly 16.7% uptime.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "This trinket grants static Agility and a massive amount of Critical Strike with 1 RPPM for 10 seconds, with roughly 16.7% uptime.")
                 },
                 {
                     "Enhancement Shaman",
@@ -949,7 +949,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "While not particularly powerful at first glance, this is one of the strongest secondary stat trinkets available, and Vengeance benefits quite a lot from stats. It has static Agility and has 1.55 RPPM on a 20 second buff, so on average it should have ~51.7% uptime.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "While not particularly powerful at first glance, this is one of the strongest Secondary stat trinkets available, and Vengeance benefits quite a lot from stats. It has static Agility and has 1.55 RPPM on a 20 second buff, so on average it should have ~51.7% uptime.")
                 },
                 {
                     "Brewmaster Monk",
@@ -1053,7 +1053,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg", "https://wowhead.com/item=219915", "This is classed as a tank trinket, so it doesn't have the damage penalty of DPS trinkets. Because of this, it does damage that is nearly on par with full DPS trinkets, while also having defensive benefits! This is exceptionally good in Mythic+ because it has a short 90 second cooldown, while granting a max health buff that's great for bosses, while generating a shield in between pulls that helps buffer us during our weakest point - on pull before our defensives get rolling. It grants static Agility on top of the buff that can stack up to 20 times.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg", "https://wowhead.com/item=219915", "This is classed as a Tank trinket, so it doesn't have the damage penalty of DPS trinkets. Because of this, it does damage that is nearly on par with full DPS trinkets, while also having defensive benefits! This is exceptionally good in Mythic+ because it has a short 90 second cooldown, while granting a maximum health buff that's great for bosses, while also generating a shield in between pulls that helps buffer us during our weakest point - on pull, before our defensives get rolling. On top of the buff that can stack up to 20 times, this trinket also grants static Agility.")
                 },
                 {
                     "Blood Death Knight",
@@ -1421,7 +1421,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("C-", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "This trinket has static Agility and a 1.66 RPPM proc on dealing damage which spawns an orb flying to your current target, dealing split AoE damage. Intercepting the orb grants Mastery for 15 seconds instead. Due to the 33% non-DPS spec penalty, we always want to grab the orb, but it's not great for damage due to being Mastery.")
+                    new TierModel("C-", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "This trinket has static Agility and a 1.66 RPPM proc on dealing damage, which spawns an orb flying to your current target, dealing split AoE damage. Intercepting the orb grants Mastery for 15 seconds instead. Due to the 33% non-DPS spec penalty, we always want to grab the orb, but it's not great for damage due to being Mastery.")
                 },
                 {
                     "Mistweaver Monk",
@@ -1659,7 +1659,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "An exceptionally powerful on-use cast, high variability on a single massive hit relying on landing a critical strike. Very good, but the RNG of critical strikes can be unappealing. BiS for ST as a double on-use, casted after Skardyn's Grace.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "An exceptionally powerful on-use cast, with high variability on a single massive hit that relies on landing a critical strike. Very good, but the RNG of critical strikes can be unappealing. BiS for single-target as a double on-use, usually cast after Skardyn's Grace.")
                 },
                 {
                     "Marksmanship Hunter",
@@ -1719,7 +1719,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "This trinket grants static Crit and an on-use with a 2 minute cooldown. It has a 1 second cast time, during which you are unable to dodge or parry, but deals a massive amount of damage over 2 sec to a Priority target, and it deals scaling increased damage to enemies with missing health. In addition, if the enemy dies during the debuff, the cooldown is cut in half to 1 minute, making it a fantastic option in multi-target fights. However, by default it's not as strong as other trinkets that aren't reliant on the cooldown reduction.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "This trinket grants static Critical Strike and an on-use effect with a 2 minute cooldown. It has a 1 second cast time, during which you are unable to dodge or parry, but deals a massive amount of damage over 2 sec to a priority target, and it deals scaling increased damage to enemies with missing health. In addition, if the enemy dies during the debuff, the cooldown is cut in half to 1 minute, making it a fantastic option in multi-target fights. However, by default it's not as strong as other trinkets that aren't reliant on the cooldown reduction.")
                 },
                 {
                     "Discipline Priest",
@@ -1854,7 +1854,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "Ocarina is a relatively weak trinket on its value to you as the user, however with the buff applied to all 5 players it is relatively okay as an option.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "Ocarina is a relatively weak trinket on its value to you as the user. However, with the buff applied to all 5 players, it is relatively okay as an option.")
                 },
                 {
                     "Outlaw Rogue",
@@ -1890,7 +1890,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("F", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "This trinket grants static Agility and when used, grants a 15 minute buff on you that has a 1 RPPM proc to grant allies a selected secondary stat for 15 seconds. It's pretty bad despite being a group support item.")
+                    new TierModel("F", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "This trinket grants static Agility and when used, grants a 15 minute buff on you that has a 1 RPPM proc to grant allies a selected Secondary stat for 15 seconds. It's pretty bad, despite being a group support item.")
                 },
                 {
                     "Windwalker Monk",
@@ -1973,7 +1973,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("C-", "https://wow.zamimg.com/images/wow/icons/large/inv_firearm_2h_engineering_c_01_blue.jpg", "https://wowhead.com/item=219301", "This trinket has no stats, but instead has an on-use with 2 min cd that deals damage to enemies in an arc. This damage is reduced for each enemy hit. In addition, it adds a small passive proc on auto-attacks which can reduce the on-use cooldown by 5 sec and adds a small amount of Fire damage to your next melee. It's not great.")
+                    new TierModel("C-", "https://wow.zamimg.com/images/wow/icons/large/inv_firearm_2h_engineering_c_01_blue.jpg", "https://wowhead.com/item=219301", "This trinket has no stats, but instead has an on-use effect with a 2 minute cooldown that deals damage to enemies in an arc. This damage is reduced for each enemy hit. In addition, it adds a small passive proc on auto-attacks which can reduce the on-use cooldown by 5 seconds and adds a small amount of Fire damage to your next melee. It's not great.")
                 },
                 {
                     "Frost Death Knight",
@@ -2030,7 +2030,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Powerful passive stat trinket, both movement for secondary stats and standing still for agility are powerful. The on-use is best used when the stats are nearly even while below 20 stacks of either buff.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Powerful passive stat trinket, with movement being used to gain secondary stats, and remaining stationary for Agility. The on-use is best used when the stats are nearly even, while below 20 stacks of either buff.")
                 },
                 {
                     "Holy Paladin",
@@ -2118,7 +2118,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("B-", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This trinket has no baseline stats. Instead you generate stacks of either Agility or your highest secondary stat based on whether you are standing still or moving, at a rate of 1 per second. When you activate the on-use, it will freeze the stack counts at their current amounts for 20 sec once every 2 minutes. This is pretty annoying to use, so despite the potentially large gain, it loses some value.")
+                    new TierModel("B-", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This trinket has no baseline stats. Instead, you generate stacks of either Agility or your highest Secondary stat based on whether you are standing still or moving, at a rate of 1 per second. When you activate the on-use, it will freeze the stack counts at their current amounts for 20 seconds once every 2 minutes. This is pretty annoying to use, so despite the potentially large gain, it loses some value.")
                 },
                 {
                     "Blood Death Knight",
@@ -2280,7 +2280,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("C-", "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg", "https://wowhead.com/item=219315", "This trinket has static Agility and whenever you taunt, it grants a shield that reduces damage you take by 50%, up to a cap with a 1 minute ICD. Unfortunately, the amount of shield is extremely low despite being on-demand, and incentivizes taunting for purposes other than regaining agro.")
+                    new TierModel("C-", "https://wow.zamimg.com/images/wow/icons/large/inv_10_engineering2_tinkermodules_color1.jpg", "https://wowhead.com/item=219315", "This trinket has static Agility and whenever you taunt, it grants a shield that reduces damage you take by 50%, up to a cap with a 1 minute ICD. Unfortunately, the size of the shield is extremely low despite being on-demand, and incentivizes taunting for purposes other than regaining aggro.")
                 },
                 {
                     "Protection Paladin",
@@ -2396,7 +2396,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("B-", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_scroll3_color2.jpg", "https://wowhead.com/item=226539", "This is technically a DPS trinket, so it suffers from the 33% damage penalty to non-tanks, and since it comes from Delves, its maximum item level is only 626. Despite this, because the damage based on movement speed increase portion applies to all increases, including those from our talents, this trinket is actually still decent.")
+                    new TierModel("B-", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_scroll3_color2.jpg", "https://wowhead.com/item=226539", "This is technically a DPS trinket, so it suffers from the 33% damage penalty to non-Tanks, and since it comes from Delves, its maximum item level is only 626. Despite this, because the damage based on movement speed increase portion applies to all increases, including those from our talents, this trinket is actually still decent.")
                 },
                 {
                     "Assassination Rogue",
@@ -2632,7 +2632,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_tailoring_purchasedthread_color2.jpg", "https://wowhead.com/item=215172", "This trinket is a purely defensive option in M+, with a 15% Attack speed reduction for 15 seconds on an extremely short 1 minute cooldown, while also granting a small shield. The shield isn't particularly good, but 25% uptime on the largest source of damage intake that is available for every pull is fantastic. Unfortunately, coming from Delves, it has a maximum item level of 626.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_tailoring_purchasedthread_color2.jpg", "https://wowhead.com/item=215172", "This trinket is a purely defensive option in Mythic+, with a 15% attack speed reduction for 15 seconds on an extremely short 1 minute cooldown, while also granting a small shield. The shield isn't particularly good, but 25% uptime on the largest source of damage intake that is available for every pull is fantastic. Unfortunately, coming from Delves, it has a maximum item level of 626.")
                 }
             }
         },
@@ -2715,7 +2715,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Havoc's second strongest on-use trinket lining up to  Metamorphosis causes Skardyn's to be BiS for AoE scenarios IF you will not play  Treacherous Transmitter.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Havoc's second strongest on-use trinket, lining up with  Metamorphosis causes this trinket to be BiS for AoE scenarios IF you will not play  Treacherous Transmitter.")
                 },
                 {
                     "Marksmanship Hunter",
@@ -2743,7 +2743,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=56440", "This trinket grants static Agility and a huge mastery buff for 20 seconds on a 2 minute cooldown. Sadly, mastery is not very good.")
+                    new TierModel("D", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=56440", "This trinket grants static Agility and a huge Mastery buff for 20 seconds on a 2 minute cooldown. Sadly, Mastery is not very good.")
                 }
             }
         },
@@ -3003,7 +3003,7 @@ public static class TrinketData
             {
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_swarmlordsauthority_purple.jpg", "https://wowhead.com/item=212450", "This trinket has static Haste and 3+ Haste RPPM proc to summon a pet that deals damage and grants a 50% absorb shield. In addition, it has a 1 minute cooldown on-use which summons 12+Haste scarabs over 3 seconds that each do the same as the random procs. Effectively, it's equivalent to 15+Haste procs per minute, making it our strongest defensive trinket available.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_swarmlordsauthority_purple.jpg", "https://wowhead.com/item=212450", "This trinket has static Haste and a 3+Haste RPPM proc that summons a pet, which deals damage and grants a 50% absorb shield. In addition, it has a 1 minute cooldown on-use which summons 12+Haste scarabs over 3 seconds that each do the same as the random procs. Effectively, it's equivalent to 15+Haste procs per minute, making it our strongest defensive trinket available.")
                 },
                 {
                     "Guardian Druid",
@@ -3036,7 +3036,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("B-", "https://wow.zamimg.com/images/wow/icons/large/inv_gizmo_felironshell.jpg", "https://wowhead.com/item=133291", "Despite granting static Vers, this trinket grants a 20 sec dodge buff once per minute, which can be a large amount of damage reduction over the course of a Mythic+ dungeon due to the melees avoided. It has roughly 33% uptime.")
+                    new TierModel("B-", "https://wow.zamimg.com/images/wow/icons/large/inv_gizmo_felironshell.jpg", "https://wowhead.com/item=133291", "Despite granting static Versatility, this trinket grants a 20 sec Dodge buff once per minute, which can be a large amount of damage reduction over the course of a Mythic+ dungeon due to the melees avoided. It has roughly 33% uptime.")
                 },
                 {
                     "Brewmaster Monk",
@@ -3077,7 +3077,7 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("S-", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Treacherous Transmitter sims incredibly well as one of Havoc Demon Hunters best trinket options, however actually using this trinket is a bit bait and I recommend keeping away if you are not confident in your ability to play around the trinket efficiently. It forces you to do one of three different tasks which are find a moving purple orb, stand on a pad that spawns away from you for 3 seconds, or jump 3 times. All of these take differing amounts of time to perform during your opener and can be hard to spot.")
+                    new TierModel("S-", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Treacherous Transmitter sims incredibly well as one of Havoc Demon Hunter's best trinket options, however actually using this trinket is a bit of a bait and I recommend keeping away if you are not confident in your ability to play around it efficiently. It forces you to do one of three different tasks, which are finding a moving purple orb, standing on a pad that spawns away from you for 3 seconds, or jumping 3 times. All of these take differing amounts of time to perform during your opener, and can be hard to spot.")
                 },
                 {
                     "Arcane Mage",
@@ -3181,7 +3181,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Jump 3 times")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Jump 3 times.")
                 },
                 {
                     "Brewmaster Monk",
@@ -3210,7 +3210,7 @@ public static class TrinketData
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "Third Cast: activates both the prior casts at the same time.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_fancybox_purple.jpg", "https://wowhead.com/item=219319", "Third Cast: Activates both the prior casts at the same time.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -3465,11 +3465,11 @@ public static class TrinketData
                 },
                 {
                     "Havoc Demon Hunter",
-                    new TierModel("S-", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "A powerful passive trinket that can be used if the BiS options are not available.. While  Void Reaper's Contract has a 2-set pairing with  Void Reaper's Warp Blade, it does not push it to be significantly more powerful.")
+                    new TierModel("S-", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "A powerful passive trinket that can be used if the BiS options are not available. While  Void Reaper's Contract has a 2-set pairing with  Void Reaper's Warp Blade, it does not push it to be significantly more powerful.")
                 },
                 {
                     "Vengeance Demon Hunter",
-                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "This has static Agility, and it deals more damage than any other trinket available aside from  Void Reaper's Contract. When you use it, it grants an hour-long buff that allows your attacks to proc a Nature DoT  Flayedwing Toxin with 4+ Haste RPPM.")
+                    new TierModel("A+", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "This has static Agility, and it deals more damage than any other trinket available aside from  Void Reaper's Contract. When you use it, it grants an hour-long buff that allows your attacks to proc a Nature DoT  Flayedwing Toxin with 4+Haste RPPM.")
                 },
                 {
                     "Assassination Rogue",

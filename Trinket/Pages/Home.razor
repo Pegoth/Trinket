@@ -1,136 +1,142 @@
 ﻿@page "/"
 @inject IJSRuntime JSRuntime
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Trinket</PageTitle>
 
-<div class="container mt-2 mb-2">
-    <div class="row mb-2">
-        <div class="col input-group">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Trinket filter"
-                   list="trinkets"
-                   tabindex="1"
-                   @bind="TrinketFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
-            <datalist id="trinkets">
-                @foreach (var trinket in TrinketData.Trinkets.Keys)
-                {
-                    <option>@trinket</option>
-                }
-            </datalist>
-            <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearTrinketFilter" tabindex="5">X</button>
-            <span class="input-group-text" title='Search for trinket name. Partial search is supported ("abe spell" will match "Aberrant Spellforge"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
-        </div>
-        <div class="col input-group">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Specialization/Class filter"
-                   list="specs"
-                   tabindex="2"
-                   @bind="SpecFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
-            <datalist id="specs">
-                @foreach (var spec in SpecData.Specs)
-                {
-                    <option>@spec</option>
-                }
-            </datalist>
-            <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearSpecFilter" tabindex="6">X</button>
-            <span class="input-group-text" title='Search for class/specialization name. Partial search is supported ("rest sham" will match "Restoration Shaman"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
-        </div>
-        <div class="col-auto">
-            <input type="button" class="btn btn-primary" value="Search" @onclick="Search" tabindex="3"/>
-        </div>
-        <div class="col-auto">
-            <button type="button" class="btn btn-secondary" onclick="toggleDarkMode()" tabindex="4">Dark mode</button>
+<div class="h-100 d-flex flex-column">
+    <div class="mt-1 mb-2 container" style="flex: 0 0 auto;">
+        <div class="row">
+            <div class="col input-group">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Trinket filter"
+                       list="trinkets"
+                       tabindex="1"
+                       @bind="TrinketFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
+                <datalist id="trinkets">
+                    @foreach (var trinket in TrinketData.Trinkets.Keys)
+                    {
+                        <option>@trinket</option>
+                    }
+                </datalist>
+                <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearTrinketFilter" tabindex="5">X</button>
+                <span class="input-group-text" title='Search for trinket name. Partial search is supported ("abe spell" will match "Aberrant Spellforge"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
+            </div>
+            <div class="col input-group">
+                <input type="text"
+                       class="form-control"
+                       placeholder="Specialization/Class filter"
+                       list="specs"
+                       tabindex="2"
+                       @bind="SpecFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
+                <datalist id="specs">
+                    @foreach (var spec in SpecData.Specs)
+                    {
+                        <option>@spec</option>
+                    }
+                </datalist>
+                <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearSpecFilter" tabindex="6">X</button>
+                <span class="input-group-text" title='Search for class/specialization name. Partial search is supported ("rest sham" will match "Restoration Shaman"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
+            </div>
+            <div class="col-auto">
+                <input type="button" class="btn btn-primary" value="Search" @onclick="Search" tabindex="3"/>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-secondary" onclick="toggleDarkMode()" tabindex="4">Dark mode</button>
+            </div>
         </div>
     </div>
-    @if (_results != null)
-    {
-        @if (_results.All(r => r.Value.Count <= 1))
-        {
-            var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
-            if (filtered.Length > 0)
+    <div class="flex-fill" style="overflow-y: scroll;">
+        <div class="container">
+            @if (_results != null)
             {
-                var query = filtered.Select(kv => new {Trinket = kv.Key, Data = kv.Value.Values.First()})
-                                    .Select(a => new
-                                     {
-                                         a.Trinket,
-                                         a.Data
-                                     })
-                                    .OrderBy(a => a.Data.TierNumerical);
-                var first = filtered.First().Value.First();
-                <div class="mb-2">
-                    <h4 class="text-center">@first.Key</h4>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-center" style="width: 1px">Trinket</th>
-                                <th class="text-center" style="width: 1px">Tier</th>
-                                <th class="text-center">Note</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var info in query)
-                            {
-                                <tr>
-                                    <td class="align-middle text-nowrap">
-                                        <Item Link="@info.Data.Link" Icon="@info.Data.Icon" Name="@info.Trinket"></Item>
-                                    </td>
-                                    <td class="text-center align-middle">
-                                        @info.Data.Tier
-                                    </td>
-                                    <td class="align-middle">
-                                        @info.Data.Note
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            }
-        }
-        else
-        {
-            foreach (var result in _results)
-            {
-                if (result.Value.Count <= 0)
-                    continue;
+                @if (_results.All(r => r.Value.Count <= 1))
+                {
+                    var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
+                    if (filtered.Length > 0)
+                    {
+                        var query = filtered.Select(kv => new {Trinket = kv.Key, Data = kv.Value.Values.First()})
+                                            .Select(a => new
+                                             {
+                                                 a.Trinket,
+                                                 a.Data
+                                             })
+                                            .OrderBy(a => a.Data.TierNumerical);
+                        var first = filtered.First().Value.First();
+                        <div class="mb-2">
+                            <h4 class="text-center">@first.Key</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 1px">Trinket</th>
+                                        <th class="text-center" style="width: 1px">Tier</th>
+                                        <th class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var info in query)
+                                    {
+                                        <tr>
+                                            <td class="align-middle text-nowrap">
+                                                <Item Link="@info.Data.Link" Icon="@info.Data.Icon" Name="@info.Trinket"></Item>
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                @info.Data.Tier
+                                            </td>
+                                            <td class="align-middle">
+                                                @info.Data.Note
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                }
+                else
+                {
+                    foreach (var result in _results)
+                    {
+                        if (result.Value.Count <= 0)
+                            continue;
 
-                var first = result.Value.First();
-                <div class="mb-2">
-                    <h4 class="text-center">
-                        <Item Link="@first.Value.Link" Icon="@first.Value.Icon" Name="@result.Key"></Item>
-                    </h4>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th class="text-center" style="width: 1px">Class</th>
-                                <th class="text-center" style="width: 1px">Tier</th>
-                                <th class="text-center">Note</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
-                            {
-                                <tr>
-                                    <td class="text-center align-middle text-nowrap">
-                                        @kv.Key
-                                    </td>
-                                    <td class="text-center align-middle">
-                                        @kv.Value.Tier
-                                    </td>
-                                    <td class="align-middle">
-                                        @kv.Value.Note
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
+                        var first = result.Value.First();
+                        <div class="mb-2">
+                            <h4 class="text-center">
+                                <Item Link="@first.Value.Link" Icon="@first.Value.Icon" Name="@result.Key"></Item>
+                            </h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 1px">Class</th>
+                                        <th class="text-center" style="width: 1px">Tier</th>
+                                        <th class="text-center">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
+                                    {
+                                        <tr>
+                                            <td class="text-center align-middle text-nowrap">
+                                                @kv.Key
+                                            </td>
+                                            <td class="text-center align-middle">
+                                                @kv.Value.Tier
+                                            </td>
+                                            <td class="align-middle">
+                                                @kv.Value.Note
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                }
             }
-        }
-    }
-    <div class="text-center mt-2">
+        </div>
+    </div>
+    <div class="container text-center" style="flex: 0 0 auto;">
         Last updated: @TrinketData.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss")
     </div>
 </div>
