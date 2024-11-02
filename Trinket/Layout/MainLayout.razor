@@ -1,0 +1,50 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+
+<HeadContent>
+    @if (_isLight)
+    {
+        <link rel="stylesheet" href="_content/Radzen.Blazor/css/material.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="_content/Radzen.Blazor/css/material-dark.css">
+    }
+</HeadContent>
+<RadzenLayout>
+    <RadzenHeader>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <RadzenSidebarToggle Click="@(() => _sidebarExpanded = !_sidebarExpanded)"/>
+            <SectionOutlet SectionName="HeaderContent"/>
+            <RadzenToggleButton Style="margin-left: auto; margin-right: 1rem;"
+                                Icon="@(_isLight ? "dark_mode" : "light_mode")"
+                                Value="@_isLight"
+                                Variant="Variant.Text"
+                                ButtonStyle="ButtonStyle.Base"
+                                ToggleButtonStyle="ButtonStyle.Base"
+                                ToggleShade="Shade.Default"
+                                Change="@ModeChange"/>
+        </RadzenStack>
+    </RadzenHeader>
+    <RadzenSidebar Responsive="false" @bind-Expanded="@_sidebarExpanded" style="position: absolute; z-index: 3">
+        <RadzenStack AlignItems="AlignItems.End" class="rz-p-2">
+            <RadzenButton Icon="west" Variant="Variant.Text" ButtonStyle="ButtonStyle.Secondary" Click="@(() => _sidebarExpanded = false)"/>
+        </RadzenStack>
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Trinket" Icon="home" Path=""/>
+        </RadzenPanelMenu>
+        <div class="rz-p-4">
+            <SectionOutlet SectionName="MenuContent"/>
+        </div>
+    </RadzenSidebar>
+    <RadzenBody>
+        <div class="rz-p-4 rz-h-100">
+            @Body
+        </div>
+    </RadzenBody>
+    @if (_sidebarExpanded)
+    {
+        <div @onclick="@(() => _sidebarExpanded = false)" class="rz-dialog-mask" style="position: absolute; z-index: 2"></div>
+    }
+</RadzenLayout>
+<RadzenComponents/>

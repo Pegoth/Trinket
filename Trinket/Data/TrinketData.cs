@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-10-30T18:24:43.116Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-02T14:51:55.233Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -246,7 +246,7 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "Unique trinket that grants intellect ones eggs are spawned, when they hatch, damage is also dealt. The hatching of eggs takes a bit thought to occur. This trinket's stat budge is pretty insane for both AOE and Single Target.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "A unique trinket that grants Intellect once eggs are spawned. They deal damage once they hatch, though note that the actual hatching process takes some time to occur. This trinket's stat budge is very high for both AoE and single-target.")
                 },
                 {
                     "Blood Death Knight",
@@ -877,7 +877,7 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "Quite powerful baseline intellect with a secondary proc effect trinket. Can also be farmed outside raid (The Dawnbreaker).")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "This trinket has a powerful amount of baseline Intellect with a random Secondary stat proc effect. Can also be farmed outside of raid, as it comes from The Dawnbreaker dungeon.")
                 },
                 {
                     "Beast Mastery Hunter",
@@ -1127,7 +1127,7 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Good trinket that has a pretty healthy amount of intellect given. Pretty solid for both AOE and Single Target. Farmable from Grim Batol.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Good trinket that grants a sizable amount of Intellect via its proc. Pretty solid for both AOE and single-target. Can be farmed from the Grim Batol dungeon.")
                 },
                 {
                     "Devastation Evoker",
@@ -2074,7 +2074,7 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Trinket that grants both main and secondary stats based on movement. Can also be  \"used\" to suspend your current buffs. It's slightly worse than some other options, but not horrible.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This trinket grants both Primary and Secondary stats based on movement. It can also be  \"used\" to suspend your current buffs. It's slightly worse than some other options, but not horrible.")
                 },
                 {
                     "Beast Mastery Hunter",
@@ -2937,7 +2937,7 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "Strong trinket with main stat stacking effect and an on-use that accrues value passively. Can customize when using it depending on fight / dungeon design. You want to use this on 4m CDs whenever you have max stacks.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "A minigame trinket. This can be obnoxious, depending on what buff you get. Double on-use with this and  Spymaster's Web is quite strong. Download this weakaura to help play with this trinket to maximum effectiveness: https://wago.io/jX4s-GYvb")
                 },
                 {
                     "Destruction Warlock",
@@ -3049,7 +3049,7 @@ public static class TrinketData
             {
                 {
                     "Balance Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Minigame trinket. Can be obnoxious depending on what buff you get. Double on-use with Spymasters and Transmitter is really OP. https://wago.io/jX4s-GYvb Download this weakaura.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "A minigame trinket. This can be obnoxious, depending on what buff you get. Double on-use with this and  Spymaster's Web is quite strong. Download this weakaura to help play with this trinket to maximum effectiveness: https://wago.io/jX4s-GYvb")
                 },
                 {
                     "Elemental Shaman",
@@ -3283,7 +3283,7 @@ public static class TrinketData
                 },
                 {
                     "Balance Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Unbound Changeling is a strong passive secondary stat trinket. Can be farmed from Mists of Tirna Scithe.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "This is a strong, passive Secondary stat trinket. Can be farmed from the Mists of Tirna Scithe dungeon.")
                 },
                 {
                     "Demonology Warlock",

@@ -1,142 +1,137 @@
 ﻿@page "/"
-@inject IJSRuntime JSRuntime
+@inject TooltipService TooltipService
+@inject IJSRuntime     JSRuntime
 
 <PageTitle>Trinket</PageTitle>
-
-<div class="h-100 d-flex flex-column">
-    <div class="mt-1 mb-2 container" style="flex: 0 0 auto;">
-        <div class="row">
-            <div class="col input-group">
-                <input type="text"
-                       class="form-control"
-                       placeholder="Trinket filter"
-                       list="trinkets"
-                       tabindex="1"
-                       @bind="TrinketFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
-                <datalist id="trinkets">
-                    @foreach (var trinket in TrinketData.Trinkets.Keys)
-                    {
-                        <option>@trinket</option>
-                    }
-                </datalist>
-                <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearTrinketFilter" tabindex="5">X</button>
-                <span class="input-group-text" title='Search for trinket name. Partial search is supported ("abe spell" will match "Aberrant Spellforge"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
-            </div>
-            <div class="col input-group">
-                <input type="text"
-                       class="form-control"
-                       placeholder="Specialization/Class filter"
-                       list="specs"
-                       tabindex="2"
-                       @bind="SpecFilter" @onblur="Search" @onkeyup="FilterKeyUp"/>
-                <datalist id="specs">
-                    @foreach (var spec in SpecData.Specs)
-                    {
-                        <option>@spec</option>
-                    }
-                </datalist>
-                <button type="button" class="btn btn-sm btn-outline-secondary" @onclick="ClearSpecFilter" tabindex="6">X</button>
-                <span class="input-group-text" title='Search for class/specialization name. Partial search is supported ("rest sham" will match "Restoration Shaman"), or you can select one from the list.' data-bs-toggle="tooltip">?</span>
-            </div>
-            <div class="col-auto">
-                <input type="button" class="btn btn-primary" value="Search" @onclick="Search" tabindex="3"/>
-            </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-secondary" onclick="toggleDarkMode()" tabindex="4">Dark mode</button>
-            </div>
-        </div>
+<SectionContent SectionName="HeaderContent">
+    Trinket
+</SectionContent>
+<SectionContent SectionName="MenuContent">
+    Last update: @TrinketData.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss")
+</SectionContent>
+<div class="rz-h-100 rz-display-flex rz-flex-column">
+    <div style="flex: 0 0 auto;">
+        <RadzenRow AlignItems="AlignItems.Center">
+            <RadzenColumn Size="2">
+                <div style="white-space: nowrap;">
+                    <RadzenSwitch @bind-Value="@_groupBySpec" Change="FilterChanged"/>
+                    <RadzenLabel Text="@(_groupBySpec ? "Group by Specialization / Class" : "Group by Trinket")"
+                                 @onclick="async () => { _groupBySpec = !_groupBySpec; await FilterChanged(); }"
+                                 MouseEnter='er => TooltipService.OpenOnTheTop(er, "Sets the display type of the grid.", new TooltipOptions {Duration = null})'
+                                 MouseLeave="() => TooltipService.Close()"/>
+                </div>
+            </RadzenColumn>
+            <RadzenColumn>
+                <RadzenFormField Text="Trinket filter" Variant="Variant.Text" Style="width: 100%">
+                    <RadzenDropDownDataGrid Data="TrinketData.Trinkets.Keys"
+                                            @bind-Value="_selectedTrinkets"
+                                            Change="FilterChanged"
+                                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                            ShowSearch="false"
+                                            AllowFilteringByWord="true"
+                                            AllowVirtualization="true"
+                                            Multiple="true"
+                                            AllowClear="true"
+                                            MaxSelectedLabels="int.MaxValue"
+                                            MouseEnter='er => TooltipService.OpenOnTheTop(er, "Filter for trinket(s). If nothing is selected nothing is filtered out.<br/>Partial search is supported (\"abe spell\" will match \"Aberrant Spellforge\").", new TooltipOptions {Duration = null})'
+                                            MouseLeave="() => TooltipService.Close()"
+                                            first-focus>
+                        <Columns>
+                            <RadzenDropDownDataGridColumn Width="40px" Sortable="false">
+                                <Template Context="data">
+                                    <RadzenCheckBox TriState="false" Value="@(_selectedTrinkets != null && _selectedTrinkets.Contains((string) data))"/>
+                                </Template>
+                            </RadzenDropDownDataGridColumn>
+                            <RadzenDropDownDataGridColumn Title="Trinket">
+                                <Template Context="data">
+                                    @data
+                                </Template>
+                            </RadzenDropDownDataGridColumn>
+                        </Columns>
+                    </RadzenDropDownDataGrid>
+                </RadzenFormField>
+            </RadzenColumn>
+            <RadzenColumn>
+                <RadzenFormField Text="Specialization/Class filter" Variant="Variant.Text" Style="width: 100%">
+                    <RadzenDropDownDataGrid Data="SpecData.Specs"
+                                            @bind-Value="_selectedSpecs"
+                                            Change="FilterChanged"
+                                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                            ShowSearch="false"
+                                            AllowFilteringByWord="true"
+                                            AllowVirtualization="true"
+                                            Multiple="true"
+                                            AllowClear="true"
+                                            MaxSelectedLabels="int.MaxValue"
+                                            MouseEnter='er => TooltipService.OpenOnTheTop(er, "Filter for class / specialization name(s). If nothing is selected nothing is filtered out.<br/>Partial search is supported (\"rest sham\" will match \"Restoration Shaman\").", new TooltipOptions {Duration = null})'
+                                            MouseLeave="() => TooltipService.Close()">
+                        <Columns>
+                            <RadzenDropDownDataGridColumn Width="40px" Sortable="false">
+                                <Template Context="data">
+                                    <RadzenCheckBox TriState="false" Value="@(_selectedSpecs != null && _selectedSpecs.Contains((string) data))"/>
+                                </Template>
+                            </RadzenDropDownDataGridColumn>
+                            <RadzenDropDownDataGridColumn Title="Specialization/Class">
+                                <Template Context="data">
+                                    @data
+                                </Template>
+                            </RadzenDropDownDataGridColumn>
+                        </Columns>
+                    </RadzenDropDownDataGrid>
+                </RadzenFormField>
+            </RadzenColumn>
+        </RadzenRow>
     </div>
-    <div class="flex-fill" style="overflow-y: scroll;">
-        <div class="container">
-            @if (_results != null)
-            {
-                @if (_results.All(r => r.Value.Count <= 1))
-                {
-                    var filtered = _results.Where(kv => kv.Value.Count == 1).ToArray();
-                    if (filtered.Length > 0)
+    <div class="hide-radzen-stuff" style="flex: 1 1 auto; height: 0;">
+        <RadzenDataGrid Data="_data"
+                        AllowGrouping="true"
+                        HideGroupedColumn="true"
+                        AllowSorting="true"
+                        AllowMultiColumnSorting="true"
+                        AllowVirtualization="true"
+                        AllowFiltering="true"
+                        FilterMode="FilterMode.CheckBoxList"
+                        FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                        Render="Render"
+                        @ref="_dataGrid"
+                        class="rz-h-100">
+            <GroupHeaderTemplate>
+                @{
+                    try
                     {
-                        var query = filtered.Select(kv => new {Trinket = kv.Key, Data = kv.Value.Values.First()})
-                                            .Select(a => new
-                                             {
-                                                 a.Trinket,
-                                                 a.Data
-                                             })
-                                            .OrderBy(a => a.Data.TierNumerical);
-                        var first = filtered.First().Value.First();
-                        <div class="mb-2">
-                            <h4 class="text-center">@first.Key</h4>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" style="width: 1px">Trinket</th>
-                                        <th class="text-center" style="width: 1px">Tier</th>
-                                        <th class="text-center">Note</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var info in query)
-                                    {
-                                        <tr>
-                                            <td class="align-middle text-nowrap">
-                                                <Item Link="@info.Data.Link" Icon="@info.Data.Icon" Name="@info.Trinket"></Item>
-                                            </td>
-                                            <td class="text-center align-middle">
-                                                @info.Data.Tier
-                                            </td>
-                                            <td class="align-middle">
-                                                @info.Data.Note
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                        switch (context.GroupDescriptor.Property)
+                        {
+                            case "Name":
+                                var item = TrinketData.Trinkets[(string) context.Data.Key].First().Value;
+                                <Item Icon="@item.Icon" Name="@context.Data.Key" Link="@item.Link" style="font-size: 1.5em;"/>
+                                break;
+                            case "Spec":
+                                <span style="font-size: 1.5em;">@context.Data.Key</span>
+                                break;
+                        }
+                    }
+                    catch
+                    {
+                        <span style="font-size: 1.5em;">@context.Data.Key</span>
                     }
                 }
-                else
-                {
-                    foreach (var result in _results)
-                    {
-                        if (result.Value.Count <= 0)
-                            continue;
-
-                        var first = result.Value.First();
-                        <div class="mb-2">
-                            <h4 class="text-center">
-                                <Item Link="@first.Value.Link" Icon="@first.Value.Icon" Name="@result.Key"></Item>
-                            </h4>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" style="width: 1px">Class</th>
-                                        <th class="text-center" style="width: 1px">Tier</th>
-                                        <th class="text-center">Note</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var kv in result.Value.OrderBy(kv => kv.Value.TierNumerical))
-                                    {
-                                        <tr>
-                                            <td class="text-center align-middle text-nowrap">
-                                                @kv.Key
-                                            </td>
-                                            <td class="text-center align-middle">
-                                                @kv.Value.Tier
-                                            </td>
-                                            <td class="align-middle">
-                                                @kv.Value.Note
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    }
-                }
-            }
-        </div>
-    </div>
-    <div class="container text-center" style="flex: 0 0 auto;">
-        Last updated: @TrinketData.LastUpdated.ToString("yyyy-MM-dd HH:mm:ss")
+            </GroupHeaderTemplate>
+            <Columns>
+                <RadzenDataGridColumn Title="Trinket" Width="300px" Groupable="true" Sortable="true" Filterable="true" Property="Name" FilterValue="@_selectedTrinkets">
+                    <Template>
+                        <Item Icon="@context.Icon" Name="@context.Name" Link="@context.Link"/>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn Title="Tier" Width="80px" Groupable="false" Sortable="true" Filterable="true" Property="Tier" SortProperty="TierNumerical"/>
+                <RadzenDataGridColumn Title="Specialization / Class" Width="300px" Groupable="true" Sortable="true" Filterable="true" Property="Spec" FilterValue="@_selectedSpecs"/>
+                <RadzenDataGridColumn Title="Note" Groupable="false" Sortable="false" Filterable="false" Property="Note">
+                    <Template>
+                        <span style="white-space: pre-wrap;">
+                            @context.Note
+                        </span>
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </RadzenDataGrid>
     </div>
 </div>

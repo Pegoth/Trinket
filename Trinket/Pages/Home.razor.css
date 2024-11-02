@@ -1,0 +1,5 @@
+﻿.hide-radzen-stuff ::deep .rz-grid-filter-icon,
+.hide-radzen-stuff ::deep .rz-column-drag,
+.hide-radzen-stuff ::deep .rz-group-header {
+    display: none !important;
+}

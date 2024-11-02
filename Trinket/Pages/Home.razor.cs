@@ -1,95 +1,132 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using Radzen;
+using Radzen.Blazor;
 using Trinket.Data;
 
 namespace Trinket.Pages;
 
 public partial class Home
 {
-    private Dictionary<string, Dictionary<string, TierModel>>? _results = TrinketData.Trinkets;
-
-    [SupplyParameterFromQuery(Name = "trinket")]
-    private string? TrinketFilter { get; set; }
-
-    [SupplyParameterFromQuery(Name = "spec")]
-    private string? SpecFilter { get; set; }
-
-    protected override Task OnParametersSetAsync() => Search();
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    [SupplyParameterFromQuery(Name = "trinkets")]
+    public string? SelectedTrinkets
     {
-        if (firstRender)
-            await JSRuntime.InvokeVoidAsync("initPageTooltips");
+        get => string.Join(",", _selectedTrinkets ?? Enumerable.Empty<string>());
+        set => _selectedTrinkets = value?.Split(',').Select(t => t.Trim()).ToList();
     }
 
-    private async Task FilterKeyUp(KeyboardEventArgs arg)
+    [SupplyParameterFromQuery(Name = "specs")]
+    public string? SelectedSpecs
     {
-        if (arg is {AltKey: false, CtrlKey: false, MetaKey: false, ShiftKey: false, Key: "Enter" or "" or null})
-            await Search();
+        get => string.Join(",", _selectedSpecs ?? Enumerable.Empty<string>());
+        set => _selectedSpecs = value?.Split(',').Select(t => t.Trim()).ToList();
     }
 
-    private async Task ClearTrinketFilter()
+    [SupplyParameterFromQuery(Name = "groupbyspec")]
+    public string? GroupBySpec
     {
-        TrinketFilter = "";
-        await Search();
+        get => _groupBySpec ? "1" : "0";
+        set => _groupBySpec = value == "1";
     }
 
-    private async Task ClearSpecFilter()
+    private readonly Data[]                _data;
+    private          RadzenDataGrid<Data>? _dataGrid;
+    private          bool                  _groupBySpec;
+    private          List<string>?         _selectedTrinkets;
+    private          List<string>?         _selectedSpecs;
+
+    public Home()
     {
-        SpecFilter = "";
-        await Search();
+        _data = TrinketData.Trinkets.SelectMany(t => t.Value, (t, td) => new Data(t.Key, td.Key, td.Value)).ToArray();
     }
 
-    private async Task Search()
+    private async Task FilterChanged()
     {
-        try
-        {
-            // Update URL
-            var sb = new StringBuilder();
-            if (!string.IsNullOrEmpty(TrinketFilter))
-                sb.Append("trinket=")
-                  .Append(TrinketFilter);
-            if (!string.IsNullOrEmpty(SpecFilter))
-                sb.Append(sb.Length > 0 ? "&" : "")
-                  .Append("spec=")
-                  .Append(SpecFilter);
-            await JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "?");
+        if (_dataGrid is null)
+            return;
 
-            // Check filters
-            if (string.IsNullOrEmpty(TrinketFilter) && string.IsNullOrEmpty(SpecFilter))
+        // Update URL
+        var sb = new StringBuilder("groupbyspec=");
+        sb.Append(_groupBySpec ? "1" : "0");
+
+        if (_selectedTrinkets is {Count: > 0})
+            sb.Append(sb.Length > 0 ? "&" : "")
+              .Append("trinkets=")
+              .Append(SelectedTrinkets);
+
+        if (_selectedSpecs is {Count: > 0})
+            sb.Append(sb.Length > 0 ? "&" : "")
+              .Append("specs=")
+              .Append(SelectedSpecs);
+
+        await JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "?");
+
+        _dataGrid.Groups.Clear();
+
+        if (_groupBySpec)
+            _dataGrid.Groups.Add(new GroupDescriptor
             {
-                _results = TrinketData.Trinkets;
-                return;
-            }
+                Title     = "Specialization / Class",
+                Property  = "Spec",
+                SortOrder = SortOrder.Ascending
+            });
+        else
+            _dataGrid.Groups.Add(new GroupDescriptor
+            {
+                Title     = "Trinket",
+                Property  = "Name",
+                SortOrder = SortOrder.Ascending
+            });
 
-            var tf = TrinketFilter?.ToLower().Split(" ");
-            var sf = SpecFilter?.ToLower().Split(" ");
-            _results = TrinketData.Trinkets
-                                  .Where(kv =>
-                                   {
-                                       if (tf == null)
-                                           return true;
-                                       var key = kv.Key.ToLower().Split(" ");
-                                       return tf.All(f => key.Any(t => t.Contains(f)));
-                                   })
-                                  .ToDictionary(
-                                       kv => kv.Key,
-                                       kv => kv.Value
-                                               .Where(tm =>
-                                                {
-                                                    if (sf == null)
-                                                        return true;
+        await _dataGrid.Reload();
+        StateHasChanged();
+    }
 
-                                                    var key = tm.Key.ToLower().Split(" ");
-                                                    return sf.All(f => key.Any(c => c.Contains(f)));
-                                                })
-                                               .ToDictionary(a => a.Key, a => a.Value));
-        }
-        finally
+    private void Render(DataGridRenderEventArgs<Data> args)
+    {
+        if (!args.FirstRender)
+            return;
+
+        args.Grid.Sorts.Add(new SortDescriptor
         {
-            await InvokeAsync(StateHasChanged);
-        }
+            Property  = "TierNumerical",
+            SortOrder = SortOrder.Ascending
+        });
+        args.Grid.Sorts.Add(new SortDescriptor
+        {
+            Property  = "Spec",
+            SortOrder = SortOrder.Ascending
+        });
+
+        if (_groupBySpec)
+            args.Grid.Groups.Add(new GroupDescriptor
+            {
+                Title     = "Specialization / Class",
+                Property  = "Spec",
+                SortOrder = SortOrder.Ascending
+            });
+        else
+            args.Grid.Groups.Add(new GroupDescriptor
+            {
+                Title     = "Trinket",
+                Property  = "Name",
+                SortOrder = SortOrder.Ascending
+            });
+
+        StateHasChanged();
+    }
+
+    [SuppressMessage("ReSharper", "UnusedMember.Local")]
+    private class Data(string? name, string? spec, TierModel model)
+    {
+        public string? Name          { get; } = name;
+        public string? Spec          { get; } = spec;
+        public string? Tier          => model.Tier;
+        public int     TierNumerical => model.TierNumerical;
+        public string? Icon          => model.Icon;
+        public string? Link          => model.Link;
+        public string? Note          => model.Note;
     }
 }
