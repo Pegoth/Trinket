@@ -405,3 +405,6 @@ _site
 # Ignore cache files
 /TrinketTierDump/extraDataCache.json
 /TrinketTierDump/specsCache.json
+
+# Ignore temp files
+**/wwwroot/temp
