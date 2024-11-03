@@ -5,6 +5,13 @@ body:not(:has(.loading-progress)),
     width: 100%;
 }
 
+html.dark,
+html.dark body,
+html.dark #app {
+    background: black;
+    color: white;
+}
+
 .valid.modified:not([type=checkbox]) { outline: 1px solid #26b050; }
 
 .invalid { outline: 1px solid red; }
@@ -37,13 +44,6 @@ body:not(:has(.loading-progress)),
 }
 
 .blazor-error-boundary::after { content: "An error has occurred." }
-
-html.dark:has(.loading-progress),
-html.dark body:has(.loading-progress),
-html.dark #app:has(.loading-progress) {
-    background: black;
-    color: white;
-}
 
 .loading-progress {
     display: block;
