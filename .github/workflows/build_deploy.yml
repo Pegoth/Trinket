@@ -16,8 +16,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Install wasm-tools
-      run: dotnet workload install wasm-tools
     - name: Publish
       run: dotnet publish Trinket -o _site
     - name: Upload GitHub Pages artifact

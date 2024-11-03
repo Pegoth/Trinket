@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-02T14:51:55.233Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-03T10:30:47.319Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -1302,6 +1302,10 @@ public static class TrinketData
         {
             "Hand of Justice", new Dictionary<string, TierModel>
             {
+                {
+                    "Enhancement Shaman",
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_talisman_01.jpg", "https://wowhead.com/item=231417", "")
+                },
                 {
                     "Unholy Death Knight",
                     new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_talisman_01.jpg", "https://wowhead.com/ptr-2/item=231417", "")
