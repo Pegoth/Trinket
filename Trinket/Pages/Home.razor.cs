@@ -47,24 +47,30 @@ public partial class Home
         if (_dataGrid is null)
             return;
 
+        // Clear empty filters
+        if (_selectedTrinkets is {Count: <= 0})
+            _selectedTrinkets = null;
+        if (_selectedSpecs is {Count: <= 0})
+            _selectedSpecs = null;
+
         // Update URL
         var sb = new StringBuilder("groupbyspec=");
         sb.Append(_groupBySpec ? "1" : "0");
 
-        if (_selectedTrinkets is {Count: > 0})
+        if (_selectedTrinkets is not null)
             sb.Append(sb.Length > 0 ? "&" : "")
               .Append("trinkets=")
               .Append(SelectedTrinkets);
 
-        if (_selectedSpecs is {Count: > 0})
+        if (_selectedSpecs is not null)
             sb.Append(sb.Length > 0 ? "&" : "")
               .Append("specs=")
               .Append(SelectedSpecs);
 
         await JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "?");
-
+        
+        // Setup grouping
         _dataGrid.Groups.Clear();
-
         if (_groupBySpec)
             _dataGrid.Groups.Add(new GroupDescriptor
             {
@@ -80,6 +86,7 @@ public partial class Home
                 SortOrder = SortOrder.Ascending
             });
 
+        // Refresh
         await _dataGrid.Reload();
         StateHasChanged();
     }

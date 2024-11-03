@@ -38,6 +38,13 @@ body:not(:has(.loading-progress)),
 
 .blazor-error-boundary::after { content: "An error has occurred." }
 
+html.dark:has(.loading-progress),
+html.dark body:has(.loading-progress),
+html.dark #app:has(.loading-progress) {
+    background: black;
+    color: white;
+}
+
 .loading-progress {
     display: block;
     height: 8rem;
