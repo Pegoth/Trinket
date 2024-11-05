@@ -10,6 +10,8 @@ namespace Trinket.Pages;
 
 public partial class Home
 {
+    private const int Level = 80;
+
     [SupplyParameterFromQuery(Name = "trinkets")]
     public string? SelectedTrinkets
     {
@@ -31,28 +33,32 @@ public partial class Home
         set => _groupBySpec = value == "1";
     }
 
+    [SupplyParameterFromQuery(Name = "itemlevel")]
+    public string? ItemLevel
+    {
+        get => _itemLevel?.ToString();
+        set => _itemLevel = int.TryParse(value, out var ilvl) ? ilvl : null;
+    }
+
     private readonly Data[]                _data;
     private          RadzenDataGrid<Data>? _dataGrid;
     private          bool                  _groupBySpec;
     private          List<string>?         _selectedTrinkets;
     private          List<string>?         _selectedSpecs;
+    private          int?                  _itemLevel;
 
     public Home()
     {
         _data = TrinketData.Trinkets.SelectMany(t => t.Value, (t, td) => new Data(t.Key, td.Key, td.Value)).ToArray();
     }
 
-    private async Task FilterChanged()
+    protected override void OnParametersSet()
     {
-        if (_dataGrid is null)
-            return;
+        _itemLevel ??= 619;
+    }
 
-        // Clear empty filters
-        if (_selectedTrinkets is {Count: <= 0})
-            _selectedTrinkets = null;
-        if (_selectedSpecs is {Count: <= 0})
-            _selectedSpecs = null;
-
+    private async Task UpdateHistory()
+    {
         // Update URL
         var sb = new StringBuilder("groupbyspec=");
         sb.Append(_groupBySpec ? "1" : "0");
@@ -67,8 +73,27 @@ public partial class Home
               .Append("specs=")
               .Append(SelectedSpecs);
 
+        if (_itemLevel.HasValue)
+            sb.Append(sb.Length > 0 ? "&" : "")
+              .Append("itemlevel=")
+              .Append(_itemLevel);
+
         await JSRuntime.InvokeVoidAsync("history.pushState", null, "", sb.Length > 0 ? $"?{sb}" : "?");
-        
+    }
+
+    private async Task FilterChanged()
+    {
+        if (_dataGrid is null)
+            return;
+
+        // Clear empty filters
+        if (_selectedTrinkets is {Count: <= 0})
+            _selectedTrinkets = null;
+        if (_selectedSpecs is {Count: <= 0})
+            _selectedSpecs = null;
+
+        await UpdateHistory();
+
         // Setup grouping
         _dataGrid.Groups.Clear();
         if (_groupBySpec)

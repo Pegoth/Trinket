@@ -80,6 +80,11 @@
                     </RadzenDropDownDataGrid>
                 </RadzenFormField>
             </RadzenColumn>
+            <RadzenColumn Size="1">
+                <RadzenFormField Text="Item level" Variant="Variant.Text" Style="width: 100%">
+                    <RadzenNumeric TValue="int?" @bind-Value="@_itemLevel" Min="0" Step="1" Change="UpdateHistory"/>
+                </RadzenFormField>
+            </RadzenColumn>
         </RadzenRow>
     </div>
     <div class="hide-radzen-stuff" style="flex: 1 1 auto; height: 0;">
@@ -103,7 +108,7 @@
                         {
                             case "Name":
                                 var item = TrinketData.Trinkets[(string) context.Data.Key].First().Value;
-                                <Item Icon="@item.Icon" Name="@context.Data.Key" Link="@item.Link" style="font-size: 1.5em;"/>
+                                <Item Icon="@item.Icon" Name="@context.Data.Key" Link="@item.Link" style="font-size: 1.5em;" Level="Level" ItemLevel="_itemLevel" />
                                 break;
                             case "Spec":
                                 <span style="font-size: 1.5em;">@context.Data.Key</span>
@@ -119,7 +124,7 @@
             <Columns>
                 <RadzenDataGridColumn Title="Trinket" Width="300px" Groupable="true" Sortable="true" Filterable="true" Property="Name" FilterValue="@_selectedTrinkets">
                     <Template>
-                        <Item Icon="@context.Icon" Name="@context.Name" Link="@context.Link"/>
+                        <Item Icon="@context.Icon" Name="@context.Name" Link="@context.Link" Level="Level" ItemLevel="_itemLevel"/>
                     </Template>
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn Title="Tier" Width="80px" Groupable="false" Sortable="true" Filterable="true" Property="Tier" SortProperty="TierNumerical"/>

@@ -33,11 +33,19 @@
                     document.getElementsByTagName("html")[0].classList.remove("dark");
                 else
                     document.getElementsByTagName("html")[0].classList.add("dark");
+                return value;
             }
 
             if (!lightMode())
                 document.getElementsByTagName("html")[0].classList.add("dark");
+
+            const whTooltips = {
+                colorLinks: false,
+                iconizeLinks: false,
+                renameLinks: false
+            };
         </script>
+        <script src="https://wow.zamimg.com/js/tooltips.js"></script>
     </head>
     <body>
         <div id="app">
