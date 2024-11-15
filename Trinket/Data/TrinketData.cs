@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-03T10:30:47.319Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-15T13:35:43.346Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -202,7 +202,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "A nice passive trinket that grants primary stat and deals some minor damage.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "A nice passive trinket that grants our Primary stat and deals some minor damage.")
                 },
                 {
                     "Outlaw Rogue",
@@ -215,10 +215,6 @@ public static class TrinketData
                 {
                     "Protection Warrior",
                     new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "A very potent trinket just like  Ara-Kara Sacbrood but instead comes with a fairly strong on-use which gets increased by 20% per stack consumed. However, it doesn't stack as quickly as  Ara-Kara Sacbrood.")
-                },
-                {
-                    "Restoration Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This is another solid stat-stick where multiple stacks \"overlap\". This seems especially nice in a Mythic+ setting, as the damage procs also add in a small amount of damage.")
                 },
                 {
                     "Retribution Paladin",
@@ -270,7 +266,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "The best passive stat trinket, for AOE the other options fall a bit behind, you'll still want a primary on use trinket but a secondary trinket that provides a stat boost rather than direct damage becomes a lot more attractive, this is also very competitive on single target. The best M+ option for a 2nd trinket")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "The best passive stat trinket for AoE, where other options fall behind. While you'll still want a primary on-use trinket, a secondary trinket that provides a stat boost rather than direct damage becomes a lot more attractive, and it helps that this is also very competitive on single-target. This is also best option for a second trinket on Mythic+.")
                 },
                 {
                     "Fire Mage",
@@ -299,6 +295,10 @@ public static class TrinketData
                 {
                     "Restoration Druid",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This is a weird DPS trinket that actually ends up being a full budget stat stick with a small DPS bonus. You don't need to play around it though casting an occasional DPS spell will be of increased value.")
+                },
+                {
+                    "Restoration Shaman",
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This is another solid stat-stick where multiple stacks \"overlap\". This seems especially nice in a Mythic+ setting, as the damage procs also add in a small amount of damage.")
                 },
                 {
                     "Shadow Priest",
@@ -339,7 +339,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "Primary with a small damage effect on-use, one of the better dps trinkets from m+.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_alchemy_70_potion2.jpg", "https://wowhead.com/item=178742", "Provides a chunk of our Primary stat with a small on-use damage effect, making this one of the better DPS trinkets from Mythic+.")
                 },
                 {
                     "Subtlety Rogue",
@@ -524,7 +524,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_engineersgrease_color1.jpg", "https://wowhead.com/item=215174", "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the best secondary options available.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_engineersgrease_color1.jpg", "https://wowhead.com/item=215174", "A strong trinket but one that is limited in item level to Heroic levels only. At comparable item levels, its one of the best secondary trinket options available.")
                 },
                 {
                     "Protection Paladin",
@@ -759,11 +759,11 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Similar to Sacbrood this is one of the best secondary stat trinkets available.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Similar to Sacbrood, this is one of the best Secondary stat trinkets available.")
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Can grant impressive amounts of crit.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "Can grant impressive amounts of Critical Strike.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -791,7 +791,7 @@ public static class TrinketData
                 },
                 {
                     "Enhancement Shaman",
-                    new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "A solid Crit stat stick that's generally quite strong if you can maintain it. Unfortunately, in AoE we have a number of reasons to be switching targets very aggressively, which massively reduces its value in Mythic+ situations. Still, good for raids and scenarios when you can maintain it.")
+                    new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_spyglass_02.jpg", "https://wowhead.com/item=159623", "A solid Crit stat stick that's generally quite strong if you can maintain it. Unfortunately, in AoE this has a habit of proccing on things that are about to die, which massively reduces its value in Mythic+ situations. Still, good for raids and scenarios when you can maximize procs.")
                 },
                 {
                     "Windwalker Monk",
@@ -905,7 +905,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "While not quite as competitive as the Spyglass or Ara-Kara Sacbrood this is another fine alternative.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "While not quite as competitive as the Spyglass or Ara-Kara Sacbrood, this is another fine alternative.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -1040,7 +1040,7 @@ public static class TrinketData
             {
                 {
                     "Feral Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_holy_championsbond.jpg", "https://wowhead.com/item=218713", "This trinket is available from PvP and is a very competitive alternative to other On Use trinkets if they haven't dropped yet.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/spell_holy_championsbond.jpg", "https://wowhead.com/item=218713", "This trinket is available from PvP and is a very competitive alternative to other on-use trinkets if they haven't dropped yet.")
                 }
             }
         },
@@ -1049,7 +1049,7 @@ public static class TrinketData
             {
                 {
                     "Guardian Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg", "https://wowhead.com/item=219915", "Decent damage with a stacking health effect across the entire fight. Great on long fights and progression.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_foulbehemothschelicera_red.jpg", "https://wowhead.com/item=219915", "Deals decent damage and provides a stacking health effect across the entire fight. This is great on long fights and/or progression.")
                 },
                 {
                     "Vengeance Demon Hunter",
@@ -1304,7 +1304,7 @@ public static class TrinketData
             {
                 {
                     "Enhancement Shaman",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_talisman_01.jpg", "https://wowhead.com/item=231417", "")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_talisman_01.jpg", "https://wowhead.com/item=231417", "While this has a staggering 15 (+Haste) RPPM, the actual damage the proc deals isn't that special. The big value comes from the fact that for some inexplicable reason it procs Maelstrom Weapon, making it a heavy hitter for  Stormbringer builds in single target.")
                 },
                 {
                     "Unholy Death Knight",
@@ -1333,7 +1333,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Decent passive trinket with a mastery proc.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_oldgodstatuepiece_purple.jpg", "https://wowhead.com/item=219317", "Decent passive trinket with a Mastery proc.")
                 },
                 {
                     "Subtlety Rogue",
@@ -1659,7 +1659,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "Can be incredibly powerful if you manage to kill targets with it for the reduce CD.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "Can be very powerful if you manage to kill targets with it, which will reduce the on-use cooldown.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -1691,7 +1691,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "The best 2nd trinket, it's an on use but it deals damage so there's no harm from desyncing it with your cooldowns. Does MASSIVE damage on use, many other specs aren't quite as happy with this trinket as Feral is so it should be fairly uncompeted for.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_abyssaleffigy_purple.jpg", "https://wowhead.com/item=212454", "The best second trinket option of raids. It's an on-use, but since it deals damage there's no harm in desyncing it from your cooldowns. Does massive damage on use, and since many other specs aren't quite as happy with this trinket as Feral is, it should be fairly easy to obtain due to a lack of competition.")
                 },
                 {
                     "Retribution Paladin",
@@ -1866,7 +1866,7 @@ public static class TrinketData
                 },
                 {
                     "Enhancement Shaman",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "Skipping the other generic options in the other tier to just mention, while this trinket does buff allies it's significantly weaker for you and very RNG as to when it lines up. If you want to be very friendly and with the right group it has potential, but on its own it's nothing special")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_primitive_toy03.jpg", "https://wowhead.com/item=178715", "")
                 },
                 {
                     "Subtlety Rogue",
@@ -2010,7 +2010,11 @@ public static class TrinketData
             {
                 {
                     "Frost Death Knight",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "It is difficult to gauge this trinket through sims, because it revolves around movement. However, it has great potential. Our highest secondary stat will be Critical Strike, and we want it almost as much as we want Strength. It will not be a significant penalty if we move a lot and swap the Strength stacks for Critical Strike stacks. Suspending the Strength buff right before using  Breath of Sindragosa will be ideal. However, there may not be time for the buff to reallocate fully if you move a lot.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "It isn't easy to gauge this trinket through sims because it revolves around movement. However, it has excellent potential. Our highest secondary stat will be Critical Strike, and we want it almost as much as we want Strength. It will not be a significant penalty if we move a lot and swap the Strength stacks for Critical Strike stacks. Suspending the Strength buff right before using  Breath of Sindragosa will be ideal. However, there may not be time for the buff to reallocate fully if you move a lot. We want to maintain 10-20 stacks of each buff, taking care not to go to 30 in either direction, as stacks above 20 yield fewer stats.")
+                },
+                {
+                    "Restoration Shaman",
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a unique take on a passive stat-stick trinket. Standing still will build up stacks of  Deliberate Incubation which increases your mainstat over time, and moving will remove stacks of  Deliberate Incubation and instead grant stacks of  Reckless Incubation. This means you will never get zero value from this trinket, but it does award standing still as mainstat is generally better. Using the trinket will \"suspend\" the procs you have for a period of time, making it quite versatile.")
                 },
                 {
                     "Unholy Death Knight",
@@ -2047,10 +2051,6 @@ public static class TrinketData
                 {
                     "Outlaw Rogue",
                     new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "A strong trinket that requires you to wiggle around a bit to maintain stacks. With Agility and Versatility being similar values this tier, this trinket is quite good. Focus on not going over 20 of either stack and the trinket is great. The on use also ignores double on use restriction.")
-                },
-                {
-                    "Restoration Shaman",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This is a unique take on a passive stat-stick trinket. Standing still will build up stacks of  Deliberate Incubation which increases your mainstat over time, and moving will remove stacks of  Deliberate Incubation and instead grant stacks of  Reckless Incubation. This means you will never get zero value from this trinket, but it does award standing still as mainstat is generally better. Using the trinket will \"suspend\" the procs you have for a period of time, making it quite versatile.")
                 },
                 {
                     "Subtlety Rogue",
@@ -2094,7 +2094,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the best secondary options available.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "A strong trinket but one that is limited in item level to Heroic levels only. At comparable item levels, its one of the best secondary trinket options available.")
                 },
                 {
                     "Frost Mage",
@@ -2102,7 +2102,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "Decent on encounters where you don't have to move too often.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_purple.jpg", "https://wowhead.com/item=220305", "This trinket is decent on encounters where you don't have to move too often.")
                 },
                 {
                     "Marksmanship Hunter",
@@ -2167,7 +2167,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the better secondary options available.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "A strong trinket but one that is limited in item level to Heroic levels only. At comparable item levels, its one of the better secondary trinket options available.")
                 },
                 {
                     "Frost Mage",
@@ -2485,7 +2485,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "A strong trinket but one that is limited in item level to Heroic levels only, at comparable item levels its one of the best secondary options available.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_knife_1h_grimbatolraid_d_03.jpg", "https://wowhead.com/item=215178", "A strong trinket but one that is limited in item level to Heroic levels only. At comparable item levels, its one of the best secondary trinket options available.")
                 },
                 {
                     "Brewmaster Monk",
@@ -2579,11 +2579,11 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "Much stronger on AOE than on single target.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "Much stronger on AoE than on single-target.")
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "Mediocre on-use effect on a short cooldown.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_sikransarsenal_purple.jpg", "https://wowhead.com/item=212449", "This provides a mediocre on-use effect on a short cooldown.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -2715,7 +2715,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "The best stat on use available. It lines up with our cooldowns and provides a huge chunk of our best stat.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "The best stat on-use trinket available. It lines up with our cooldowns and provides a huge chunk of a powerful stat.")
                 },
                 {
                     "Havoc Demon Hunter",
@@ -2735,7 +2735,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Very large amount of mastery we can line up well with  Incarnation: Guardian of Ursoc/ Rage of the Sleeper or  Lunar Beam.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_misc_coin_08.jpg", "https://wowhead.com/item=133282", "Provides a large amount of mastery that we can line up well with  Incarnation: Guardian of Ursoc/ Rage of the Sleeper or  Lunar Beam.")
                 },
                 {
                     "Brewmaster Monk",
@@ -3011,7 +3011,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_swarmlordsauthority_purple.jpg", "https://wowhead.com/item=212450", "Great haste passive with a fairly strong healing defensive bonus.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_swarmlordsauthority_purple.jpg", "https://wowhead.com/item=212450", "Great Haste passive with a fairly strong defensive healing bonus.")
                 },
                 {
                     "Protection Paladin",
@@ -3089,7 +3089,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "The 2nd best stat on use available and the best one from the raid. It doesn't line up as perfectly as other options, you'll need to hold it for 30 sesconds to sync it. The games can be a little annoying to fully take advantage of the trinket but a strong option.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "The second best stat on-use trinket available, and the best one from the raid. It doesn't line up with your cooldowns as perfectly as other options, so you'll usually need to hold it for 30 seconds to sync it. The minigames it requires can be a little annoying to fully take advantage of, but it's still a strong option.")
                 },
                 {
                     "Fire Mage",
@@ -3101,7 +3101,7 @@ public static class TrinketData
                 },
                 {
                     "Enhancement Shaman",
-                    new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "While this brings passive Haste and a huge amount of stats when used, it has the downside of being incredibly annoying to play around based on which minigame you get. The cooldown does naturally align with  Ascendance which is nice, but having to do something to activate it is far less so. Potentially very strong if you can play around it.")
+                    new TierModel("B+", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "While this brings passive Haste and a huge amount of stats when used, it has the downside of being incredibly annoying to play around based on which minigame you get. The cooldown is also now desynced with  Ascendance in Patch 11.0.5 which hurts its value, but it does provide an on-use alternative if you can't get something better.")
                 },
                 {
                     "Devastation Evoker",
@@ -3113,7 +3113,7 @@ public static class TrinketData
                 },
                 {
                     "Guardian Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Grants a large amount of primary stat for a short period. Requires you to do some sort of puzzle task like jumping 3 times or chase an orb to get stats. Can be detrimental depending on when you use it.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_etherealraid_communicator_color1.jpg", "https://wowhead.com/item=221023", "Grants a large amount of our Primary stat for a short period, but requires  you to execute some sort of puzzle task such as jumping 3 times or chasing an orb. Can be detrimental, depending on when you use it.")
                 },
                 {
                     "Protection Warrior",
@@ -3457,7 +3457,7 @@ public static class TrinketData
             {
                 {
                     "Guardian Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "Deals great passive damage.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "Deals good passive damage.")
                 },
                 {
                     "Outlaw Rogue",
@@ -3489,7 +3489,7 @@ public static class TrinketData
                 },
                 {
                     "Feral Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "A more passive alternative to Mad Queens Mandate but still a competitive option. There may be high competition for this trinket as Monks, DH's and Rogues have a set bonus combination with it.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_10_inscription2_repcontracts_trade_archaeology_apexisscroll_uprez_color4.jpg", "https://wowhead.com/item=212456", "A more passive alternative to Mad Queens Mandate, but still a competitive option. There may be high competition for this trinket as Monks, Demon Hunters, and Rogues have a set bonus combination with it.")
                 },
                 {
                     "Marksmanship Hunter",
