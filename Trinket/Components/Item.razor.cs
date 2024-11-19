@@ -20,6 +20,9 @@ public partial class Item
     [Parameter]
     public int? ItemLevel { get; set; }
 
+    [Parameter]
+    public bool? DoNotOpen { get; set; }
+
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object>? AdditionalAttributes { get; set; }
 

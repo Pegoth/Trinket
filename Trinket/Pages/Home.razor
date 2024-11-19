@@ -1,4 +1,5 @@
 ﻿@page "/"
+
 @inject TooltipService TooltipService
 @inject IJSRuntime     JSRuntime
 
@@ -30,21 +31,33 @@
                                             ShowSearch="false"
                                             AllowFilteringByWord="true"
                                             AllowVirtualization="true"
+                                            VirtualizationOverscanCount="TrinketData.Trinkets.Count"
                                             Multiple="true"
                                             AllowClear="true"
-                                            MaxSelectedLabels="int.MaxValue"
-                                            MouseEnter='er => TooltipService.OpenOnTheTop(er, "Filter for trinket(s). If nothing is selected nothing is filtered out.<br/>Partial search is supported (\"abe spell\" will match \"Aberrant Spellforge\").", new TooltipOptions {Duration = null})'
+                                            AllowSorting="false"
+                                            Chips="true"
+                                            MaxSelectedLabels="10"
+                                            MouseEnter='er => TooltipService.OpenOnTheBottom(er, "Filter for trinket(s). If nothing is selected nothing is filtered out.<br/>Partial search is supported (\"abe spell\" will match \"Aberrant Spellforge\").<br/>Pressing enter will select all entries.<br/>Pressing ctrl+enter will select or deselect all entries.", new TooltipOptions {Duration = null})'
                                             MouseLeave="() => TooltipService.Close()"
+                                            @ref="_trinketGrid"
                                             first-focus>
                         <Columns>
                             <RadzenDropDownDataGridColumn Width="40px" Sortable="false">
+                                <HeaderTemplate>
+                                    <RadzenCheckBox TriState="true" @bind-Value="AllTrinketChecked"/>
+                                </HeaderTemplate>
                                 <Template Context="data">
                                     <RadzenCheckBox TriState="false" Value="@(_selectedTrinkets != null && _selectedTrinkets.Contains((string) data))"/>
                                 </Template>
                             </RadzenDropDownDataGridColumn>
                             <RadzenDropDownDataGridColumn Title="Trinket">
                                 <Template Context="data">
-                                    @data
+                                    <div style="align-items: center; display: grid;">
+                                        @{
+                                            var item = TrinketData.Trinkets[(string) data].First().Value;
+                                        }
+                                        <Item Icon="@item.Icon" Name="@data" Link="@item.Link" Level="Level" ItemLevel="_itemLevel" DoNotOpen="true"></Item>
+                                    </div>
                                 </Template>
                             </RadzenDropDownDataGridColumn>
                         </Columns>
@@ -60,13 +73,20 @@
                                             ShowSearch="false"
                                             AllowFilteringByWord="true"
                                             AllowVirtualization="true"
+                                            VirtualizationOverscanCount="SpecData.Specs.Length"
                                             Multiple="true"
                                             AllowClear="true"
-                                            MaxSelectedLabels="int.MaxValue"
-                                            MouseEnter='er => TooltipService.OpenOnTheTop(er, "Filter for class / specialization name(s). If nothing is selected nothing is filtered out.<br/>Partial search is supported (\"rest sham\" will match \"Restoration Shaman\").", new TooltipOptions {Duration = null})'
-                                            MouseLeave="() => TooltipService.Close()">
+                                            AllowSorting="false"
+                                            Chips="true"
+                                            MaxSelectedLabels="10"
+                                            MouseEnter='er => TooltipService.OpenOnTheBottom(er, "Filter for class / specialization name(s). If nothing is selected nothing is filtered out.<br/>Partial search is supported (\"rest sham\" will match \"Restoration Shaman\").<br/>Pressing enter will select all entries.<br/>Pressing ctrl+enter will select or deselect all entries.", new TooltipOptions {Duration = null})'
+                                            MouseLeave="() => TooltipService.Close()"
+                                            @ref="_specGrid">
                         <Columns>
                             <RadzenDropDownDataGridColumn Width="40px" Sortable="false">
+                                <HeaderTemplate>
+                                    <RadzenCheckBox TriState="true" @bind-Value="AllSpecChecked"/>
+                                </HeaderTemplate>
                                 <Template Context="data">
                                     <RadzenCheckBox TriState="false" Value="@(_selectedSpecs != null && _selectedSpecs.Contains((string) data))"/>
                                 </Template>
@@ -108,16 +128,16 @@
                         {
                             case "Name":
                                 var item = TrinketData.Trinkets[(string) context.Data.Key].First().Value;
-                                <Item Icon="@item.Icon" Name="@context.Data.Key" Link="@item.Link" style="font-size: 1.5em;" Level="Level" ItemLevel="_itemLevel" />
+                                        <Item Icon="@item.Icon" Name="@context.Data.Key" Link="@item.Link" style="font-size: 1.5em;" Level="Level" ItemLevel="_itemLevel"/>
                                 break;
                             case "Spec":
-                                <span style="font-size: 1.5em;">@context.Data.Key</span>
+                                        <span style="font-size: 1.5em;">@context.Data.Key</span>
                                 break;
                         }
                     }
                     catch
                     {
-                        <span style="font-size: 1.5em;">@context.Data.Key</span>
+                                <span style="font-size: 1.5em;">@context.Data.Key</span>
                     }
                 }
             </GroupHeaderTemplate>
@@ -140,3 +160,14 @@
         </RadzenDataGrid>
     </div>
 </div>
+<script>
+    document.addEventListener("keydown", e => {
+        if (e.key !== "Enter")
+            return;
+        if (e.target.closest(".rz-lookup-search-input")) {
+            const box = e.target.closest(".rz-lookup-panel").querySelector(".rz-chkbox-box");
+            if (e.ctrlKey || box.querySelector(".rz-chkbox-icon.rzi-check") == null)
+                box.click();
+        }
+    });
+</script>

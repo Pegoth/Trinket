@@ -2,7 +2,7 @@ namespace Trinket.Data;
 
 public static class TrinketData
 {
-    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-15T13:35:43.346Z");
+    public static DateTime LastUpdated { get; } = DateTime.Parse("2024-11-19T19:51:22.282Z");
 
     public static Dictionary<string, Dictionary<string, TierModel>> Trinkets { get; } = new()
     {
@@ -294,7 +294,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This is a weird DPS trinket that actually ends up being a full budget stat stick with a small DPS bonus. You don't need to play around it though casting an occasional DPS spell will be of increased value.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_mercurialegg_red.jpg", "https://wowhead.com/item=219314", "This is a weird DPS trinket that actually ends up being a full budget stat stick with a small DPS bonus. You don't need to play around it, though casting an occasional DPS spell will be of increased value.")
                 },
                 {
                     "Restoration Shaman",
@@ -455,7 +455,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_tentaclevial_red.jpg", "https://wowhead.com/item=219321", "A bizarre proc trinket that will give various buffs to your allies including an int proc, secondary procs, tertiary procs and more. The primary stat buff is actually very strong but you'll get it too inconsistently.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_dungeon_tentaclevial_red.jpg", "https://wowhead.com/item=219321", "A bizarre proc trinket that will give various buffs to your allies including an Intellect proc, Secondary procs, Tertiary procs, and more. The Primary stat buff is actually very strong, but you'll get it too inconsistently.")
                 },
                 {
                     "Holy Paladin",
@@ -630,7 +630,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_creepingcoagulum_purple.jpg", "https://wowhead.com/item=219917", "This is a slightly awkward on-use healing trinket which is likely to be fairly good in lower tier content and worse by the time you get to Mythic. It also gives you a little free damage via the allies you heal.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_creepingcoagulum_purple.jpg", "https://wowhead.com/item=219917", "This is a slightly awkward on-use healing trinket, which is likely to be fairly good in lower tier content and worse by the time you get to Mythic. It also gives you a little free damage via the allies you heal.")
                 },
                 {
                     "Restoration Shaman",
@@ -929,7 +929,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "Another high uptime stat stick. It's a bit worse than the S tier trinkets but it's still very usable.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_arathordungeon_fragment_color5.jpg", "https://wowhead.com/item=219312", "Another high uptime stat stick. It's a bit worse than the S-tier trinkets but it's still very usable.")
                 },
                 {
                     "Restoration Shaman",
@@ -1119,7 +1119,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "You'll get 100% uptime on Gale of Shadows so this is a fantastic, overbudget stat stick. Very strong in all content types.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/spell_shadow_gathershadows.jpg", "https://wowhead.com/item=133304", "Another solid Haste stat stick with a decent uptime. It ends up being a slightly less consistent version of  Gale of Shadows.")
                 },
                 {
                     "Restoration Shaman",
@@ -1184,7 +1184,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_incenseholder_color4.jpg", "https://wowhead.com/item=225656", "This isn't a top tier raid trinket but a short cooldown shield can be fairly useful in Mythic+ - even if this one is quite a bit smaller than some we've seen in the past.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/inv_10_alchemy_incenseholder_color4.jpg", "https://wowhead.com/item=225656", "This isn't a top tier raid trinket, but a short cooldown shield can be fairly useful in Mythic+ - even if this one is quite a bit smaller than some we've seen in the past.")
                 },
                 {
                     "Holy Paladin",
@@ -1238,7 +1238,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_gruesomesyringe_red.jpg", "https://wowhead.com/item=212452", "Gruesome Syringe will mostly play as a flat healing trinket, because you're likely to get the intellect buff when you need it the least (nobody injured). As a result it's poor.")
+                    new TierModel("C", "https://wow.zamimg.com/images/wow/icons/large/inv_raid_gruesomesyringe_red.jpg", "https://wowhead.com/item=212452", "This will mostly play as a flat healing trinket, since you're likely to get the intellect buff when you need it the least (nobody injured). As a result it's of lower value.")
                 },
                 {
                     "Restoration Shaman",
@@ -2187,7 +2187,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "An on-use Haste trinket to pair with Tree of Life. Not available at max level.")
+                    new TierModel("B", "https://wow.zamimg.com/images/wow/icons/large/trade_archaeology_candlestub.jpg", "https://wowhead.com/item=225649", "An on-use Haste trinket to pair with  Incarnation: Tree of Life. Not available at maximum item level.")
                 },
                 {
                     "Restoration Shaman",
@@ -2973,7 +2973,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "Spymaster's Web is the perfect compliment to our frequent ramps. It puts our power where we need it the most. You'll use it either every minute or every two minutes depending on what is more useful to the fight. The downside is you do need to keep a  Moonfire active on the boss.  Grove Guardians will take care of some of them, but you'll need to cast the rest. If you aren't good with  Moonfire uptime then this trinket isn't very good. It's also quite a bit worse in Mythic+.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_11_0_raid_spymastersweb_purple.jpg", "https://wowhead.com/item=220202", "Spymaster's Web is the perfect compliment to our frequent ramps. It puts our power where we need it the most. You'll use it either every minute or every two minutes, depending on what is more useful to the fight. The downside is you do need to keep a  Moonfire active on the boss.  Grove Guardians will take care of some of them, but you'll need to cast the rest. If you aren't good with  Moonfire uptime, then this trinket isn't very good. It's also quite a bit worse in Mythic+.")
                 },
                 {
                     "Restoration Shaman",
@@ -3271,7 +3271,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Another solid haste stat stick on a decent uptime. Ends up being a slightly less consistent version of Gale of Shadows.")
+                    new TierModel("S", "https://wow.zamimg.com/images/wow/icons/large/inv_pet_spectralporcupinered.jpg", "https://wowhead.com/item=178708", "Another solid Haste stat stick with a decent uptime. It ends up being a slightly less consistent version of  Gale of Shadows.")
                 },
                 {
                     "Restoration Shaman",
@@ -3340,7 +3340,7 @@ public static class TrinketData
                 },
                 {
                     "Restoration Druid",
-                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_spiritshard_01.jpg", "https://wowhead.com/item=225668", "Unstable Power Source isn't available at max item level which holds it back from being a top tier trinket. It's otherwise a very consistent, very decent early trinket to pick up.")
+                    new TierModel("A", "https://wow.zamimg.com/images/wow/icons/large/inv_spiritshard_01.jpg", "https://wowhead.com/item=225668", "This isn't available at maximum item level, which holds it back from being a top tier trinket. It's otherwise a very consistent, decent early trinket to pick up.")
                 },
                 {
                     "Restoration Shaman",

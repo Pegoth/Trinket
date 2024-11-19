@@ -12,40 +12,110 @@ public partial class Home
 {
     private const int Level = 80;
 
-    [SupplyParameterFromQuery(Name = "trinkets")]
-    public string? SelectedTrinkets
+    private readonly Data[]                                _data;
+    private          bool                                  _groupBySpec;
+    private          RadzenDropDownDataGrid<List<string>>? _trinketGrid;
+    private          List<string>?                         _selectedTrinkets;
+    private          RadzenDropDownDataGrid<List<string>>? _specGrid;
+    private          List<string>?                         _selectedSpecs;
+    private          int?                                  _itemLevel;
+    private          RadzenDataGrid<Data>?                 _dataGrid;
+
+    private bool? AllTrinketChecked
     {
-        get => string.Join(",", _selectedTrinkets ?? Enumerable.Empty<string>());
-        set => _selectedTrinkets = value?.Split(',').Select(t => t.Trim()).ToList();
+        get
+        {
+            {
+                if (_selectedTrinkets is null || _trinketGrid is null)
+                    return false;
+
+                var total   = 0;
+                var counter = 0;
+                foreach (var data in _trinketGrid.DataGrid.Data)
+                {
+                    if (_selectedTrinkets.Contains((string)data))
+                        counter++;
+                    total++;
+                }
+
+                return counter == total
+                           ? true
+                           : counter > 0
+                               ? null
+                               : false;
+            }
+        }
+
+        set
+        {
+            if (_trinketGrid is null)
+                return;
+
+            var data = _trinketGrid.DataGrid.Data.Cast<string>().ToArray();
+            if (data.Length <= 0 && value is false)
+                return;
+
+            if (value is true or null)
+            {
+                _selectedTrinkets ??= [];
+                _selectedTrinkets.AddRange(data.Except(_selectedTrinkets));
+            }
+            else
+            {
+                _selectedTrinkets = _selectedTrinkets?.Except(data).ToList();
+            }
+
+            _ = FilterChanged();
+        }
     }
 
-    [SupplyParameterFromQuery(Name = "specs")]
-    public string? SelectedSpecs
+    private bool? AllSpecChecked
     {
-        get => string.Join(",", _selectedSpecs ?? Enumerable.Empty<string>());
-        set => _selectedSpecs = value?.Split(',').Select(t => t.Trim()).ToList();
-    }
+        get
+        {
+            {
+                if (_selectedSpecs is null || _specGrid is null)
+                    return false;
 
-    [SupplyParameterFromQuery(Name = "groupbyspec")]
-    public string? GroupBySpec
-    {
-        get => _groupBySpec ? "1" : "0";
-        set => _groupBySpec = value == "1";
-    }
+                var total   = 0;
+                var counter = 0;
+                foreach (var data in _specGrid.DataGrid.Data)
+                {
+                    if (_selectedSpecs.Contains((string) data))
+                        counter++;
+                    total++;
+                }
 
-    [SupplyParameterFromQuery(Name = "itemlevel")]
-    public string? ItemLevel
-    {
-        get => _itemLevel?.ToString();
-        set => _itemLevel = int.TryParse(value, out var ilvl) ? ilvl : null;
-    }
+                return counter == total
+                           ? true
+                           : counter > 0
+                               ? null
+                               : false;
+            }
+        }
 
-    private readonly Data[]                _data;
-    private          RadzenDataGrid<Data>? _dataGrid;
-    private          bool                  _groupBySpec;
-    private          List<string>?         _selectedTrinkets;
-    private          List<string>?         _selectedSpecs;
-    private          int?                  _itemLevel;
+        set
+        {
+            if (_specGrid is null)
+                return;
+
+            var data = _specGrid.DataGrid.Data.Cast<string>().ToArray();
+            if (data.Length <= 0 && value is false)
+                return;
+
+            if (value is true or null)
+            {
+                _selectedSpecs ??= [];
+                _selectedSpecs.AddRange(data.Except(_selectedSpecs));
+            }
+            else
+            {
+                _selectedSpecs = _selectedSpecs?.Except(data).ToList();
+            }
+
+            _ = FilterChanged();
+        }
+    }
 
     public Home()
     {
@@ -161,4 +231,34 @@ public partial class Home
         public string? Link          => model.Link;
         public string? Note          => model.Note;
     }
+
+    #region Query parameters
+    [SupplyParameterFromQuery(Name = "trinkets")]
+    public string? SelectedTrinkets
+    {
+        get => string.Join(",", _selectedTrinkets ?? Enumerable.Empty<string>());
+        set => _selectedTrinkets = value?.Split(',').Select(t => t.Trim()).ToList();
+    }
+
+    [SupplyParameterFromQuery(Name = "specs")]
+    public string? SelectedSpecs
+    {
+        get => string.Join(",", _selectedSpecs ?? Enumerable.Empty<string>());
+        set => _selectedSpecs = value?.Split(',').Select(t => t.Trim()).ToList();
+    }
+
+    [SupplyParameterFromQuery(Name = "groupbyspec")]
+    public string? GroupBySpec
+    {
+        get => _groupBySpec ? "1" : "0";
+        set => _groupBySpec = value == "1";
+    }
+
+    [SupplyParameterFromQuery(Name = "itemlevel")]
+    public string? ItemLevel
+    {
+        get => _itemLevel?.ToString();
+        set => _itemLevel = int.TryParse(value, out var ilvl) ? ilvl : null;
+    }
+    #endregion
 }
