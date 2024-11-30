@@ -1,6 +1,8 @@
-import axios from "axios"
 import { defineStore } from "pinia"
+import { parse, stringify } from "zipson"
+import axios from "axios"
 
+//#region Interfaces
 export interface IVersion {
   lastUpdated: string
 }
@@ -17,23 +19,29 @@ export interface IBloodmalletData {
 }
 
 export interface IData {
-  spec: { [key: string]: string[] }
+  specs: { [key: string]: string[] }
+  items: number[]
   wowhead: { [key: string]: IWowheadData[] }
   bloodmallet: { [key: string]: { [key: string]: IBloodmalletData[] } }
 }
+//#endregion
 
-console.log(process.env.NODE_ENV)
+//#region Setup
+// Check if in development mode
+let isDev = false
+try {
+  isDev = process.env.NODE_ENV === "development"
+} catch {}
 
 const client = axios.create({
-  baseURL:
-    process?.env?.NODE_ENV === "development"
-      ? "http://localhost/trinketData/"
-      : "https://raw.githubusercontent.com/Pegoth/Trinket/refs/heads/master/trinketData/"
+  baseURL: isDev ? "/trinketData/" : "https://raw.githubusercontent.com/Pegoth/Trinket/refs/heads/master/trinketData/"
 })
+//#endregion
 
-export const useData = defineStore("data", {
+export const useDataStore = defineStore("dataStore", {
   state: () => ({
-    version: null as Date | null,
+    version: null as string | null,
+    lastCheck: null as string | null,
     data: null as IData | null
   }),
   actions: {
@@ -43,6 +51,11 @@ export const useData = defineStore("data", {
      */
     async init() {
       try {
+        // If last check was less than a minute ago, do nothing
+        if (this.lastCheck != null && new Date().getDate() - new Date(this.lastCheck).getDate() < 60000) {
+          return null
+        }
+
         // Get version info
         const versionResp = await client.get<IVersion>("data.version.json", {
           headers: {
@@ -58,8 +71,8 @@ export const useData = defineStore("data", {
         }
 
         // Check if newer version is available
-        const version = new Date(versionResp.data.lastUpdated)
-        if (this.version == null || version > this.version) {
+        const version = versionResp.data.lastUpdated
+        if (this.version == null || new Date(version) > new Date(this.version)) {
           const dataResp = await client.get<IData>("data.json", {
             headers: {
               "Cache-Control": "no-cache",
@@ -77,11 +90,18 @@ export const useData = defineStore("data", {
           this.data = dataResp.data
         }
 
+        this.lastCheck = new Date().toISOString()
         return null
       } catch (err) {
+        this.lastCheck = new Date().toISOString()
         return err
       }
     }
   },
-  persist: true
+  persist: {
+    serializer: {
+      deserialize: parse,
+      serialize: stringify
+    }
+  }
 })

@@ -242,6 +242,17 @@ const fs = require("fs/promises")
     "../trinketData/data.json",
     JSON.stringify({
       specs: specs,
+      items: [
+        ...new Set(
+          Object.values(wowhead)
+            .flatMap((specData) => specData.map((tierData) => tierData.item))
+            .concat(
+              Object.values(bloodmallet)
+                .flatMap(Object.values)
+                .flatMap((tierDatas) => tierDatas.map((tierData) => tierData.item))
+            )
+        )
+      ],
       wowhead: wowhead,
       bloodmallet: bloodmallet
     })
