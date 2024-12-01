@@ -3,7 +3,7 @@ import { useSettingsStore } from "@/stores/settingsStore"
 import { GroupByMode, useFilterStore } from "@/stores/filterStore"
 import { useDataStore } from "@/stores/dataStore"
 import { useRoute } from "vue-router"
-import { onUpdated, onMounted, nextTick } from "vue"
+import { onUpdated, onMounted, nextTick, computed } from "vue"
 
 //#region Setup
 const settingsStore = useSettingsStore()
@@ -91,6 +91,26 @@ onMounted(refreshLinks)
 //#endregion
 
 //#region Helpers
+const sortedItems = computed(() => {
+  if (dataStore.data == null) {
+    return []
+  }
+
+  return Object.keys(dataStore.data.items)
+    .sort()
+    .reduce(
+      (sortedItems, key) => {
+        if (dataStore.data == null) {
+          return sortedItems
+        }
+
+        sortedItems[key] = dataStore.data.items[key]
+        return sortedItems
+      },
+      {} as { [itemName: string]: number }
+    )
+})
+
 function groupByMode(checked?: boolean | null) {
   if (checked == null) {
     return filterStore.groupByMode === GroupByMode.Spec
@@ -147,7 +167,7 @@ function specChecked(spec: string, checked: boolean | null) {
     </div>
     <div>
       <label>Trinkets</label>
-      <div v-for="(itemId, itemName) in dataStore.data.items">
+      <div v-for="(itemId, itemName) in sortedItems">
         <input
           type="checkbox"
           :checked="filterStore.trinkets.has(itemName.toString())"

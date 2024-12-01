@@ -5,6 +5,7 @@ import { useSettingsStore } from "@/stores/settingsStore"
 import { onUpdated, onMounted, computed } from "vue"
 
 //#region Setup
+const undefinedSortValue = 9999
 const dataStore = useDataStore()
 const filterStore = useFilterStore()
 const settingsStore = useSettingsStore()
@@ -31,18 +32,18 @@ onUpdated(refreshLinks)
 onMounted(refreshLinks)
 //#endregion
 
-function getNumTier(tier: string) {
+function getNumTier(tier: string | undefined) {
   if (tier == null) {
-    return 99
+    return undefinedSortValue
   }
 
   tier = tier.trim().toLowerCase()
   if (tier == "") {
-    return 99
+    return undefinedSortValue
   }
 
   // Get the base value
-  let value = 99
+  let value = undefinedSortValue
   switch (tier.substring(0, 1)) {
     case "s":
       value = 1
@@ -86,7 +87,7 @@ function getNumTier(tier: string) {
 }
 
 const rowGroups = computed(() => {
-  let groups: { [groupKey: string]: { specOrItem: string; wowhead: string; bloodmallet: { [targets: string]: number }; note: string }[] } = {}
+  let groups: { [groupKey: string]: { specOrItem: string; wowhead?: string; bloodmallet: { [targets: string]: number }; note?: string }[] } = {}
 
   if (dataStore.data == null) {
     return groups
@@ -138,11 +139,9 @@ const rowGroups = computed(() => {
             if (row == null) {
               groups[tierData.item].push({
                 specOrItem: specName,
-                wowhead: "",
                 bloodmallet: {
                   [target]: tierData.tier
-                },
-                note: ""
+                }
               })
             } else {
               row.bloodmallet[target] = tierData.tier
@@ -159,7 +158,7 @@ const rowGroups = computed(() => {
             sortedGroups[key] = groups[key]
             return sortedGroups
           },
-          {} as { [groupKey: string]: { specOrItem: string; wowhead: string; bloodmallet: { [targets: string]: number }; note: string }[] }
+          {} as { [groupKey: string]: { specOrItem: string; wowhead?: string; bloodmallet: { [targets: string]: number }; note?: string }[] }
         )
       break
     }
@@ -208,11 +207,9 @@ const rowGroups = computed(() => {
             if (row == null) {
               groups[specName].push({
                 specOrItem: tierData.item,
-                wowhead: "",
                 bloodmallet: {
                   [target]: tierData.tier
-                },
-                note: ""
+                }
               })
             } else {
               row.bloodmallet[target] = tierData.tier
@@ -244,7 +241,7 @@ const rowGroups = computed(() => {
             sortedGroups[key] = groups[key]
             return sortedGroups
           },
-          {} as { [groupKey: string]: { specOrItem: string; wowhead: string; bloodmallet: { [targets: string]: number }; note: string }[] }
+          {} as { [groupKey: string]: { specOrItem: string; wowhead?: string; bloodmallet: { [targets: string]: number }; note?: string }[] }
         )
       break
     }
@@ -253,72 +250,48 @@ const rowGroups = computed(() => {
   // Sort rows
   for (const groupKey in groups) {
     groups[groupKey].sort((a, b) => {
-      // Get sorting directions
-      const sortByItemOrSpec = filterStore.getDirection(OrderByColumn.ItemOrSpec)
-      const sortByWowhead = filterStore.getDirection(OrderByColumn.Wowhead)
-      const sortByBloodmallet1 = filterStore.getDirection(OrderByColumn.Bloodmallet1)
-      const sortByBloodmallet3 = filterStore.getDirection(OrderByColumn.Bloodmallet3)
-      const sortByBloodmallet5 = filterStore.getDirection(OrderByColumn.Bloodmallet5)
+      // Compare in order of orderBys set up by the user
+      for (const orderBy of filterStore.orderBy) {
+        let compare = 0
+        switch (orderBy.column) {
+          case OrderByColumn.ItemOrSpec:
+            compare =
+              orderBy.direction === OrderByDirection.Asc
+                ? a.specOrItem.localeCompare(b.specOrItem, "en")
+                : b.specOrItem.localeCompare(a.specOrItem, "en")
+            break
+          case OrderByColumn.Wowhead:
+            compare =
+              orderBy.direction === OrderByDirection.Asc
+                ? getNumTier(a.wowhead) - getNumTier(b.wowhead)
+                : getNumTier(b.wowhead) - getNumTier(a.wowhead)
+            break
+          case OrderByColumn.Bloodmallet1:
+            compare =
+              orderBy.direction === OrderByDirection.Asc
+                ? (a.bloodmallet["1"] ?? undefinedSortValue) - (b.bloodmallet["1"] ?? undefinedSortValue)
+                : (b.bloodmallet["1"] ?? undefinedSortValue) - (a.bloodmallet["1"] ?? undefinedSortValue)
+            break
+          case OrderByColumn.Bloodmallet3:
+            compare =
+              orderBy.direction === OrderByDirection.Asc
+                ? (a.bloodmallet["3"] ?? undefinedSortValue) - (b.bloodmallet["3"] ?? undefinedSortValue)
+                : (b.bloodmallet["3"] ?? undefinedSortValue) - (a.bloodmallet["3"] ?? undefinedSortValue)
+            break
+          case OrderByColumn.Bloodmallet5:
+            compare =
+              orderBy.direction === OrderByDirection.Asc
+                ? (a.bloodmallet["5"] ?? undefinedSortValue) - (b.bloodmallet["5"] ?? undefinedSortValue)
+                : (b.bloodmallet["5"] ?? undefinedSortValue) - (a.bloodmallet["5"] ?? undefinedSortValue)
+            break
+        }
 
-      // Sort by columns
-      let q = 0,
-        w = 0,
-        e = 0,
-        r = 0,
-        t = 0
-
-      if (sortByItemOrSpec != null) {
-        switch (sortByItemOrSpec.direction) {
-          case OrderByDirection.Asc:
-            q = a.specOrItem.localeCompare(b.specOrItem, "en")
-            break
-          case OrderByDirection.Desc:
-            q = b.specOrItem.localeCompare(a.specOrItem, "en")
-            break
-        }
-      }
-      if (sortByWowhead != null) {
-        switch (sortByWowhead.direction) {
-          case OrderByDirection.Asc:
-            w = getNumTier(a.wowhead) - getNumTier(b.wowhead)
-            break
-          case OrderByDirection.Desc:
-            w = getNumTier(b.wowhead) - getNumTier(a.wowhead)
-            break
-        }
-      }
-      if (sortByBloodmallet1 != null) {
-        switch (sortByBloodmallet1.direction) {
-          case OrderByDirection.Asc:
-            e = a.bloodmallet["1"] - b.bloodmallet["1"]
-            break
-          case OrderByDirection.Desc:
-            e = b.bloodmallet["1"] - a.bloodmallet["1"]
-            break
-        }
-      }
-      if (sortByBloodmallet3 != null) {
-        switch (sortByBloodmallet3.direction) {
-          case OrderByDirection.Asc:
-            r = a.bloodmallet["3"] - b.bloodmallet["3"]
-            break
-          case OrderByDirection.Desc:
-            r = b.bloodmallet["3"] - a.bloodmallet["3"]
-            break
-        }
-      }
-      if (sortByBloodmallet5 != null) {
-        switch (sortByBloodmallet5.direction) {
-          case OrderByDirection.Asc:
-            t = a.bloodmallet["5"] - b.bloodmallet["5"]
-            break
-          case OrderByDirection.Desc:
-            t = b.bloodmallet["5"] - a.bloodmallet["5"]
-            break
+        if (!isNaN(compare) && compare != null && compare !== 0) {
+          return compare
         }
       }
 
-      return q || w || e || r || t
+      return 0
     })
   }
 
@@ -393,10 +366,10 @@ function getOrderByIcon(column: OrderByColumn) {
               >{{ row.specOrItem }}</a
             >
           </td>
-          <td>{{ row.wowhead }}</td>
-          <td>{{ row.bloodmallet["1"] }}</td>
-          <td>{{ row.bloodmallet["3"] }}</td>
-          <td>{{ row.bloodmallet["5"] }}</td>
+          <td>{{ row.wowhead ?? "?" }}</td>
+          <td>{{ row.bloodmallet["1"] ?? "?" }}</td>
+          <td>{{ row.bloodmallet["3"] ?? "?" }}</td>
+          <td>{{ row.bloodmallet["5"] ?? "?" }}</td>
           <td>{{ row.note }}</td>
         </tr>
       </template>
