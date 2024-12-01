@@ -8,7 +8,7 @@ export enum GroupByMode {
 export const useFilterStore = defineStore("filterStore", {
   state: () => ({
     groupByMode: GroupByMode.Trinket,
-    trinkets: new Set<number>(),
+    trinkets: new Set<string>(),
     specs: new Set<string>()
   }),
   persist: {

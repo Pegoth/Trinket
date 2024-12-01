@@ -7,7 +7,7 @@ export const useSettingsStore = defineStore("settingsStore", {
     itemLevel: 626,
     level: 80,
     saveTrinkets: true,
-    trinkets: [] as number[],
+    trinkets: [] as string[],
     saveSpecs: true,
     specs: [] as string[]
   }),

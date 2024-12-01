@@ -22,12 +22,12 @@ filterStore.trinkets.clear()
 if (route.query.trinkets) {
   if (typeof route.query.trinkets === "string") {
     for (const trinket of route.query.trinkets.split(",")) {
-      filterStore.trinkets.add(parseInt(trinket))
+      filterStore.trinkets.add(trinket)
     }
   } else {
     for (const trinket of route.query.trinkets) {
       if (trinket != null) {
-        filterStore.trinkets.add(parseInt(trinket))
+        filterStore.trinkets.add(trinket)
       }
     }
   }
@@ -103,11 +103,11 @@ function groupByMode(checked?: boolean | null) {
   return checked
 }
 
-function itemChecked(itemId: number, checked: boolean | null) {
+function itemChecked(item: string, checked: boolean | null) {
   if (checked) {
-    filterStore.trinkets.add(itemId)
+    filterStore.trinkets.add(item)
   } else {
-    filterStore.trinkets.delete(itemId)
+    filterStore.trinkets.delete(item)
   }
 }
 
@@ -147,19 +147,19 @@ function specChecked(spec: string, checked: boolean | null) {
     </div>
     <div>
       <label>Trinkets</label>
-      <div v-for="itemId in dataStore.data.items">
+      <div v-for="(itemId, itemName) in dataStore.data.items">
         <input
           type="checkbox"
-          :id="itemId.toString()"
-          :checked="filterStore.trinkets.has(itemId)"
-          @change="nextTick(() => itemChecked(itemId, ($event.target as HTMLInputElement)?.checked))"
+          :checked="filterStore.trinkets.has(itemName.toString())"
+          @change="nextTick(() => itemChecked(itemName.toString(), ($event.target as HTMLInputElement)?.checked))"
         />
         <a
           :href="`https://wowhead.com/item=${itemId}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
           data-wh-icon-size="small"
           target="_blank"
-          @click.prevent="itemChecked(itemId, !filterStore.trinkets.has(itemId))"
-        ></a>
+          @click.prevent="itemChecked(itemName.toString(), !filterStore.trinkets.has(itemName.toString()))"
+          >{{ itemName }}</a
+        >
       </div>
     </div>
     <div>
@@ -177,11 +177,11 @@ function specChecked(spec: string, checked: boolean | null) {
         <div v-for="specName in specNames">
           <input
             type="checkbox"
-            :id="specName"
+            :id="`${specName} ${className}`"
             :checked="filterStore.specs.has(`${specName} ${className}`)"
             @change="nextTick(() => specChecked(`${specName} ${className}`, ($event.target as HTMLInputElement)?.checked))"
           />
-          <label :for="specName">{{ specName }}</label>
+          <label :for="`${specName} ${className}`">{{ specName }}</label>
         </div>
       </div>
     </div>

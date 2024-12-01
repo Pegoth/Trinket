@@ -196,7 +196,13 @@ const fs = require("fs/promises")
           result.value.forEach((tierData) => {
             usedItems.add(tierData.item)
 
-            if (tierData.itemName != "" && itemNames[tierData.item] == null && itemNames[tierData.item] == "") {
+            // Only update item names if needed and it is not a special item name
+            if (
+              tierData.itemName != null &&
+              tierData.itemName != "" &&
+              tierData.itemName.indexOf("[") < 0 &&
+              (itemNames[tierData.item] == null || itemNames[tierData.item] == "")
+            ) {
               itemNames[tierData.item] = tierData.itemName
             }
           })
@@ -205,7 +211,10 @@ const fs = require("fs/promises")
             bloodmallet[result.key] = {}
           }
 
-          bloodmallet[result.key][target == "" ? "1" : target] = result.value
+          bloodmallet[result.key][target == "" ? "1" : target] = result.value.map((tierData) => ({
+            item: tierData.item,
+            tier: tierData.tier
+          }))
         } catch (err) {
           if (++tryCounter > 5) throw err
           await new Promise((r) => setTimeout(r, 5000))
@@ -214,6 +223,7 @@ const fs = require("fs/promises")
 
       // Save loaded data to cache
       await fs.writeFile("caches/bloodmallet.json", JSON.stringify(bloodmallet, null, 2))
+      await fs.writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
     }
   }
 
@@ -257,7 +267,7 @@ const fs = require("fs/promises")
   // Build used item names
   const items = {}
   for (const itemId of usedItems) {
-    if (itemNames[itemId] == "") {
+    if (itemNames[itemId] == null || itemNames[itemId] == "") {
       console.log("Loading item name for id", itemId)
       let tryCounter = 0
       try {
@@ -269,6 +279,9 @@ const fs = require("fs/promises")
         if (++tryCounter > 5) throw err
         await new Promise((r) => setTimeout(r, 5000))
       }
+
+      // Save loaded data to cache
+      await fs.writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
     }
 
     // Flip id->name around
@@ -276,9 +289,6 @@ const fs = require("fs/promises")
   }
 
   await browser.close()
-
-  // Save loaded data to cache
-  await fs.writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
 
   // Get cache stats
   const wowheadStats = await fs.stat("caches/wowhead.json")
@@ -300,12 +310,15 @@ const fs = require("fs/promises")
 
   await fs.writeFile(
     "../trinketData/data.json",
-    JSON.stringify({
-      specs: specs,
-      items: items,
-      wowhead: wowhead,
-      bloodmallet: bloodmallet
-    })
+    JSON.stringify(
+      {
+        specs: specs,
+        items: items,
+        wowhead: wowhead,
+        bloodmallet: bloodmallet
+      },
+      (key, value) => (key == "item" ? itemNames[value] : value)
+    )
   )
 
   console.log("Done")

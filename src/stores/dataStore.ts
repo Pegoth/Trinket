@@ -8,21 +8,21 @@ export interface IVersion {
 }
 
 export interface IWowheadData {
-  item: number
+  item: string
   tier: string
   note: string
 }
 
 export interface IBloodmalletData {
-  item: number
+  item: string
   tier: number
 }
 
 export interface IData {
-  specs: { [key: string]: string[] }
-  items: number[]
-  wowhead: { [key: string]: IWowheadData[] }
-  bloodmallet: { [key: string]: { [key: string]: IBloodmalletData[] } }
+  specs: { [className: string]: string[] }
+  items: { [itemName: string]: number }
+  wowhead: { [specName: string]: IWowheadData[] }
+  bloodmallet: { [specName: string]: { [targets: string]: IBloodmalletData[] } }
 }
 //#endregion
 
