@@ -96,6 +96,18 @@ export const useDataStore = defineStore("dataStore", {
         this.lastCheck = new Date().toISOString()
         return err
       }
+    },
+    findClassForSpec(spec: string) {
+      if (this.data == null) {
+        return null
+      }
+
+      for (const className in this.data.specs) {
+        if (this.data.specs[className].some((partialSpecName) => spec.toLowerCase().includes(partialSpecName.toLowerCase()))) {
+          return className
+        }
+      }
+      return null
     }
   },
   persist: {
