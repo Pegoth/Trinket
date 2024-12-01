@@ -11,6 +11,16 @@ const fs = require("fs/promises")
   // Set screen size
   await page.setViewport({ width: 1080, height: 1024 })
 
+  // Items
+  let itemNames
+  const usedItems = new Set()
+  try {
+    // No need to invalidate itemNames cache, as it is not time sensitive
+    itemNames = JSON.parse(await fs.readFile("caches/itemNames.json"))
+  } catch {
+    itemNames = {}
+  }
+
   // Load wowhead data
   let wowhead
   try {
@@ -22,6 +32,10 @@ const fs = require("fs/promises")
     }
 
     wowhead = JSON.parse(await fs.readFile("caches/wowhead.json"))
+    Object.values(wowhead)
+      .flatMap((specData) => specData.map((tierData) => tierData.item))
+      .forEach((itemId) => usedItems.add(itemId))
+
     console.log("Loaded wowhead cache")
   } catch {
     // Get all available guides
@@ -93,9 +107,14 @@ const fs = require("fs/promises")
           return data
         })
 
+        // Add used items to the list
+        result.value.forEach((tierData) => usedItems.add(tierData.item))
+
         wowhead[result.key] = result.value
       } catch (err) {
-        if (++tryCounter > 5) throw err
+        if (++tryCounter > 5) {
+          throw err
+        }
         await new Promise((r) => setTimeout(r, 5000))
       }
 
@@ -115,6 +134,11 @@ const fs = require("fs/promises")
     }
 
     bloodmallet = JSON.parse(await fs.readFile("caches/bloodmallet.json"))
+    Object.values(bloodmallet)
+      .flatMap(Object.values)
+      .flatMap((tierDatas) => tierDatas.map((tierData) => tierData.item))
+      .forEach((itemId) => usedItems.add(itemId))
+
     console.log("Loaded bloodmallet cache")
   } catch {
     // Get all available links
@@ -160,6 +184,7 @@ const fs = require("fs/promises")
             document.querySelectorAll("#chart .bm-row .bm-key a").forEach((linkdom) => {
               data.value.push({
                 item: parseInt(linkdom.href.match(/item=(\d+)/)[1]),
+                itemName: linkdom.textContent.trim(),
                 tier: index++
               })
             })
@@ -167,9 +192,20 @@ const fs = require("fs/promises")
             return data
           })
 
-          if (bloodmallet[result.key] == null) bloodmallet[result.key] = {}
+          // Add used items to the list and also update item names
+          result.value.forEach((tierData) => {
+            usedItems.add(tierData.item)
 
-          bloodmallet[result.key][target == "" ? 1 : parseInt(target)] = result.value
+            if (tierData.itemName != "" && itemNames[tierData.item] == null && itemNames[tierData.item] == "") {
+              itemNames[tierData.item] = tierData.itemName
+            }
+          })
+
+          if (bloodmallet[result.key] == null) {
+            bloodmallet[result.key] = {}
+          }
+
+          bloodmallet[result.key][target == "" ? "1" : target] = result.value
         } catch (err) {
           if (++tryCounter > 5) throw err
           await new Promise((r) => setTimeout(r, 5000))
@@ -218,7 +254,31 @@ const fs = require("fs/promises")
     await fs.writeFile("caches/specs.json", JSON.stringify(specs, null, 2))
   }
 
+  // Build used item names
+  const items = {}
+  for (const itemId of usedItems) {
+    if (itemNames[itemId] == "") {
+      console.log("Loading item name for id", itemId)
+      let tryCounter = 0
+      try {
+        // Navigate the page to a URL
+        await page.goto(`https://wowhead.com/item=${itemId}`)
+        await page.waitForSelector("h1")
+        itemNames[itemId] = await page.evaluate(() => document.querySelector("h1").textContent.trim())
+      } catch (err) {
+        if (++tryCounter > 5) throw err
+        await new Promise((r) => setTimeout(r, 5000))
+      }
+    }
+
+    // Flip id->name around
+    items[itemNames[itemId]] = itemId
+  }
+
   await browser.close()
+
+  // Save loaded data to cache
+  await fs.writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
 
   // Get cache stats
   const wowheadStats = await fs.stat("caches/wowhead.json")
@@ -242,17 +302,7 @@ const fs = require("fs/promises")
     "../trinketData/data.json",
     JSON.stringify({
       specs: specs,
-      items: [
-        ...new Set(
-          Object.values(wowhead)
-            .flatMap((specData) => specData.map((tierData) => tierData.item))
-            .concat(
-              Object.values(bloodmallet)
-                .flatMap(Object.values)
-                .flatMap((tierDatas) => tierDatas.map((tierData) => tierData.item))
-            )
-        )
-      ],
+      items: items,
       wowhead: wowhead,
       bloodmallet: bloodmallet
     })
