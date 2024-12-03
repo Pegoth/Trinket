@@ -1,15 +1,16 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import Filter from "@/components/Filter.vue"
-import TrinketTable from "@/components/TrinketTable.vue"
+import GridFilter from "@/components/GridFilter.vue"
+import GridData from "@/components/GridData.vue"
 </script>
 
 <template>
-  <main>
+  <main class="container">
     <Suspense>
       <template #default>
         <div>
-          <Filter />
-          <TrinketTable />
+          <GridFilter />
+          <GridData />
         </div>
       </template>
       <template #fallback>

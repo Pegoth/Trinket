@@ -1,9 +1,8 @@
-const puppeteer = require("puppeteer")
-const fs = require("fs/promises")
-
+import { launch } from "puppeteer"
+import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
 ;(async () => {
   // Launch the browser and open a new blank page
-  const browser = await puppeteer.launch({
+  const browser = await launch({
     headless: "new"
   })
   const page = await browser.newPage()
@@ -16,7 +15,7 @@ const fs = require("fs/promises")
   const usedItems = new Set()
   try {
     // No need to invalidate itemNames cache, as it is not time sensitive
-    itemNames = JSON.parse(await fs.readFile("caches/itemNames.json"))
+    itemNames = JSON.parse(await readFile("caches/itemNames.json"))
   } catch {
     itemNames = {}
   }
@@ -25,13 +24,13 @@ const fs = require("fs/promises")
   let wowhead
   try {
     // Get the cache last modified date
-    const stats = await fs.stat("caches/wowhead.json")
+    const stats = await stat("caches/wowhead.json")
     if (stats.mtime - new Date() >= 86400000) {
       console.log("Wowhead cache is too old")
       throw new Error()
     }
 
-    wowhead = JSON.parse(await fs.readFile("caches/wowhead.json"))
+    wowhead = JSON.parse(await readFile("caches/wowhead.json"))
     Object.values(wowhead)
       .flatMap((specData) => specData.map((tierData) => tierData.item))
       .forEach((itemId) => usedItems.add(itemId))
@@ -119,7 +118,7 @@ const fs = require("fs/promises")
       }
 
       // Save loaded data to cache
-      await fs.writeFile("caches/wowhead.json", JSON.stringify(wowhead, null, 2))
+      await writeFile("caches/wowhead.json", JSON.stringify(wowhead, null, 2))
     }
   }
 
@@ -127,13 +126,13 @@ const fs = require("fs/promises")
   let bloodmallet
   try {
     // Get the cache last modified date
-    const stats = await fs.stat("caches/bloodmallet.json")
+    const stats = await stat("caches/bloodmallet.json")
     if (stats.mtime - new Date() >= 86400000) {
       console.log("Bloodmallet cache is too old")
       throw new Error()
     }
 
-    bloodmallet = JSON.parse(await fs.readFile("caches/bloodmallet.json"))
+    bloodmallet = JSON.parse(await readFile("caches/bloodmallet.json"))
     Object.values(bloodmallet)
       .flatMap(Object.values)
       .flatMap((tierDatas) => tierDatas.map((tierData) => tierData.item))
@@ -222,8 +221,8 @@ const fs = require("fs/promises")
       }
 
       // Save loaded data to cache
-      await fs.writeFile("caches/bloodmallet.json", JSON.stringify(bloodmallet, null, 2))
-      await fs.writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
+      await writeFile("caches/bloodmallet.json", JSON.stringify(bloodmallet, null, 2))
+      await writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
     }
   }
 
@@ -231,13 +230,13 @@ const fs = require("fs/promises")
   let specs
   try {
     // Get the cache last modified date
-    const stats = await fs.stat("caches/specs.json")
+    const stats = await stat("caches/specs.json")
     if (stats.mtime - new Date() >= 86400000) {
       console.log("Specs cache is too old")
       throw new Error()
     }
 
-    specs = JSON.parse(await fs.readFile("caches/specs.json"))
+    specs = JSON.parse(await readFile("caches/specs.json"))
     console.log("Loaded specs cache")
   } catch {
     // Get all available links
@@ -261,7 +260,7 @@ const fs = require("fs/promises")
     })
 
     // Save loaded data to cache
-    await fs.writeFile("caches/specs.json", JSON.stringify(specs, null, 2))
+    await writeFile("caches/specs.json", JSON.stringify(specs, null, 2))
   }
 
   // Build used item names
@@ -281,7 +280,7 @@ const fs = require("fs/promises")
       }
 
       // Save loaded data to cache
-      await fs.writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
+      await writeFile("caches/itemNames.json", JSON.stringify(itemNames, null, 2))
     }
 
     // Flip id->name around
@@ -291,24 +290,24 @@ const fs = require("fs/promises")
   await browser.close()
 
   // Get cache stats
-  const wowheadStats = await fs.stat("caches/wowhead.json")
-  const bloodmalletStats = await fs.stat("caches/bloodmallet.json")
+  const wowheadStats = await stat("caches/wowhead.json")
+  const bloodmalletStats = await stat("caches/bloodmallet.json")
 
   // Cleanup output directory
   try {
-    await fs.rm("../trinketData", { recursive: true })
+    await rm("../trinketData", { recursive: true })
   } catch {}
-  await fs.mkdir("../trinketData")
+  await mkdir("../trinketData")
 
   // Write output
-  await fs.writeFile(
+  await writeFile(
     "../trinketData/data.version.json",
     JSON.stringify({
       lastUpdated: (wowheadStats.mtime < bloodmalletStats.mtime ? wowheadStats.mtime : bloodmalletStats.mtime).toISOString()
     })
   )
 
-  await fs.writeFile(
+  await writeFile(
     "../trinketData/data.json",
     JSON.stringify(
       {

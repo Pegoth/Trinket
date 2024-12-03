@@ -16,12 +16,6 @@ if (init) console.error(init)
 //#endregion
 
 //#region Wowhead link generation
-declare global {
-  interface Window {
-    $WowheadPower: any
-  }
-}
-
 const refreshLinks = () => {
   if (window.$WowheadPower != null && typeof window.$WowheadPower.refreshLinks == "function") {
     window.$WowheadPower.refreshLinks()
@@ -304,6 +298,8 @@ const firstColumnText = computed(() => {
       return "Spec / class"
     case GroupByMode.Spec:
       return "Trinket"
+    default:
+      return "Unknown"
   }
 })
 
@@ -341,7 +337,7 @@ function getOrderByIcon(column: OrderByColumn) {
     </thead>
     <tbody>
       <template v-for="(rows, groupKey) in rowGroups">
-        <tr v-if="filterStore.groupByMode == GroupByMode.Trinket">
+        <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
           <td colspan="6">
             <a
               :href="`https://wowhead.com/item=${dataStore.data?.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
@@ -351,12 +347,12 @@ function getOrderByIcon(column: OrderByColumn) {
             >
           </td>
         </tr>
-        <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec">
+        <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec" :key="`grid-spec-${groupKey}`">
           <td colspan="6">
             {{ groupKey }}
           </td>
         </tr>
-        <tr v-for="row in rows">
+        <tr v-for="row in rows" :key="`grid-row-${row.specOrItem}`">
           <td v-if="filterStore.groupByMode == GroupByMode.Trinket">{{ row.specOrItem }}</td>
           <td v-else-if="filterStore.groupByMode == GroupByMode.Spec">
             <a
