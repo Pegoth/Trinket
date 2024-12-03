@@ -2,6 +2,7 @@
 import { useDataStore } from "@/stores/dataStore"
 import { GroupByMode, OrderByColumn, OrderByDirection, useFilterStore } from "@/stores/filterStore"
 import { useSettingsStore } from "@/stores/settingsStore"
+import GridSortableColumn from "./GridSortableColumn.vue"
 import { onUpdated, onMounted, computed } from "vue"
 
 //#region Setup
@@ -291,84 +292,61 @@ const rowGroups = computed(() => {
 
   return groups
 })
-
-const firstColumnText = computed(() => {
-  switch (filterStore.groupByMode) {
-    case GroupByMode.Trinket:
-      return "Spec / class"
-    case GroupByMode.Spec:
-      return "Trinket"
-    default:
-      return "Unknown"
-  }
-})
-
-function getOrderByIcon(column: OrderByColumn) {
-  const order = filterStore.getDirection(column)
-  if (order == null) return ""
-  return `${order.direction === OrderByDirection.Asc ? "↓" : "↑"}${order.index ?? ""}`
-}
 </script>
 
 <template>
-  <table>
-    <thead>
-      <tr>
-        <th rowspan="2" @click="filterStore.toggleOrderBy(OrderByColumn.ItemOrSpec, !$event.ctrlKey && !$event.altKey && !$event.shiftKey)">
-          {{ firstColumnText }} {{ getOrderByIcon(OrderByColumn.ItemOrSpec) }}
-        </th>
-        <th rowspan="2" @click="filterStore.toggleOrderBy(OrderByColumn.Wowhead, !$event.ctrlKey && !$event.altKey && !$event.shiftKey)">
-          Wowhead {{ getOrderByIcon(OrderByColumn.Wowhead) }}
-        </th>
-        <th colspan="3">Bloodmallet</th>
-        <th rowspan="2">Note</th>
-      </tr>
-      <tr>
-        <th @click="filterStore.toggleOrderBy(OrderByColumn.Bloodmallet1, !$event.ctrlKey && !$event.altKey && !$event.shiftKey)">
-          1 {{ getOrderByIcon(OrderByColumn.Bloodmallet1) }}
-        </th>
-        <th @click="filterStore.toggleOrderBy(OrderByColumn.Bloodmallet3, !$event.ctrlKey && !$event.altKey && !$event.shiftKey)">
-          3 {{ getOrderByIcon(OrderByColumn.Bloodmallet3) }}
-        </th>
-        <th @click="filterStore.toggleOrderBy(OrderByColumn.Bloodmallet5, !$event.ctrlKey && !$event.altKey && !$event.shiftKey)">
-          5 {{ getOrderByIcon(OrderByColumn.Bloodmallet5) }}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <template v-for="(rows, groupKey) in rowGroups">
-        <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
-          <td colspan="6">
-            <a
-              :href="`https://wowhead.com/item=${dataStore.data?.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-              data-wh-icon-size="medium"
-              target="_blank"
-              >{{ groupKey }}</a
-            >
-          </td>
+  <div class="mt-2 table-responsive">
+    <table class="table table-hover table-borderless">
+      <thead>
+        <tr>
+          <GridSortableColumn :column="OrderByColumn.ItemOrSpec" class="pt-0 text-center" />
+          <GridSortableColumn :column="OrderByColumn.Wowhead" class="pt-0 text-center" />
+          <th colspan="3" class="auto-size p-0 text-center">Bloodmallet</th>
+          <th rowspan="2" class="pt-0 text-center">Note</th>
         </tr>
-        <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec" :key="`grid-spec-${groupKey}`">
-          <td colspan="6">
-            {{ groupKey }}
-          </td>
+        <tr>
+          <GridSortableColumn :column="OrderByColumn.Bloodmallet1" class="pt-0 text-center" />
+          <GridSortableColumn :column="OrderByColumn.Bloodmallet3" class="pt-0 text-center" />
+          <GridSortableColumn :column="OrderByColumn.Bloodmallet5" class="pt-0 text-center" />
         </tr>
-        <tr v-for="row in rows" :key="`grid-row-${row.specOrItem}`">
-          <td v-if="filterStore.groupByMode == GroupByMode.Trinket">{{ row.specOrItem }}</td>
-          <td v-else-if="filterStore.groupByMode == GroupByMode.Spec">
-            <a
-              :href="`https://wowhead.com/item=${dataStore.data?.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-              data-wh-icon-size="medium"
-              target="_blank"
-              >{{ row.specOrItem }}</a
-            >
-          </td>
-          <td>{{ row.wowhead ?? "?" }}</td>
-          <td>{{ row.bloodmallet["1"] ?? "?" }}</td>
-          <td>{{ row.bloodmallet["3"] ?? "?" }}</td>
-          <td>{{ row.bloodmallet["5"] ?? "?" }}</td>
-          <td>{{ row.note }}</td>
-        </tr>
-      </template>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <template v-for="(rows, groupKey) in rowGroups">
+          <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
+            <td colspan="6" class="text-nowrap fs-4">
+              <a
+                :href="`https://wowhead.com/item=${dataStore.data?.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+                data-wh-icon-size="medium"
+                target="_blank"
+                >{{ groupKey }}</a
+              >
+            </td>
+          </tr>
+          <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec" :key="`grid-spec-${groupKey}`">
+            <td colspan="6" class="text-nowrap fs-4">
+              {{ groupKey }}
+            </td>
+          </tr>
+          <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${row.specOrItem}`">
+            <td class="text-nowrap align-middle" v-if="filterStore.groupByMode == GroupByMode.Trinket">
+              {{ row.specOrItem }}
+            </td>
+            <td class="text-nowrap align-middle" v-else-if="filterStore.groupByMode == GroupByMode.Spec">
+              <a
+                :href="`https://wowhead.com/item=${dataStore.data?.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+                data-wh-icon-size="medium"
+                target="_blank"
+                >{{ row.specOrItem }}</a
+              >
+            </td>
+            <td class="text-nowrap text-center align-middle">{{ row.wowhead ?? "?" }}</td>
+            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["1"] ?? "?" }}</td>
+            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["3"] ?? "?" }}</td>
+            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["5"] ?? "?" }}</td>
+            <td class="align-middle">{{ row.note }}</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
 </template>
