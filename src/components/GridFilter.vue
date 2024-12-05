@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref, onUpdated, onMounted, nextTick, computed } from "vue"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { faClipboard, faBroom } from "@fortawesome/free-solid-svg-icons"
 import { useRoute } from "vue-router"
 import { useSettingsStore } from "@/stores/settingsStore"
 import { GroupByMode, useFilterStore } from "@/stores/filterStore"
 import TriStateCheckbox from "@/components/TriStateCheckbox.vue"
 import data from "@/common/data"
+import { Tooltip } from "bootstrap"
 
 //#region Setup
 const settingsStore = useSettingsStore()
@@ -247,7 +250,21 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
 
   return checked
 }
+
+function setFilterClipboard() {
+  const url = new URL(window.location.href)
+  url.searchParams.set("trinkets", [...filterStore.trinkets].join(","))
+  url.searchParams.set("specs", [...filterStore.specs].join(","))
+  navigator.clipboard.writeText(url.toString())
+}
 //#endregion
+
+// Turn on tooltips
+onMounted(() => {
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((tooltip) => {
+    new Tooltip(tooltip)
+  })
+})
 </script>
 
 <template>
@@ -263,10 +280,25 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
       <label for="group_by_mode" class="form-check-label">Group by {{ groupByMode() ? "specialization / class" : "trinket" }}</label>
     </div>
     <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
-      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+      <div
+        class="row clickable"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Click to open/close filter."
+        @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)"
+      >
         <div class="col" :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }">Trinket filter</div>
         <div class="col-auto d-flex align-items-center" v-if="filterStore.trinkets.size > 0">
-          <button type="button" class="btn-close close-sm" @click.stop="filterStore.trinkets.clear()"></button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Clear trinket filter."
+            @click.stop="filterStore.trinkets.clear()"
+          >
+            <FontAwesomeIcon :icon="faBroom" />
+          </button>
         </div>
       </div>
       <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
@@ -288,10 +320,25 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
       </div>
     </div>
     <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
-      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+      <div
+        class="row clickable"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Click to open/close filter."
+        @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)"
+      >
         <div class="col" :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }">Class / Specialization filter</div>
         <div class="col-auto d-flex align-items-center" v-if="filterStore.specs.size > 0">
-          <button type="button" class="btn-close close-sm" @click.stop="filterStore.specs.clear()"></button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-danger"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Clear specialization / class filter."
+            @click.stop="filterStore.specs.clear()"
+          >
+            <FontAwesomeIcon :icon="faBroom" />
+          </button>
         </div>
       </div>
       <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
@@ -318,13 +365,17 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
         </div>
       </div>
     </div>
+    <div class="col-auto">
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-success"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        title="Copy url with current filters to clipboard."
+        @click="setFilterClipboard"
+      >
+        <FontAwesomeIcon :icon="faClipboard" />
+      </button>
+    </div>
   </div>
 </template>
-
-<style scoped>
-.close-sm {
-  width: 0.5em;
-  height: 0.5em;
-  padding: 0;
-}
-</style>

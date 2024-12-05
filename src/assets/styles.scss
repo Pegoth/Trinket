@@ -2,7 +2,11 @@
 $enable-gradients: false;
 $enable-shadows: false;
 $border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
 $navbar-padding-y: 0;
+$btn-border-width: 0;
+$tooltip-max-width: min(300px, 50vw);
 
 // Import everything
 @import "bootstrap/scss/bootstrap";

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { RouterLink, RouterView } from "vue-router"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { useSettingsStore } from "@/stores/settingsStore"
 import data from "@/common/data"
 
@@ -61,9 +63,18 @@ document.documentElement.setAttribute("data-bs-theme", settingsStore.darkMode ? 
             <div class="col-auto" v-if="versionText != ''">
               <span class="navbar-text">{{ versionText }}</span>
             </div>
-            <div class="col-auto form-check form-switch">
-              <input type="checkbox" id="dark-mode" class="form-check-input" v-model="settingsStore.darkMode" />
-              <label for="dark-mode" class="form-check-label">Dark Mode</label>
+            <div class="col-auto">
+              <button
+                type="button"
+                class="btn btn-sm"
+                :class="{ 'btn-outline-dark': !settingsStore.darkMode, 'btn-outline-light': settingsStore.darkMode }"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Toggle between dark and light mode."
+                @click="settingsStore.darkMode = !settingsStore.darkMode"
+              >
+                <FontAwesomeIcon :icon="settingsStore.darkMode ? faSun : faMoon" />
+              </button>
             </div>
           </div>
         </div>
