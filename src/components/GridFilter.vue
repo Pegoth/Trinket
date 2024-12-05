@@ -13,6 +13,7 @@ const filterStore = useFilterStore()
 const route = useRoute()
 const filterDropDown = ref({
   visible: false,
+  sticky: false,
   timeout: null as number | null
 })
 
@@ -90,18 +91,43 @@ onMounted(refreshLinks)
 //#endregion
 
 //#region Helpers
-function setFilterVisibility(visible: boolean) {
-  if (visible) {
-    if (filterDropDown.value.timeout != null) {
-      clearTimeout(filterDropDown.value.timeout)
+function setFilterVisibility(value: boolean, sticky: boolean) {
+  // Do nothing if hovering is disabled
+  if (!settingsStore.filterOpenOnHover && !sticky) {
+    return
+  }
+
+  // Clear running timeout
+  if (filterDropDown.value.timeout != null) {
+    window.clearTimeout(filterDropDown.value.timeout)
+    filterDropDown.value.timeout = null
+  }
+
+  // Remove visual text selection
+  document.getSelection()?.removeAllRanges()
+
+  if (value) {
+    // Do not open if it was sticky closed
+    if (!sticky && filterDropDown.value.sticky) {
+      return
     }
 
-    filterDropDown.value.timeout = null
     filterDropDown.value.visible = true
+    filterDropDown.value.sticky = sticky
   } else {
-    filterDropDown.value.timeout = window.setTimeout(() => {
+    if (sticky) {
       filterDropDown.value.visible = false
-    }, settingsStore.filterHideDelay)
+      filterDropDown.value.sticky = true
+    } else {
+      filterDropDown.value.timeout = window.setTimeout(() => {
+        if (filterDropDown.value.visible && !filterDropDown.value.sticky) {
+          filterDropDown.value.visible = false
+        } else if (!filterDropDown.value.visible) {
+          // Remove sticky if hovered out of it and it was closed before
+          filterDropDown.value.sticky = false
+        }
+      }, settingsStore.filterHideDelay)
+    }
   }
 }
 
@@ -238,67 +264,83 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
 </script>
 
 <template>
-  <template v-if="dataStore.data != null">
-    <div class="row">
-      <div class="col-3 form-check form-switch">
-        <input
-          type="checkbox"
-          id="group_by_mode"
-          class="form-check-input"
-          :checked="groupByMode()"
-          @change="nextTick(() => groupByMode(($event.target as HTMLInputElement)?.checked))"
-        />
-        <label for="group_by_mode" class="form-check-label">Group by {{ groupByMode() ? "specialization / class" : "trinket" }}</label>
+  <div class="row" v-if="dataStore.data != null" v-bind="$attrs">
+    <div class="col-3 form-check form-switch">
+      <input
+        type="checkbox"
+        id="group_by_mode"
+        class="form-check-input"
+        :checked="groupByMode()"
+        @change="nextTick(() => groupByMode(($event.target as HTMLInputElement)?.checked))"
+      />
+      <label for="group_by_mode" class="form-check-label">Group by {{ groupByMode() ? "specialization / class" : "trinket" }}</label>
+    </div>
+    <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
+      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+        <div class="col" :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }">Trinket filter</div>
+        <div class="col-auto d-flex align-items-center" v-if="filterStore.trinkets.size > 0">
+          <button type="button" class="btn-close close-sm" @click.stop="filterStore.trinkets.clear()"></button>
+        </div>
       </div>
-      <div class="col" @mouseenter="setFilterVisibility(true)" @mouseleave="setFilterVisibility(false)">
-        <label>Trinket filter</label>
-        <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
-          <div class="form-check" v-for="(itemId, itemName) in sortedItems" :key="`filter-item-${itemId}`">
+      <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
+        <div class="form-check" v-for="(itemId, itemName) in sortedItems" :key="`filter-item-${itemId}`">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            :checked="filterStore.trinkets.has(itemName.toString())"
+            @change="nextTick(() => itemChecked(itemName.toString(), ($event.target as HTMLInputElement)?.checked))"
+          />
+          <a
+            :href="`https://wowhead.com/item=${itemId}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+            data-wh-icon-size="small"
+            target="_blank"
+            @click.prevent="itemChecked(itemName.toString(), !filterStore.trinkets.has(itemName.toString()))"
+            >{{ itemName }}</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
+      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+        <div class="col" :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }">Class / Specialization filter</div>
+        <div class="col-auto d-flex align-items-center" v-if="filterStore.specs.size > 0">
+          <button type="button" class="btn-close close-sm" @click.stop="filterStore.specs.clear()"></button>
+        </div>
+      </div>
+      <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
+        <div v-for="(specNames, className) in sortedSpecs" :key="`filter-class-${className}`">
+          <div class="form-check">
+            <TriStateCheckbox
+              class="form-check-input"
+              :id="className.toString()"
+              :value="classChecked(className.toString())"
+              @change="nextTick(() => classChecked(className.toString(), ($event.target as HTMLInputElement)?.checked))"
+            />
+            <label class="form-check-label" :for="className.toString()">{{ className }}</label>
+          </div>
+          <div class="form-check ms-4" v-for="specName in specNames" :key="`filter-spec-${className}-${specName}`">
             <input
               type="checkbox"
               class="form-check-input"
-              :checked="filterStore.trinkets.has(itemName.toString())"
-              @change="nextTick(() => itemChecked(itemName.toString(), ($event.target as HTMLInputElement)?.checked))"
+              :id="`${specName} ${className}`"
+              :checked="specChecked(className.toString(), specName)"
+              @change="nextTick(() => specChecked(className.toString(), specName, ($event.target as HTMLInputElement)?.checked))"
             />
-            <a
-              :href="`https://wowhead.com/item=${itemId}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-              data-wh-icon-size="small"
-              target="_blank"
-              @click.prevent="itemChecked(itemName.toString(), !filterStore.trinkets.has(itemName.toString()))"
-              >{{ itemName }}</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="col" @mouseenter="setFilterVisibility(true)" @mouseleave="setFilterVisibility(false)">
-        <label>Class / Specialization filter</label>
-        <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
-          <div v-for="(specNames, className) in sortedSpecs" :key="`filter-class-${className}`">
-            <div class="form-check">
-              <TriStateCheckbox
-                class="form-check-input"
-                :id="className.toString()"
-                :value="classChecked(className.toString())"
-                @change="nextTick(() => classChecked(className.toString(), ($event.target as HTMLInputElement)?.checked))"
-              />
-              <label class="form-check-label" :for="className.toString()">{{ className }}</label>
-            </div>
-            <div class="form-check ms-4" v-for="specName in specNames" :key="`filter-spec-${className}-${specName}`">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                :id="`${specName} ${className}`"
-                :checked="specChecked(className.toString(), specName)"
-                @change="nextTick(() => specChecked(className.toString(), specName, ($event.target as HTMLInputElement)?.checked))"
-              />
-              <label class="form-check-label" :for="`${specName} ${className}`">{{ specName }}</label>
-            </div>
+            <label class="form-check-label" :for="`${specName} ${className}`">{{ specName }}</label>
           </div>
         </div>
       </div>
     </div>
-  </template>
+  </div>
   <div v-else>
     {{ init }}
   </div>
 </template>
+
+<style scoped>
+.close-sm {
+  width: 0.5em;
+  height: 0.5em;
+  padding: 0;
+}
+</style>

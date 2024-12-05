@@ -1,15 +1,21 @@
 <script setup lang="ts">
+import { onUpdated, onMounted, computed } from "vue"
 import { useDataStore } from "@/stores/dataStore"
 import { GroupByMode, OrderByColumn, OrderByDirection, useFilterStore } from "@/stores/filterStore"
 import { useSettingsStore } from "@/stores/settingsStore"
 import GridSortableColumn from "./GridSortableColumn.vue"
-import { onUpdated, onMounted, computed } from "vue"
 
 //#region Setup
 const undefinedSortValue = 9999
 const dataStore = useDataStore()
 const filterStore = useFilterStore()
 const settingsStore = useSettingsStore()
+const props = defineProps({
+  theadStickyTop: {
+    type: Boolean,
+    default: true
+  }
+})
 
 // Load data
 const init = await dataStore.init()
@@ -27,6 +33,7 @@ onUpdated(refreshLinks)
 onMounted(refreshLinks)
 //#endregion
 
+//#region Helpers
 function getNumTier(tier: string | undefined) {
   if (tier == null) {
     return undefinedSortValue
@@ -292,61 +299,60 @@ const rowGroups = computed(() => {
 
   return groups
 })
+//#endregion
 </script>
 
 <template>
-  <div class="mt-2 table-responsive">
-    <table class="table table-hover table-borderless">
-      <thead>
-        <tr>
-          <GridSortableColumn :column="OrderByColumn.ItemOrSpec" class="pt-0 text-center" />
-          <GridSortableColumn :column="OrderByColumn.Wowhead" class="pt-0 text-center" />
-          <th colspan="3" class="auto-size p-0 text-center">Bloodmallet</th>
-          <th rowspan="2" class="pt-0 text-center">Note</th>
+  <table class="table table-hover table-borderless" v-bind="$attrs">
+    <thead :class="{ 'sticky-top': props.theadStickyTop, 'top-0': props.theadStickyTop }">
+      <tr>
+        <GridSortableColumn :column="OrderByColumn.ItemOrSpec" class="pt-0 text-center" />
+        <GridSortableColumn :column="OrderByColumn.Wowhead" class="pt-0 text-center" />
+        <th colspan="3" class="auto-size p-0 text-center">Bloodmallet</th>
+        <th rowspan="2" class="pt-0 text-center">Note</th>
+      </tr>
+      <tr>
+        <GridSortableColumn :column="OrderByColumn.Bloodmallet1" class="pt-0 text-center" />
+        <GridSortableColumn :column="OrderByColumn.Bloodmallet3" class="pt-0 text-center" />
+        <GridSortableColumn :column="OrderByColumn.Bloodmallet5" class="pt-0 text-center" />
+      </tr>
+    </thead>
+    <tbody>
+      <template v-for="(rows, groupKey) in rowGroups">
+        <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
+          <td colspan="6" class="text-nowrap fs-4">
+            <a
+              :href="`https://wowhead.com/item=${dataStore.data?.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+              data-wh-icon-size="medium"
+              target="_blank"
+              >{{ groupKey }}</a
+            >
+          </td>
         </tr>
-        <tr>
-          <GridSortableColumn :column="OrderByColumn.Bloodmallet1" class="pt-0 text-center" />
-          <GridSortableColumn :column="OrderByColumn.Bloodmallet3" class="pt-0 text-center" />
-          <GridSortableColumn :column="OrderByColumn.Bloodmallet5" class="pt-0 text-center" />
+        <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec" :key="`grid-spec-${groupKey}`">
+          <td colspan="6" class="text-nowrap fs-4">
+            {{ groupKey }}
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <template v-for="(rows, groupKey) in rowGroups">
-          <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
-            <td colspan="6" class="text-nowrap fs-4">
-              <a
-                :href="`https://wowhead.com/item=${dataStore.data?.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-                data-wh-icon-size="medium"
-                target="_blank"
-                >{{ groupKey }}</a
-              >
-            </td>
-          </tr>
-          <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec" :key="`grid-spec-${groupKey}`">
-            <td colspan="6" class="text-nowrap fs-4">
-              {{ groupKey }}
-            </td>
-          </tr>
-          <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${row.specOrItem}`">
-            <td class="text-nowrap align-middle" v-if="filterStore.groupByMode == GroupByMode.Trinket">
-              {{ row.specOrItem }}
-            </td>
-            <td class="text-nowrap align-middle" v-else-if="filterStore.groupByMode == GroupByMode.Spec">
-              <a
-                :href="`https://wowhead.com/item=${dataStore.data?.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-                data-wh-icon-size="medium"
-                target="_blank"
-                >{{ row.specOrItem }}</a
-              >
-            </td>
-            <td class="text-nowrap text-center align-middle">{{ row.wowhead ?? "?" }}</td>
-            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["1"] ?? "?" }}</td>
-            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["3"] ?? "?" }}</td>
-            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["5"] ?? "?" }}</td>
-            <td class="align-middle">{{ row.note }}</td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
-  </div>
+        <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${row.specOrItem}`">
+          <td class="text-nowrap align-middle" v-if="filterStore.groupByMode == GroupByMode.Trinket">
+            {{ row.specOrItem }}
+          </td>
+          <td class="text-nowrap align-middle" v-else-if="filterStore.groupByMode == GroupByMode.Spec">
+            <a
+              :href="`https://wowhead.com/item=${dataStore.data?.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+              data-wh-icon-size="medium"
+              target="_blank"
+              >{{ row.specOrItem }}</a
+            >
+          </td>
+          <td class="text-nowrap text-center align-middle">{{ row.wowhead ?? "?" }}</td>
+          <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["1"] ?? "?" }}</td>
+          <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["3"] ?? "?" }}</td>
+          <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["5"] ?? "?" }}</td>
+          <td class="align-middle">{{ row.note }}</td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
 </template>

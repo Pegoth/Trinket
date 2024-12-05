@@ -45,18 +45,23 @@ const rowspan = computed(() => {
   }
 })
 const direction = computed(() => filterStore.getDirection(props.column))
+
+function headerTextClicked(event: MouseEvent) {
+  // Remove visual text selection
+  document.getSelection()?.removeAllRanges()
+
+  // Order by this column
+  filterStore.toggleOrderBy(props.column, !event.ctrlKey && !event.altKey && !event.shiftKey)
+}
 </script>
 
 <template>
-  <th
-    class="auto-size pointer-event"
-    :rowspan="rowspan"
-    @click="filterStore.toggleOrderBy(props.column, !$event.ctrlKey && !$event.altKey && !$event.shiftKey)"
-    v-bind="$attrs"
-  >
-    <span>{{ text }}</span>
-    <span v-if="direction != null">{{ direction.direction == OrderByDirection.Asc ? "↓" : "↑" }}</span>
-    <span class="order-by-index" v-if="direction != null && direction.index != null">{{ direction.index }}</span>
+  <th class="auto-size" :rowspan="rowspan" v-bind="$attrs">
+    <div class="d-inline clickable" @click="headerTextClicked">
+      <span>{{ text }}</span>
+      <span v-if="direction != null">{{ direction.direction == OrderByDirection.Asc ? "↓" : "↑" }}</span>
+      <span class="order-by-index" v-if="direction != null && direction.index != null">{{ direction.index }}</span>
+    </div>
   </th>
 </template>
 

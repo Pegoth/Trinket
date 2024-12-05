@@ -5,17 +5,17 @@ import GridData from "@/components/GridData.vue"
 </script>
 
 <template>
-  <main class="container">
-    <Suspense>
-      <template #default>
-        <div>
-          <GridFilter />
-          <GridData />
-        </div>
-      </template>
-      <template #fallback>
+  <Suspense>
+    <template #default>
+      <main class="container">
+        <GridFilter class="m-2" />
+        <GridData />
+      </main>
+    </template>
+    <template #fallback>
+      <main>
         <p>Loading...</p>
-      </template>
-    </Suspense>
-  </main>
+      </main>
+    </template>
+  </Suspense>
 </template>

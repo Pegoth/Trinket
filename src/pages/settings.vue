@@ -89,7 +89,19 @@ onMounted(() => {
         v-model="settingsStore.level"
       />
     </div>
-    <div class="mb-2">
+    <div class="mb-2 form-check">
+      <input type="checkbox" id="filter-open-on-hover" class="form-check-input" v-model="settingsStore.filterOpenOnHover" />
+      <label
+        for="filter-open-on-hover"
+        class="form-check-label"
+        data-bs-toggle="tooltip"
+        data-bs-placement="right"
+        data-bs-html="true"
+        title="Open the filter dropdown when hovering the labels.<br/>This will also automatically hide it if the mouse leaves the dropdown."
+        >Open filters on hovering the labels</label
+      >
+    </div>
+    <div class="mb-2" v-if="settingsStore.filterOpenOnHover">
       <label for="level" class="form-label">Filter hide delay</label>
       <input
         type="number"
