@@ -10,6 +10,10 @@ import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
   // Set screen size
   await page.setViewport({ width: 1080, height: 1024 })
 
+  try {
+    await mkdir("caches")
+  } catch {}
+
   // Items
   let itemNames
   const usedItems = new Set()
@@ -301,16 +305,10 @@ import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
 
   // Write output
   await writeFile(
-    "../trinketData/data.version.json",
-    JSON.stringify({
-      lastUpdated: (wowheadStats.mtime < bloodmalletStats.mtime ? wowheadStats.mtime : bloodmalletStats.mtime).toISOString()
-    })
-  )
-
-  await writeFile(
-    "../trinketData/data.json",
+    "../src/assets/data.json",
     JSON.stringify(
       {
+        lastUpdated: (wowheadStats.mtime < bloodmalletStats.mtime ? wowheadStats.mtime : bloodmalletStats.mtime).toISOString(),
         specs: specs,
         items: items,
         wowhead: wowhead,

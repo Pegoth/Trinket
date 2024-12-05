@@ -13,11 +13,11 @@ function padLeft(value: number) {
 }
 
 const versionText = computed(() => {
-  if (dataStore.version == null) {
+  if (dataStore.data?.lastUpdated == null) {
     return ""
   }
 
-  const date = new Date(dataStore.version)
+  const date = new Date(dataStore.data.lastUpdated)
   return `Last updated: ${date.getFullYear()}-${padLeft(date.getMonth() + 1)}-${padLeft(date.getDate())} ${padLeft(date.getHours())}:${padLeft(date.getMinutes())}:${padLeft(date.getSeconds())}`
 })
 
