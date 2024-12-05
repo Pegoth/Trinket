@@ -3,12 +3,11 @@ import { ref, onUpdated, onMounted, nextTick, computed } from "vue"
 import { useRoute } from "vue-router"
 import { useSettingsStore } from "@/stores/settingsStore"
 import { GroupByMode, useFilterStore } from "@/stores/filterStore"
-import { useDataStore } from "@/stores/dataStore"
 import TriStateCheckbox from "@/components/TriStateCheckbox.vue"
+import data from "@/common/data"
 
 //#region Setup
 const settingsStore = useSettingsStore()
-const dataStore = useDataStore()
 const filterStore = useFilterStore()
 const route = useRoute()
 const filterDropDown = ref({
@@ -16,10 +15,6 @@ const filterDropDown = ref({
   sticky: false,
   timeout: null as number | null
 })
-
-// Load data
-const init = await dataStore.init()
-if (init) console.error(init)
 //#endregion
 
 //#region Filter loading/saving logic
@@ -132,11 +127,7 @@ function setFilterVisibility(value: boolean, sticky: boolean) {
 }
 
 const sortedItems = computed(() => {
-  if (dataStore.data == null) {
-    return {}
-  }
-
-  return Object.keys(dataStore.data.items)
+  return Object.keys(data.items)
     .sort((a, b) => {
       const aChecked = filterStore.trinkets.has(a)
       const bChecked = filterStore.trinkets.has(b)
@@ -151,11 +142,11 @@ const sortedItems = computed(() => {
     })
     .reduce(
       (sortedItems, key) => {
-        if (dataStore.data == null) {
+        if (data == null) {
           return sortedItems
         }
 
-        sortedItems[key] = dataStore.data.items[key]
+        sortedItems[key] = data.items[key]
         return sortedItems
       },
       {} as { [itemName: string]: number }
@@ -163,18 +154,18 @@ const sortedItems = computed(() => {
 })
 
 const sortedSpecs = computed(() => {
-  if (dataStore.data == null) {
+  if (data == null) {
     return {}
   }
 
-  return Object.keys(dataStore.data.specs)
+  return Object.keys(data.specs)
     .sort((a, b) => {
-      if (dataStore.data == null) {
+      if (data == null) {
         return 0
       }
 
-      const aAny = dataStore.data.specs[a].some((specName) => filterStore.specs.has(`${specName} ${a}`))
-      const bAny = dataStore.data.specs[b].some((specName) => filterStore.specs.has(`${specName} ${b}`))
+      const aAny = data.specs[a].some((specName) => filterStore.specs.has(`${specName} ${a}`))
+      const bAny = data.specs[b].some((specName) => filterStore.specs.has(`${specName} ${b}`))
 
       if (aAny && !bAny) {
         return -1
@@ -186,11 +177,11 @@ const sortedSpecs = computed(() => {
     })
     .reduce(
       (sortedSpecs, key) => {
-        if (dataStore.data == null) {
+        if (data == null) {
           return sortedSpecs
         }
 
-        sortedSpecs[key] = dataStore.data.specs[key]
+        sortedSpecs[key] = data.specs[key]
         return sortedSpecs
       },
       {} as { [className: string]: string[] }
@@ -218,14 +209,10 @@ function itemChecked(item: string, checked: boolean | null) {
 }
 
 function classChecked(className: string, checked?: boolean | null) {
-  if (dataStore.data == null) {
-    return 0
-  }
-
   if (checked == null) {
     let checked = 0
     let total = 0
-    for (const spec of dataStore.data.specs[className]) {
+    for (const spec of data.specs[className]) {
       if (filterStore.specs.has(`${spec} ${className}`)) {
         checked++
       }
@@ -234,7 +221,7 @@ function classChecked(className: string, checked?: boolean | null) {
     return checked <= 0 ? 0 : checked === total ? 1 : 2
   }
 
-  for (const spec of dataStore.data.specs[className]) {
+  for (const spec of data.specs[className]) {
     const value = `${spec} ${className}`
     if (checked) {
       filterStore.specs.add(value)
@@ -264,7 +251,7 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
 </script>
 
 <template>
-  <div class="row" v-if="dataStore.data != null" v-bind="$attrs">
+  <div class="row" v-bind="$attrs">
     <div class="col-3 form-check form-switch">
       <input
         type="checkbox"
@@ -331,9 +318,6 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
         </div>
       </div>
     </div>
-  </div>
-  <div v-else>
-    {{ init }}
   </div>
 </template>
 

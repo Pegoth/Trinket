@@ -2,10 +2,9 @@
 import { computed } from "vue"
 import { RouterLink, RouterView } from "vue-router"
 import { useSettingsStore } from "@/stores/settingsStore"
-import { useDataStore } from "./stores/dataStore"
+import data from "@/common/data"
 
 const settingsStore = useSettingsStore()
-const dataStore = useDataStore()
 
 function padLeft(value: number) {
   const str = value.toString()
@@ -13,11 +12,11 @@ function padLeft(value: number) {
 }
 
 const versionText = computed(() => {
-  if (dataStore.data?.lastUpdated == null) {
+  if (data.lastUpdated == null) {
     return ""
   }
 
-  const date = new Date(dataStore.data.lastUpdated)
+  const date = new Date(data.lastUpdated)
   return `Last updated: ${date.getFullYear()}-${padLeft(date.getMonth() + 1)}-${padLeft(date.getDate())} ${padLeft(date.getHours())}:${padLeft(date.getMinutes())}:${padLeft(date.getSeconds())}`
 })
 

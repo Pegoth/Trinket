@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { onUpdated, onMounted, computed } from "vue"
-import { useDataStore } from "@/stores/dataStore"
+import data, { findClassForSpec } from "@/common/data"
 import { GroupByMode, OrderByColumn, OrderByDirection, useFilterStore } from "@/stores/filterStore"
 import { useSettingsStore } from "@/stores/settingsStore"
 import GridSortableColumn from "./GridSortableColumn.vue"
 
 //#region Setup
 const undefinedSortValue = 9999
-const dataStore = useDataStore()
 const filterStore = useFilterStore()
 const settingsStore = useSettingsStore()
 const props = defineProps({
@@ -16,10 +15,6 @@ const props = defineProps({
     default: true
   }
 })
-
-// Load data
-const init = await dataStore.init()
-if (init) console.error(init)
 //#endregion
 
 //#region Wowhead link generation
@@ -91,19 +86,15 @@ function getNumTier(tier: string | undefined) {
 const rowGroups = computed(() => {
   let groups: { [groupKey: string]: { specOrItem: string; wowhead?: string; bloodmallet: { [targets: string]: number }; note?: string }[] } = {}
 
-  if (dataStore.data == null) {
-    return groups
-  }
-
   switch (filterStore.groupByMode) {
     case GroupByMode.Trinket: {
       // Wowhead
-      for (const specName in dataStore.data.wowhead) {
+      for (const specName in data.wowhead) {
         if (filterStore.specs.size > 0 && !filterStore.specs.has(specName)) {
           continue
         }
 
-        for (const tierData of dataStore.data.wowhead[specName]) {
+        for (const tierData of data.wowhead[specName]) {
           if (filterStore.trinkets.size > 0 && !filterStore.trinkets.has(tierData.item)) {
             continue
           }
@@ -122,13 +113,13 @@ const rowGroups = computed(() => {
       }
 
       // Bloodmallet
-      for (const specName in dataStore.data.bloodmallet) {
+      for (const specName in data.bloodmallet) {
         if (filterStore.specs.size > 0 && !filterStore.specs.has(specName)) {
           continue
         }
 
-        for (const target in dataStore.data.bloodmallet[specName]) {
-          for (const tierData of dataStore.data.bloodmallet[specName][target]) {
+        for (const target in data.bloodmallet[specName]) {
+          for (const tierData of data.bloodmallet[specName][target]) {
             if (filterStore.trinkets.size > 0 && !filterStore.trinkets.has(tierData.item)) {
               continue
             }
@@ -166,7 +157,7 @@ const rowGroups = computed(() => {
     }
     case GroupByMode.Spec: {
       // Wowhead
-      for (const specName in dataStore.data.wowhead) {
+      for (const specName in data.wowhead) {
         if (filterStore.specs.size > 0 && !filterStore.specs.has(specName)) {
           continue
         }
@@ -175,7 +166,7 @@ const rowGroups = computed(() => {
           groups[specName] = []
         }
 
-        for (const tierData of dataStore.data.wowhead[specName]) {
+        for (const tierData of data.wowhead[specName]) {
           if (filterStore.trinkets.size > 0 && !filterStore.trinkets.has(tierData.item)) {
             continue
           }
@@ -190,7 +181,7 @@ const rowGroups = computed(() => {
       }
 
       // Bloodmallet
-      for (const specName in dataStore.data.bloodmallet) {
+      for (const specName in data.bloodmallet) {
         if (filterStore.specs.size > 0 && !filterStore.specs.has(specName)) {
           continue
         }
@@ -199,8 +190,8 @@ const rowGroups = computed(() => {
           groups[specName] = []
         }
 
-        for (const target in dataStore.data.bloodmallet[specName]) {
-          for (const tierData of dataStore.data.bloodmallet[specName][target]) {
+        for (const target in data.bloodmallet[specName]) {
+          for (const tierData of data.bloodmallet[specName][target]) {
             if (filterStore.trinkets.size > 0 && !filterStore.trinkets.has(tierData.item)) {
               continue
             }
@@ -230,12 +221,12 @@ const rowGroups = computed(() => {
       // Sort groupKeys
       groups = Object.keys(groups)
         .sort((a, b) => {
-          if (dataStore.data == null) {
+          if (data == null) {
             return 0
           }
 
-          const aClass = dataStore.findClassForSpec(a) ?? ""
-          const bClass = dataStore.findClassForSpec(b) ?? ""
+          const aClass = findClassForSpec(a) ?? ""
+          const bClass = findClassForSpec(b) ?? ""
           return aClass.localeCompare(bClass, "en") || a.localeCompare(b, "en")
         })
         .reduce(
@@ -322,7 +313,7 @@ const rowGroups = computed(() => {
         <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
           <td colspan="6" class="text-nowrap fs-4">
             <a
-              :href="`https://wowhead.com/item=${dataStore.data?.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+              :href="`https://wowhead.com/item=${data.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
               data-wh-icon-size="medium"
               target="_blank"
               >{{ groupKey }}</a
@@ -340,7 +331,7 @@ const rowGroups = computed(() => {
           </td>
           <td class="text-nowrap align-middle" v-else-if="filterStore.groupByMode == GroupByMode.Spec">
             <a
-              :href="`https://wowhead.com/item=${dataStore.data?.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+              :href="`https://wowhead.com/item=${data.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
               data-wh-icon-size="medium"
               target="_blank"
               >{{ row.specOrItem }}</a
