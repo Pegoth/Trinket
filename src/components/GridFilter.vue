@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onUpdated, onMounted, nextTick, computed } from "vue"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
-import { faClipboard, faBroom } from "@fortawesome/free-solid-svg-icons"
+import { faClipboard, faBroom, faX } from "@fortawesome/free-solid-svg-icons"
 import { useRoute } from "vue-router"
 import { useSettingsStore } from "@/stores/settingsStore"
 import { GroupByMode, useFilterStore } from "@/stores/filterStore"
@@ -14,8 +14,8 @@ const settingsStore = useSettingsStore()
 const filterStore = useFilterStore()
 const route = useRoute()
 const filterDropDown = ref({
-  visible: false,
-  sticky: false,
+  visible: settingsStore.filterOpen,
+  sticky: settingsStore.filterOpen,
   timeout: null as number | null
 })
 //#endregion
@@ -112,14 +112,20 @@ function setFilterVisibility(value: boolean, sticky: boolean) {
 
     filterDropDown.value.visible = true
     filterDropDown.value.sticky = sticky
+
+    if (sticky) {
+      settingsStore.filterOpen = true
+    }
   } else {
     if (sticky) {
       filterDropDown.value.visible = false
       filterDropDown.value.sticky = true
+      settingsStore.filterOpen = false
     } else {
       filterDropDown.value.timeout = window.setTimeout(() => {
         if (filterDropDown.value.visible && !filterDropDown.value.sticky) {
           filterDropDown.value.visible = false
+          settingsStore.filterOpen = false
         } else if (!filterDropDown.value.visible) {
           // Remove sticky if hovered out of it and it was closed before
           filterDropDown.value.sticky = false
@@ -129,8 +135,35 @@ function setFilterVisibility(value: boolean, sticky: boolean) {
   }
 }
 
+function match(value: string, filter: string) {
+  if (filter === "") {
+    return true
+  }
+
+  if (filter.substring(0, 1) === ":") {
+    return new RegExp(filter.substring(1)).test(value)
+  }
+
+  const lowerValue = value.toLowerCase()
+  const lowerFilter = filter.toLowerCase()
+
+  if (lowerValue.includes(lowerFilter)) {
+    return true
+  }
+
+  const words = lowerFilter.split(" ")
+  for (const word of words) {
+    if (!lowerValue.includes(word)) {
+      return false
+    }
+  }
+
+  return true
+}
+
 const sortedItems = computed(() => {
   return Object.keys(data.items)
+    .filter((key) => filterStore.trinkets.has(key) || match(key, settingsStore.trinketSearch))
     .sort((a, b) => {
       const aChecked = filterStore.trinkets.has(a)
       const bChecked = filterStore.trinkets.has(b)
@@ -145,10 +178,6 @@ const sortedItems = computed(() => {
     })
     .reduce(
       (sortedItems, key) => {
-        if (data == null) {
-          return sortedItems
-        }
-
         sortedItems[key] = data.items[key]
         return sortedItems
       },
@@ -163,10 +192,6 @@ const sortedSpecs = computed(() => {
 
   return Object.keys(data.specs)
     .sort((a, b) => {
-      if (data == null) {
-        return 0
-      }
-
       const aAny = data.specs[a].some((specName) => filterStore.specs.has(`${specName} ${a}`))
       const bAny = data.specs[b].some((specName) => filterStore.specs.has(`${specName} ${b}`))
 
@@ -180,7 +205,10 @@ const sortedSpecs = computed(() => {
     })
     .reduce(
       (sortedSpecs, key) => {
-        if (data == null) {
+        // Apply filter (but always show selected)
+        if (
+          !data.specs[key].some((specName) => filterStore.specs.has(`${specName} ${key}`) || match(`${specName} ${key}`, settingsStore.specSearch))
+        ) {
           return sortedSpecs
         }
 
@@ -280,29 +308,57 @@ onMounted(() => {
       <label for="group_by_mode" class="form-check-label">Group by {{ groupByMode() ? "specialization / class" : "trinket" }}</label>
     </div>
     <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
-      <div
-        class="row clickable"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="Click to open/close filter."
-        @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)"
-      >
-        <div class="col" :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }">Trinket filter</div>
-        <div class="col-auto d-flex align-items-center" v-if="filterStore.trinkets.size > 0">
+      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+        <div
+          class="col"
+          :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Click to open/close filter."
+        >
+          Trinket filter
+        </div>
+        <div class="col-auto d-flex align-items-center">
           <button
             type="button"
             class="btn btn-sm btn-outline-danger"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Clear trinket filter."
+            :disabled="filterStore.trinkets.size <= 0"
             @click.stop="filterStore.trinkets.clear()"
           >
             <FontAwesomeIcon :icon="faBroom" />
           </button>
         </div>
       </div>
-      <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
-        <div class="form-check" v-for="(itemId, itemName) in sortedItems" :key="`filter-item-${itemId}`">
+      <div class="input-group mb-1" :class="{ hidden: !filterDropDown.visible }">
+        <input type="text" class="form-control" v-model="settingsStore.trinketSearch" />
+        <span
+          class="input-group-text"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          data-bs-html="true"
+          title="<div class='mb-1'>Trinket filter search input.</div>
+                 <div class='mb-1'>Checked filters are always visible.</div>
+                 <div class='mb-1'>Allows partial searches, e.g. <u>ab sp</u> for Aberrant Spellforge, <u>abys</u> for Abyssal Trap.</div>
+                 <div class='mb-1'>Also supports regex search, which needs to be prefixed with :, e.g. <u>:^Cirral Concoctory$</u> for exact Cirral Concoctory match.</div>
+                 <div class='mb-1'>Case insensitive, except when in regex mode.</div>"
+          >?</span
+        >
+        <button
+          type="button"
+          class="btn btn-sm btn-with-border btn-outline-danger"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Clear Trinket filter search input."
+          @click="settingsStore.trinketSearch = ''"
+        >
+          <FontAwesomeIcon :icon="faX" />
+        </button>
+      </div>
+      <div class="overflow-auto" :class="{ hidden: !filterDropDown.visible }" style="max-height: 70vh">
+        <div class="ms-1 form-check" v-for="(itemId, itemName) in sortedItems" :key="`filter-item-${itemId}`">
           <input
             type="checkbox"
             class="form-check-input"
@@ -320,28 +376,56 @@ onMounted(() => {
       </div>
     </div>
     <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
-      <div
-        class="row clickable"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="Click to open/close filter."
-        @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)"
-      >
-        <div class="col" :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }">Class / Specialization filter</div>
-        <div class="col-auto d-flex align-items-center" v-if="filterStore.specs.size > 0">
+      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+        <div
+          class="col"
+          :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Click to open/close filter."
+        >
+          Class / Specialization filter
+        </div>
+        <div class="col-auto d-flex align-items-center">
           <button
             type="button"
             class="btn btn-sm btn-outline-danger"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Clear specialization / class filter."
+            :disabled="filterStore.specs.size <= 0"
             @click.stop="filterStore.specs.clear()"
           >
             <FontAwesomeIcon :icon="faBroom" />
           </button>
         </div>
       </div>
-      <div class="overflow-auto" style="max-height: 70vh" :style="{ display: filterDropDown.visible ? 'block' : 'none' }">
+      <div class="input-group mb-1" :class="{ hidden: !filterDropDown.visible }">
+        <input type="text" class="form-control" v-model="settingsStore.specSearch" />
+        <span
+          class="input-group-text"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          data-bs-html="true"
+          title="<div class='mb-1'>Class / Specialization filter search input.</div>
+                 <div class='mb-1'>Checked filters are always visible.</div>
+                 <div class='mb-1'>Allows partial searches, e.g. <u>b d k</u> for Blood Death Knight, <u>dev evo</u> for devastation evoker.</div>
+                 <div class='mb-1'>Also supports regex search, which needs to be prefixed with :, e.g. <u>:^Fury Warrior$</u> for exact Fury Warrior match.</div>
+                 <div>Case insensitive, except when in regex mode.</div>"
+          >?</span
+        >
+        <button
+          type="button"
+          class="btn btn-sm btn-with-border btn-outline-danger"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Clear Class / Specialization filter search input."
+          @click="settingsStore.specSearch = ''"
+        >
+          <FontAwesomeIcon :icon="faX" />
+        </button>
+      </div>
+      <div class="overflow-auto" :class="{ hidden: !filterDropDown.visible }" style="max-height: 70vh">
         <div v-for="(specNames, className) in sortedSpecs" :key="`filter-class-${className}`">
           <div class="form-check">
             <TriStateCheckbox

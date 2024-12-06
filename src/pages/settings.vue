@@ -101,7 +101,7 @@ onMounted(() => {
         >Open filters on hovering the labels</label
       >
     </div>
-    <div class="mb-2" v-if="settingsStore.filterOpenOnHover">
+    <div class="mb-2" :class="{ hidden: !settingsStore.filterOpenOnHover }">
       <label for="level" class="form-label">Filter hide delay</label>
       <input
         type="number"

@@ -6,10 +6,13 @@ export const useSettingsStore = defineStore("settingsStore", {
     darkMode: false,
     itemLevel: 626,
     level: 80,
+    filterOpen: false,
     filterOpenOnHover: true,
     filterHideDelay: 250,
+    trinketSearch: "",
     saveTrinkets: true,
     trinkets: [] as string[],
+    specSearch: "",
     saveSpecs: true,
     specs: [] as string[]
   }),
