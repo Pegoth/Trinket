@@ -19,7 +19,7 @@ const versionText = computed(() => {
   }
 
   const date = new Date(data.lastUpdated)
-  return `Last updated: ${date.getFullYear()}-${padLeft(date.getMonth() + 1)}-${padLeft(date.getDate())} ${padLeft(date.getHours())}:${padLeft(date.getMinutes())}:${padLeft(date.getSeconds())}`
+  return `Last updated: ${date.getFullYear()}-${padLeft(date.getMonth() + 1)}-${padLeft(date.getDate())}`
 })
 
 // Change to light/dark theme based on settings
