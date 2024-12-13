@@ -9,6 +9,7 @@ export const useSettingsStore = defineStore("settingsStore", {
     filterOpen: false,
     filterOpenOnHover: true,
     filterHideDelay: 250,
+    filterHeight: 70,
     trinketSearch: "",
     saveTrinkets: true,
     trinkets: [] as string[],

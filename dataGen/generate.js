@@ -29,7 +29,7 @@ import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
   try {
     // Get the cache last modified date
     const stats = await stat("caches/wowhead.json")
-    if (stats.mtime - new Date() >= 86400000) {
+    if (new Date() - stats.mtime >= 86400000) {
       console.log("Wowhead cache is too old")
       throw new Error()
     }
@@ -131,7 +131,7 @@ import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
   try {
     // Get the cache last modified date
     const stats = await stat("caches/bloodmallet.json")
-    if (stats.mtime - new Date() >= 86400000) {
+    if (new Date() - stats.mtime >= 86400000) {
       console.log("Bloodmallet cache is too old")
       throw new Error()
     }
@@ -235,7 +235,7 @@ import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
   try {
     // Get the cache last modified date
     const stats = await stat("caches/specs.json")
-    if (stats.mtime - new Date() >= 86400000) {
+    if (new Date() - stats.mtime >= 86400000) {
       console.log("Specs cache is too old")
       throw new Error()
     }

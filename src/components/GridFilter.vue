@@ -290,7 +290,7 @@ function setFilterClipboard() {
 // Turn on tooltips
 onMounted(() => {
   document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((tooltip) => {
-    new Tooltip(tooltip)
+    Tooltip.getOrCreateInstance(tooltip)
   })
 })
 </script>
@@ -357,7 +357,14 @@ onMounted(() => {
           <FontAwesomeIcon :icon="faX" />
         </button>
       </div>
-      <div class="overflow-auto" :class="{ hidden: !filterDropDown.visible }" style="max-height: 70vh">
+      <div
+        class="filter"
+        :style="{
+          height: settingsStore.filterHeight > 0 ? `${settingsStore.filterHeight}vh` : '',
+          'max-height': settingsStore.filterHeight <= 0 ? '70vh' : ''
+        }"
+        :class="{ hidden: !filterDropDown.visible }"
+      >
         <div class="ms-1 form-check" v-for="(itemId, itemName) in sortedItems" :key="`filter-item-${itemId}`">
           <input
             type="checkbox"
@@ -425,9 +432,16 @@ onMounted(() => {
           <FontAwesomeIcon :icon="faX" />
         </button>
       </div>
-      <div class="overflow-auto" :class="{ hidden: !filterDropDown.visible }" style="max-height: 70vh">
+      <div
+        class="filter"
+        :style="{
+          height: settingsStore.filterHeight > 0 ? `${settingsStore.filterHeight}vh` : '',
+          'max-height': settingsStore.filterHeight <= 0 ? '70vh' : ''
+        }"
+        :class="{ hidden: !filterDropDown.visible }"
+      >
         <div v-for="(specNames, className) in sortedSpecs" :key="`filter-class-${className}`">
-          <div class="form-check">
+          <div class="ms-1 form-check">
             <TriStateCheckbox
               class="form-check-input"
               :id="className.toString()"
@@ -463,3 +477,11 @@ onMounted(() => {
     </div>
   </div>
 </template>
+
+<style lang="css" scoped>
+.filter {
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+</style>
