@@ -62,8 +62,8 @@ settingsStore.$subscribe(() => {
   </div>
   <main class="container">
     <h1>Settings</h1>
-    <SettingsInput class="mb-2" label="Item Level" tooltip="The item level for the trinket tooltips." v-model="settingsStore.itemLevel" />
-    <SettingsInput class="mb-2" label="Level" tooltip="The character level for the trinket tooltips." v-model="settingsStore.level" />
+    <SettingsInput class="mb-2" label="Item Level" tooltip="The item level for the trinket tooltips." :min="0" v-model="settingsStore.itemLevel" />
+    <SettingsInput class="mb-2" label="Level" tooltip="The character level for the trinket tooltips." :min="1" v-model="settingsStore.level" />
     <SettingsInput
       class="mb-2"
       label="Open filters on hovering the labels"
