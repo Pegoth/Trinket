@@ -117,7 +117,7 @@ import getBloodmallet from "./bloodmallet"
         bloodmallet: Object.values(bloodmallet).reduce((acc, { name, ...rest }) => {
           acc[name] = rest
           return acc
-        })
+        }, {})
       },
       (key, value) => (key === "item" ? itemNames[value] : value)
     )
