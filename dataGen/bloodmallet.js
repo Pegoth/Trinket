@@ -10,8 +10,12 @@ export default async function (page, usedItems, itemNames) {
       console.log("Bloodmallet cache is too old")
     } else {
       bloodmallet = JSON.parse(await readFile("caches/bloodmallet.json", { encoding: "utf8" }))
-      Object.values(bloodmallet).forEach((value) => {
-        if (Array.isArray(value)) value.flatMap((tierDatas) => tierDatas.forEach((tierData) => usedItems.add(tierData.item)))
+      Object.values(bloodmallet).forEach((specData) => {
+        Object.keys(specData).forEach((key) => {
+          if (key !== "name") {
+            specData[key].forEach((tierData) => usedItems.add(tierData.item))
+          }
+        })
       })
       console.log("Loaded bloodmallet cache")
     }
