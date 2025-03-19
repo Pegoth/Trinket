@@ -3,14 +3,21 @@ import { readFile, stat, writeFile, rm, mkdir } from "fs/promises"
 import getWowhead from "./wowhead"
 import getBloodmallet from "./bloodmallet"
 ;(async () => {
-  // Launch the browser and open a new blank page
+  // Launch the browser and open a new blank page, if there is none
   const browser = await launch({
-    headless: false
+    headless: true
   })
-  const page = await browser.newPage()
+  const page = (await browser.pages()).find(() => true) || (await browser.newPage())
 
   // Set screen size
-  await page.setViewport({ width: 1080, height: 1024 })
+  await page.setViewport({
+    width: 1920,
+    height: 1080,
+    deviceScaleFactor: 1,
+    isMobile: false,
+    hasTouch: false,
+    isLandscape: false
+  })
 
   try {
     await mkdir("caches")
