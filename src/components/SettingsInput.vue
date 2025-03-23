@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { onMounted, useId } from "vue"
-import { Tooltip } from "bootstrap"
+import { useId } from "vue"
 
 const id = useId()
 const props = defineProps<{
@@ -38,13 +37,6 @@ function preventNonNumeric(event: KeyboardEvent) {
     }, 10)
   }
 }
-
-// Turn on tooltips
-onMounted(() => {
-  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((tooltip) => {
-    Tooltip.getOrCreateInstance(tooltip)
-  })
-})
 </script>
 
 <template>

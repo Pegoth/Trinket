@@ -2,11 +2,14 @@
 import { computed } from "vue"
 import { RouterLink, RouterView } from "vue-router"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+import { faClipboard, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { useSettingsStore } from "@/stores/settingsStore"
+import { useFilterStore } from "@/stores/filterStore.ts"
+import { initTooltipService } from "@/services/tooltipService.ts"
 import data from "@/common/data"
 
 const settingsStore = useSettingsStore()
+const filterStore = useFilterStore()
 
 function padLeft(value: number) {
   const str = value.toString()
@@ -22,11 +25,19 @@ const versionText = computed(() => {
   return `Last updated: ${date.getFullYear()}-${padLeft(date.getMonth() + 1)}-${padLeft(date.getDate())}`
 })
 
+function setFilterClipboard() {
+  const url = new URL(window.location.href)
+  url.searchParams.set("trinkets", [...filterStore.trinkets].join(","))
+  url.searchParams.set("specs", [...filterStore.specs].join(","))
+  navigator.clipboard.writeText(url.toString())
+}
+
 // Change to light/dark theme based on settings
 settingsStore.$subscribe(() => {
   document.documentElement.setAttribute("data-bs-theme", settingsStore.darkMode ? "dark" : "light")
 })
 document.documentElement.setAttribute("data-bs-theme", settingsStore.darkMode ? "dark" : "light")
+initTooltipService()
 </script>
 
 <template>
@@ -66,9 +77,19 @@ document.documentElement.setAttribute("data-bs-theme", settingsStore.darkMode ? 
             <div class="col-auto">
               <button
                 type="button"
+                class="btn btn-sm btn-outline-success"
+                data-bs-placement="top"
+                title="Copy url with current filters to clipboard."
+                @click="setFilterClipboard"
+              >
+                <FontAwesomeIcon :icon="faClipboard" />
+              </button>
+            </div>
+            <div class="col-auto">
+              <button
+                type="button"
                 class="btn btn-sm"
                 :class="{ 'btn-outline-dark': !settingsStore.darkMode, 'btn-outline-light': settingsStore.darkMode }"
-                data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
                 title="Toggle between dark and light mode."
                 @click="settingsStore.darkMode = !settingsStore.darkMode"

@@ -325,7 +325,7 @@ const rowGroups = computed(() => {
             {{ groupKey }}
           </td>
         </tr>
-        <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${row.specOrItem}`">
+        <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${i}-${row.specOrItem}`">
           <td class="text-nowrap align-middle" v-if="filterStore.groupByMode == GroupByMode.Trinket">
             {{ row.specOrItem }}
           </td>

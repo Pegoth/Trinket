@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { ref, onUpdated, onMounted, nextTick, computed } from "vue"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
-import { faClipboard, faBroom, faX } from "@fortawesome/free-solid-svg-icons"
+import { faBroom, faX } from "@fortawesome/free-solid-svg-icons"
 import { useRoute } from "vue-router"
 import { useSettingsStore } from "@/stores/settingsStore"
 import { GroupByMode, useFilterStore } from "@/stores/filterStore"
 import TriStateCheckbox from "@/components/TriStateCheckbox.vue"
 import data from "@/common/data"
-import { Tooltip } from "bootstrap"
 
 //#region Setup
 const settingsStore = useSettingsStore()
@@ -185,7 +184,15 @@ const sortedItems = computed(() => {
     )
 })
 
-const sortedSpecs = computed(() => {
+const allowSpecSorting = ref(true)
+const sortedSpecs = computed<
+  | {
+      [p: string]: string[]
+    }
+  | undefined
+>((previous) => {
+  if (!allowSpecSorting.value) return previous
+
   if (data == null) {
     return {}
   }
@@ -279,20 +286,7 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
   return checked
 }
 
-function setFilterClipboard() {
-  const url = new URL(window.location.href)
-  url.searchParams.set("trinkets", [...filterStore.trinkets].join(","))
-  url.searchParams.set("specs", [...filterStore.specs].join(","))
-  navigator.clipboard.writeText(url.toString())
-}
 //#endregion
-
-// Turn on tooltips
-onMounted(() => {
-  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((tooltip) => {
-    Tooltip.getOrCreateInstance(tooltip)
-  })
-})
 </script>
 
 <template>
@@ -308,35 +302,15 @@ onMounted(() => {
       <label for="group_by_mode" class="form-check-label">Group by {{ groupByMode() ? "specialization / class" : "trinket" }}</label>
     </div>
     <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
-      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
-        <div
-          class="col"
-          :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="Click to open/close filter."
-        >
+      <div class="clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+        <div :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }" data-bs-placement="top" title="Click to open/close filter.">
           Trinket filter
-        </div>
-        <div class="col-auto d-flex align-items-center">
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-danger"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="Clear trinket filter."
-            :disabled="filterStore.trinkets.size <= 0"
-            @click.stop="filterStore.trinkets.clear()"
-          >
-            <FontAwesomeIcon :icon="faBroom" />
-          </button>
         </div>
       </div>
       <div class="input-group mb-1" :class="{ hidden: !filterDropDown.visible }">
         <input type="text" class="form-control" v-model="settingsStore.trinketSearch" />
         <span
           class="input-group-text"
-          data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           data-bs-html="true"
           title="<div class='mb-1'>Trinket filter search input.</div>
@@ -349,10 +323,10 @@ onMounted(() => {
         <button
           type="button"
           class="btn btn-sm btn-with-border btn-outline-danger"
-          data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Clear Trinket filter search input."
           @click="settingsStore.trinketSearch = ''"
+          :disabled="settingsStore.trinketSearch.length <= 0"
         >
           <FontAwesomeIcon :icon="faX" />
         </button>
@@ -365,6 +339,17 @@ onMounted(() => {
         }"
         :class="{ hidden: !filterDropDown.visible }"
       >
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-danger float-end top-0 sticky-top"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Clear trinket filter."
+          :disabled="filterStore.trinkets.size <= 0"
+          @click.stop="filterStore.trinkets.clear()"
+        >
+          <FontAwesomeIcon :icon="faBroom" />
+        </button>
         <div class="ms-1 form-check" v-for="(itemId, itemName) in sortedItems" :key="`filter-item-${itemId}`">
           <input
             type="checkbox"
@@ -383,35 +368,15 @@ onMounted(() => {
       </div>
     </div>
     <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
-      <div class="row clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
-        <div
-          class="col"
-          :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="Click to open/close filter."
-        >
+      <div class="clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
+        <div :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }" data-bs-placement="top" title="Click to open/close filter.">
           Class / Specialization filter
-        </div>
-        <div class="col-auto d-flex align-items-center">
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-danger"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="Clear specialization / class filter."
-            :disabled="filterStore.specs.size <= 0"
-            @click.stop="filterStore.specs.clear()"
-          >
-            <FontAwesomeIcon :icon="faBroom" />
-          </button>
         </div>
       </div>
       <div class="input-group mb-1" :class="{ hidden: !filterDropDown.visible }">
         <input type="text" class="form-control" v-model="settingsStore.specSearch" />
         <span
           class="input-group-text"
-          data-bs-toggle="tooltip"
           data-bs-placement="bottom"
           data-bs-html="true"
           title="<div class='mb-1'>Class / Specialization filter search input.</div>
@@ -424,10 +389,10 @@ onMounted(() => {
         <button
           type="button"
           class="btn btn-sm btn-with-border btn-outline-danger"
-          data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Clear Class / Specialization filter search input."
           @click="settingsStore.specSearch = ''"
+          :disabled="settingsStore.specSearch.length <= 0"
         >
           <FontAwesomeIcon :icon="faX" />
         </button>
@@ -440,7 +405,23 @@ onMounted(() => {
         }"
         :class="{ hidden: !filterDropDown.visible }"
       >
-        <div v-for="(specNames, className) in sortedSpecs" :key="`filter-class-${className}`">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-danger float-end top-0 sticky-top"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Clear specialization / class filter."
+          :disabled="filterStore.specs.size <= 0"
+          @click.stop="filterStore.specs.clear()"
+        >
+          <FontAwesomeIcon :icon="faBroom" />
+        </button>
+        <div
+          v-for="(specNames, className) in sortedSpecs"
+          :key="`filter-class-${className}`"
+          @mouseenter="allowSpecSorting = false"
+          @mouseleave="allowSpecSorting = true"
+        >
           <div class="ms-1 form-check">
             <TriStateCheckbox
               class="form-check-input"
@@ -462,18 +443,6 @@ onMounted(() => {
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-auto">
-      <button
-        type="button"
-        class="btn btn-sm btn-outline-success"
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="Copy url with current filters to clipboard."
-        @click="setFilterClipboard"
-      >
-        <FontAwesomeIcon :icon="faClipboard" />
-      </button>
     </div>
   </div>
 </template>
