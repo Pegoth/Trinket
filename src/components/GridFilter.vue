@@ -12,14 +12,44 @@ import data from "@/common/data"
 const settingsStore = useSettingsStore()
 const filterStore = useFilterStore()
 const route = useRoute()
+const filterHovered = ref<"trinket" | "spec" | null>(null)
+const allowSpecSorting = ref(true)
 const filterDropDown = ref({
   visible: settingsStore.filterOpen,
   sticky: settingsStore.filterOpen,
   timeout: null as number | null
 })
+
+onMounted(() => {
+  let allowSpecSortingBefore = true
+  document.onkeydown = () => {
+    if (!filterHovered.value) return
+
+    // Force-allow spec sorting on filter change
+    allowSpecSortingBefore = allowSpecSorting.value
+    allowSpecSorting.value = true
+
+    // Re-focus input on keyboard event to fix some bugs
+    const input = document.getElementById(`${filterHovered.value}-input`)
+    input?.blur()
+    input?.focus()
+  }
+
+  document.onkeyup = () => {
+    if (!filterHovered.value) return
+
+    // Restore spec sorting
+    allowSpecSorting.value = allowSpecSortingBefore
+  }
+})
 //#endregion
 
 //#region Filter loading/saving logic
+// Reset stuff if they are set to not save
+if (!settingsStore.saveTrinkets) settingsStore.trinketSearch = ""
+if (!settingsStore.saveSpecs) settingsStore.specSearch = ""
+if (!settingsStore.saveTrinkets && !settingsStore.saveSpecs) filterStore.groupByMode = GroupByMode.Trinket
+
 // Load trinket filters
 filterStore.trinkets.clear()
 if (route.query.trinkets) {
@@ -88,6 +118,11 @@ onMounted(refreshLinks)
 //#endregion
 
 //#region Helpers
+function mouseEvent(target: "trinket" | "spec", action: "enter" | "leave") {
+  setFilterVisibility(action === "enter", false)
+  filterHovered.value = action === "enter" ? target : null
+}
+
 function setFilterVisibility(value: boolean, sticky: boolean) {
   // Do nothing if hovering is disabled
   if (!settingsStore.filterOpenOnHover && !sticky) {
@@ -184,7 +219,6 @@ const sortedItems = computed(() => {
     )
 })
 
-const allowSpecSorting = ref(true)
 const sortedSpecs = computed<
   | {
       [p: string]: string[]
@@ -301,14 +335,14 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
       />
       <label for="group_by_mode" class="form-check-label">Group by {{ groupByMode() ? "specialization / class" : "trinket" }}</label>
     </div>
-    <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
+    <div class="col" @mouseenter="mouseEvent('trinket', 'enter')" @mouseleave="mouseEvent('trinket', 'leave')">
       <div class="clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
         <div :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }" data-bs-placement="top" title="Click to open/close filter.">
           Trinket filter
         </div>
       </div>
       <div class="input-group mb-1" :class="{ hidden: !filterDropDown.visible }">
-        <input type="text" class="form-control" v-model="settingsStore.trinketSearch" />
+        <input type="text" id="trinket-input" class="form-control" v-model="settingsStore.trinketSearch" />
         <span
           class="input-group-text"
           data-bs-placement="bottom"
@@ -367,14 +401,14 @@ function specChecked(className: string, specName: string, checked?: boolean | nu
         </div>
       </div>
     </div>
-    <div class="col" @mouseenter="setFilterVisibility(true, false)" @mouseleave="setFilterVisibility(false, false)">
+    <div class="col" @mouseenter="mouseEvent('spec', 'enter')" @mouseleave="mouseEvent('spec', 'leave')">
       <div class="clickable" @click="setFilterVisibility(!filterDropDown.visible || !filterDropDown.sticky, true)">
         <div :class="{ 'fw-bold': filterDropDown.visible && filterDropDown.sticky }" data-bs-placement="top" title="Click to open/close filter.">
           Class / Specialization filter
         </div>
       </div>
       <div class="input-group mb-1" :class="{ hidden: !filterDropDown.visible }">
-        <input type="text" class="form-control" v-model="settingsStore.specSearch" />
+        <input type="text" id="spec-input" class="form-control" v-model="settingsStore.specSearch" />
         <span
           class="input-group-text"
           data-bs-placement="bottom"
