@@ -4,12 +4,19 @@ import { RouterLink, RouterView } from "vue-router"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { faClipboard, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { useSettingsStore } from "@/stores/settingsStore"
-import { useFilterStore } from "@/stores/filterStore.ts"
+import { GroupByMode, useFilterStore } from "@/stores/filterStore.ts"
 import { initTooltipService } from "@/services/tooltipService.ts"
 import data from "@/common/data"
 
 const settingsStore = useSettingsStore()
 const filterStore = useFilterStore()
+const url = computed(() => {
+  const url = new URL(window.location.href)
+  url.searchParams.set("trinkets", [...filterStore.trinkets].join(","))
+  url.searchParams.set("specs", [...filterStore.specs].join(","))
+  url.searchParams.set("groupByMode", filterStore.groupByMode === GroupByMode.Spec ? "spec" : "trinket")
+  return url.toString()
+})
 
 function padLeft(value: number) {
   const str = value.toString()
@@ -26,10 +33,7 @@ const versionText = computed(() => {
 })
 
 function setFilterClipboard() {
-  const url = new URL(window.location.href)
-  url.searchParams.set("trinkets", [...filterStore.trinkets].join(","))
-  url.searchParams.set("specs", [...filterStore.specs].join(","))
-  navigator.clipboard.writeText(url.toString())
+  navigator.clipboard.writeText(url.value)
 }
 
 // Change to light/dark theme based on settings
@@ -75,15 +79,16 @@ initTooltipService()
               <span class="navbar-text">{{ versionText }}</span>
             </div>
             <div class="col-auto">
-              <button
-                type="button"
+              <a
+                :href="url"
                 class="btn btn-sm btn-outline-success"
                 data-bs-placement="top"
                 title="Copy url with current filters to clipboard."
-                @click="setFilterClipboard"
+                @click.prevent="setFilterClipboard"
+                target="_blank"
               >
                 <FontAwesomeIcon :icon="faClipboard" />
-              </button>
+              </a>
             </div>
             <div class="col-auto">
               <button

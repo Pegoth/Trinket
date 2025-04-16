@@ -90,6 +90,15 @@ if (route.query.specs) {
   }
 }
 
+// Load group by mode
+if (route.query.groupByMode) {
+  if (route.query.groupByMode === "spec") {
+    filterStore.groupByMode = GroupByMode.Spec
+  } else {
+    filterStore.groupByMode = GroupByMode.Trinket
+  }
+}
+
 filterStore.$subscribe(() => {
   // Save filters to settings store or clear them if they are not empty
   if (settingsStore.saveTrinkets) {
