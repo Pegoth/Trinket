@@ -4,7 +4,7 @@ import { parse, stringify } from "zipson"
 export const useSettingsStore = defineStore("settingsStore", {
   state: () => ({
     darkMode: false,
-    itemLevel: 626,
+    itemLevel: 723,
     level: 80,
     filterOpen: false,
     filterOpenOnHover: true,
