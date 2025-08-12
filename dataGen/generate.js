@@ -105,9 +105,8 @@ import getBloodmallet from "./bloodmallet"
 
   // Cleanup output directory
   try {
-    await rm("../trinketData", { recursive: true })
+    await rm("../src/assets/data.json")
   } catch {}
-  await mkdir("../trinketData")
 
   // Write output
   await writeFile(

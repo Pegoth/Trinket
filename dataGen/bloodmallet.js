@@ -54,8 +54,14 @@ export default async function (page, usedItems, itemNames) {
       while (true) {
         try {
           await page.goto(`${url}${target}`)
-          await page.waitForSelector("#chart .bm-row .bm-key a")
-          await page.waitForSelector("#chart .bm-row .bm-bar .bm-bar-element")
+
+          try {
+            await page.waitForSelector("#chart .bm-row .bm-key a", { timeout: 5000 })
+            await page.waitForSelector("#chart .bm-row .bm-bar .bm-bar-element", { timeout: 5000 })
+          } catch {
+            console.log("No chart found")
+          }
+
           const result = await page.evaluate(() => {
             const data = {
               key: `${document.getElementById("navbar_wow_spec_selection").text.trim()} ${document.getElementById("navbar_wow_class_selection").text.trim()}`,
