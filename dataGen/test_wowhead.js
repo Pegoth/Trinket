@@ -41,7 +41,7 @@ import { launch } from "puppeteer"
         const tierName = tier.find(".tier-label").text()
 
         // Go through each trinket in the tier
-        tier.find(".tier-content>a").each((_, linkdom) => {
+        tier.find(".tier-content a").each((_, linkdom) => {
           const links = [linkdom.href.replace(/(item=\d+).*/g, "$1")]
           links.push(links[0].replace("/beta/", "/"))
           links.push(links[0].replace("www.", ""))
