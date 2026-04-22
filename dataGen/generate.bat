@@ -1,3 +1,3 @@
 @echo off
-bun run generate.js
+call bun run generate.js
 pause
