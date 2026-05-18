@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { onUpdated, onMounted, computed } from "vue"
+import { ref, onUpdated, onMounted, computed } from "vue"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons"
 import data, { findClassForSpec } from "@/common/data"
 import { GroupByMode, OrderByColumn, OrderByDirection, useFilterStore } from "@/stores/filterStore"
 import { useSettingsStore } from "@/stores/settingsStore"
@@ -15,6 +17,7 @@ const props = defineProps({
     default: true
   }
 })
+const closed = ref<{ [key: string]: boolean }>({})
 //#endregion
 
 //#region Wowhead link generation
@@ -312,37 +315,59 @@ const rowGroups = computed(() => {
       <template v-for="(rows, groupKey) in rowGroups">
         <tr v-if="filterStore.groupByMode == GroupByMode.Trinket" :key="`grid-trinket-${groupKey}`">
           <td colspan="6" class="text-nowrap fs-4">
-            <a
-              :href="`https://wowhead.com/item=${data.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-              data-wh-icon-size="medium"
-              target="_blank"
-              >{{ groupKey }}</a
-            >
+            <div class="w-100 h-100 d-flex" @click="closed[groupKey] = !closed[groupKey]" style="cursor: pointer">
+              <div class="flex-grow-1">
+                <a
+                  :href="`https://wowhead.com/item=${data.items[groupKey]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+                  data-wh-icon-size="medium"
+                  target="_blank"
+                  @click.stop
+                >
+                  {{ groupKey }}
+                </a>
+              </div>
+              <div class="flex-shrink-0">
+                <button class="btn btn-outline-secondary">
+                  <FontAwesomeIcon :icon="closed[groupKey] ? faAngleDown : faAngleUp" />
+                </button>
+              </div>
+            </div>
           </td>
         </tr>
         <tr v-else-if="filterStore.groupByMode == GroupByMode.Spec" :key="`grid-spec-${groupKey}`">
           <td colspan="6" class="text-nowrap fs-4">
-            {{ groupKey }}
+            <div class="w-100 h-100 d-flex" @click="closed[groupKey] = !closed[groupKey]" style="cursor: pointer">
+              <div class="flex-grow-1">
+                {{ groupKey }}
+              </div>
+              <div class="flex-shrink-0">
+                <button class="btn btn-outline-secondary">
+                  <FontAwesomeIcon :icon="closed[groupKey] ? faAngleDown : faAngleUp" />
+                </button>
+              </div>
+            </div>
           </td>
         </tr>
-        <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${i}-${row.specOrItem}`">
-          <td class="text-nowrap align-middle" v-if="filterStore.groupByMode == GroupByMode.Trinket">
-            {{ row.specOrItem }}
-          </td>
-          <td class="text-nowrap align-middle" v-else-if="filterStore.groupByMode == GroupByMode.Spec">
-            <a
-              :href="`https://wowhead.com/item=${data.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
-              data-wh-icon-size="medium"
-              target="_blank"
-              >{{ row.specOrItem }}</a
-            >
-          </td>
-          <td class="text-nowrap text-center align-middle">{{ row.wowhead ?? "?" }}</td>
-          <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["1"] ?? "?" }}</td>
-          <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["3"] ?? "?" }}</td>
-          <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["5"] ?? "?" }}</td>
-          <td class="align-middle">{{ row.note }}</td>
-        </tr>
+        <template v-if="!closed[groupKey]">
+          <tr v-for="(row, i) in rows" :class="{ 'border-top': i > 0 }" :key="`grid-row-${i}-${row.specOrItem}`">
+            <td class="text-nowrap align-middle" v-if="filterStore.groupByMode == GroupByMode.Trinket">
+              {{ row.specOrItem }}
+            </td>
+            <td class="text-nowrap align-middle" v-else-if="filterStore.groupByMode == GroupByMode.Spec">
+              <a
+                :href="`https://wowhead.com/item=${data.items[row.specOrItem]}?ilvl=${settingsStore.itemLevel}&lvl=${settingsStore.level}`"
+                data-wh-icon-size="medium"
+                target="_blank"
+                >{{ row.specOrItem }}</a
+              >
+            </td>
+            <td class="text-nowrap text-center align-middle">{{ row.wowhead ?? "?" }}</td>
+            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["1"] ?? "?" }}</td>
+            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["3"] ?? "?" }}</td>
+            <td class="text-nowrap text-center align-middle">{{ row.bloodmallet["5"] ?? "?" }}</td>
+            <td class="align-middle">{{ row.note }}</td>
+          </tr>
+        </template>
       </template>
     </tbody>
   </table>

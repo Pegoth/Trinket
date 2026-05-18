@@ -1,5 +1,4 @@
 import { launch } from "puppeteer"
-
 ;(async () => {
   // Launch the browser and open a new blank page, if there is none
   const browser = await launch({
