@@ -17,7 +17,8 @@ const props = defineProps({
     default: true
   }
 })
-const closed = ref<{ [key: string]: boolean }>({})
+const closedLocal = ref<{ [key: string]: boolean }>({})
+const closed = computed(() => (settingsStore.saveCollapsedGroups ? settingsStore.collapsedGroups : closedLocal.value))
 //#endregion
 
 //#region Wowhead link generation

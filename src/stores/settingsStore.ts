@@ -15,7 +15,9 @@ export const useSettingsStore = defineStore("settingsStore", {
     trinkets: [] as string[],
     specSearch: "",
     saveSpecs: true,
-    specs: [] as string[]
+    saveCollapsedGroups: true,
+    specs: [] as string[],
+    collapsedGroups: {} as { [group: string]: boolean }
   }),
   persist: {
     serializer: {

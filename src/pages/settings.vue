@@ -102,5 +102,12 @@ settingsStore.$subscribe(() => {
       :tooltip-html="true"
       v-model="settingsStore.saveSpecs"
     />
+    <SettingsInput
+      class="mb-2"
+      label="Save collapsed groups"
+      tooltip="Save the collapsed groups to local storage to keep it for the next time the page opens."
+      :tooltip-html="true"
+      v-model="settingsStore.saveCollapsedGroups"
+    />
   </main>
 </template>
